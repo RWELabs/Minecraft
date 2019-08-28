@@ -1,0 +1,8 @@
+Vanilla Tweaks Crafting Tweaks
+Version: 1.14
+Packs:
+	12 trapdoors v1.0.0
+	more stairs crafting v1.2.1
+	universal dyeing v1.2.0
+	rotten flesh to leather v1.0.0
+	wool to string v1.0.0
