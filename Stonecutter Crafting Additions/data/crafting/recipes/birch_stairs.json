@@ -4,5 +4,6 @@
         "item": "minecraft:birch_planks"
     },
     "result": "minecraft:birch_stairs",
+    "group": "Wood",
     "count": 1
 }

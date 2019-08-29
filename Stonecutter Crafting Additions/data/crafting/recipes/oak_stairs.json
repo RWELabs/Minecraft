@@ -4,5 +4,6 @@
         "item": "minecraft:oak_planks"
     },
     "result": "minecraft:oak_stairs",
+    "group": "Wood",
     "count": 1
 }
