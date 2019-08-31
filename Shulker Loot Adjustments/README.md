@@ -9,4 +9,4 @@
 The datapack should automatically activate. You can verify this by typing "/datapack list" and ShulkerLoot.zip should appear.
 
 ## Releases
-[Download the latest release (v1.0.0)](https://github.com/RyanWalpoleEnterprises/Shulker-Loot-Adjustments-Datapack/raw/master/releases/ShulkerLoot.zip)
+[Download the latest release (v1.0.0)](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/releases)
