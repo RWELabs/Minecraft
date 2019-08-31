@@ -20,5 +20,5 @@ The datapack should automatically activate. You can verify this by typing "/data
 ```
 
 ## Releases
-[Download the latest release (v1.1.0)](https://github.com/RyanWalpoleEnterprises/Player-Head-Drops-Datapack/raw/master/releases/PlayerHeads.zip)
-[Download the latest release (v1.0.0)](https://github.com/RyanWalpoleEnterprises/Player-Head-Drops-Datapack/raw/master/releases/PlayerHeads1.0.zip)
+[Download the latest release (v1.1.0)](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/releases)
+[Download the latest release (v1.0.0)](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/releases)
