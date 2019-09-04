@@ -1,7 +1,0 @@
-Vanilla Tweaks Crafting Tweaks
-Version: 1.14
-Packs:
-	back to blocks v1.1.0
-	craftable gravel v1.0.0
-	more bricks crafting v1.0.0
-	uncraftable nether wart block v1.0.0
