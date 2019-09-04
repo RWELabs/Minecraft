@@ -3,7 +3,7 @@
     "ingredient": {
         "item": "minecraft:acacia_planks"
     },
-    "result": "minecraft:acacia_slab",
+    "result": "minecraft:acacia_button",
     "group": "Wood",
-    "count": 1
+    "count": 4
 }

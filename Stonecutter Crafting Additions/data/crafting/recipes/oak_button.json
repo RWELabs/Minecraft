@@ -3,7 +3,7 @@
     "ingredient": {
         "item": "minecraft:oak_planks"
     },
-    "result": "minecraft:oak_slab",
+    "result": "minecraft:oak_button",
     "group": "Wood",
-    "count": 1
+    "count": 4
 }
