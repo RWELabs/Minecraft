@@ -1,13 +1,13 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " # ",
-        "#S#",
-        " # "
+        " / ",
+        "/S/",
+        " / "
     ],
     "key": {
-        "#": {
-            "item": "minecraft:dark_oak_wood"
+        "/": {
+            "item": "minecraft:stick"
         },
         "S": {
             "item": "minecraft:stripped_dark_oak_log"
@@ -15,7 +15,6 @@
     },
     "result": {
         "item": "minecraft:dark_oak_log",
-        "count": 5
-    },
-    "group": "Wood"
+        "count": 1
+    }
 }
