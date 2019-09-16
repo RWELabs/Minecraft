@@ -4,5 +4,5 @@
 ### Crafting Recipe
 ![Crafting Recipe](http://crutionix.com/wp-content/uploads/2019/09/LogsCraftingStripped.png)
 
-Logs can be crafted using Stripped Logs and Sticks
-
+- Logs can be crafted using Stripped Logs and Sticks.
+- Uses the crafting table.
