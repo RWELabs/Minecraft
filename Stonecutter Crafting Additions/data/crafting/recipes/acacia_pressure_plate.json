@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-        "item": "minecraft:acacia_planks"
-    },
-    "result": "minecraft:acacia_pressure_plate",
-    "group": "Wood",
-    "count": 2
-}

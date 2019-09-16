@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-        "item": "minecraft:acacia_planks"
-    },
-    "result": "minecraft:acacia_trapdoor",
-    "group": "Wood",
-    "count": 2
-}
