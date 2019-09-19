@@ -1,0 +1,1 @@
+give @p minecraft:player_head{display:{Name:"{\"text\":\"§§Halloween Token\"}"},SkullOwner:{Id:"83deb23f-14a5-4e8e-9885-922e8ea0ed1b",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTMzZTkyYjA2NTcxOTZjYmExODZjZTc0ZjIwMzhiOTNiZThlNDI1MWFlMmNhYTNlYmY1MWNkZWYwM2E3NDM4NCJ9fX0="}]}}} 1
