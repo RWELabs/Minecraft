@@ -20,3 +20,4 @@ The template (template.mfunction) is not designed to be used as a tutorial. This
 ## Credits
 - Crutionix [http://www.github.com/Crutionix](http://www.github.com/crutionix) for Writing the Custom Code Templates and Code Compilation
 - H4v0c21 [http://www.github.com/h4v0c21](http://www.github.com/h4v0c21) for Custom Head Textures and Code Compilation
+- Minecraft Heads [http://www.minecraft-heads.com](http://www.minecraft-heads.com) for Custom Head Textures
