@@ -7,6 +7,10 @@ Marketplace Villagers are those that trade decorative miniature blocks for playe
 ### Event Villagers
 Event villagers are special custom villagers for events that are to be or have been held on TBP Minecraft Server. For example, during the Halloween Event there was an Event Trader (event_trader_halloween.mcfunction) that offered halloween themed trades.
 
+Each event villager has their own token used as currency. This is in a separate file named identically with _token at the end. For example
+- event_trader_halloween.mcfunction = Event Trader Villager Spawn Command
+- event_trader_halloween_token.mcfunction = Currency Spawn Command
+
 ### Demo Villagers
 These files are for debugging and spawn villagers that have modified or unfinished code and shouldn't be used.
 
