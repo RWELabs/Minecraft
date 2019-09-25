@@ -10,7 +10,7 @@
             "italic": false
         },
         "description": {
-            "text": "Crafting adjustments, wood accepted in stonecutter with yield benefits.",
+            "text": "Crafting adjustments, reverse crafting and wood accepted in stonecutter with yield benefits.",
             "color": "green",
             "bold": false,
             "italic": true
