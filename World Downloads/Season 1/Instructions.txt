@@ -2,3 +2,9 @@ Download the ZIP file listed below.
 Once downloaded, you will need to extract the contents of this ZIP into your local Minecraft saves folder.
 This can be found by opening the START MENU and typing %appdata%\.minecraft\saves and hitting ENTER.
 Place the extracted "world" folder into this directory.
+
+If you need help, feel free to type:
+
++ticket Help with downloading Season 1 
+
+in the Discord
