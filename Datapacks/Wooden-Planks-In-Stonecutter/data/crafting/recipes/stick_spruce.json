@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:spruce_planks"
+    },
+    "result": "minecraft:stick",
+    "group": "Wood",
+    "count": 4
+}
