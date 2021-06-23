@@ -1,0 +1,19 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:gilded_blackstone"
+		},
+		"title": "Craft Gilded Blackstone",
+		"description": ["",
+			{"text":"Gilded Blackstone can be crafted with Gold Nuggets and Blackstone.\n","color":"gold"}
+		],
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+    "parent": "tbp:root",
+	"criteria": {
+		"tick": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}

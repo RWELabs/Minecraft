@@ -1,0 +1,19 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:netherrack"
+		},
+		"title": "Netherrack from Piglin Barters",
+		"description": ["",
+			{"text":"Netherrack can be obtained from piglin bartering.\n","color":"red"}
+		],
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+    "parent": "tbp:root",
+	"criteria": {
+		"tick": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}

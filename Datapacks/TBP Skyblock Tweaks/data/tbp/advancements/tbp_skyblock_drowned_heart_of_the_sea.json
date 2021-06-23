@@ -1,0 +1,19 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:heart_of_the_sea"
+		},
+		"title": "Heart of the Sea from Drowned",
+		"description": ["",
+			{"text":"Drowned have a chance of dropping a Heart of the Sea.\n","color":"dark_aqua"}
+		],
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+    "parent": "tbp:root",
+	"criteria": {
+		"tick": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}

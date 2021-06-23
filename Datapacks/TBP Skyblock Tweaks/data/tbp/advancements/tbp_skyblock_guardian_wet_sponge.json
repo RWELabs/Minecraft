@@ -1,0 +1,19 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:wet_sponge"
+		},
+		"title": "Wet Sponge from Guardians",
+		"description": ["",
+			{"text":"Guardians have a chance of dropping a Wet Sponge.\n","color":"yellow"}
+		],
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+    "parent": "tbp:root",
+	"criteria": {
+		"tick": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}

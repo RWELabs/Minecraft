@@ -1,0 +1,19 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:shulker_box"
+		},
+		"title": "Double Shulker Shells",
+		"description": ["",
+			{"text":"Shulkers drop 2 Shells.\n","color":"light_purple"}
+		],
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+    "parent": "tbp:root",
+	"criteria": {
+		"tick": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}

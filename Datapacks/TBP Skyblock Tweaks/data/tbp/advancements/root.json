@@ -1,0 +1,18 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:baked_potato"
+		},
+		"title": "The Baked Potatarium Skyblock",
+		"frame": "challenge",
+		"description": ["",{"text":"The Baked Potatarium Skyblock Tweaks\n","color":"gold"}],
+		"background": "minecraft:textures/block/calcite.png",
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+	"criteria": {
+		"tick": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}
