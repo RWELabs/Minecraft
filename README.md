@@ -1,6 +1,7 @@
 # Welcome to Minecraft by RWE Labs
  This repository includes passion projects, such as:
  -  [https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Datapacks](Datapacks) made for Minecraft (versions 1.14, 1.15, 1.16)
+ -  [DataPacks](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Datapacks) made for Minecraft (versions 1.14, 1.15, 1.16)
     - Shulker Loot Adjustments
     - Wooden Planks in Stonecutter
     - Silence Mobs
