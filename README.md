@@ -1,5 +1,15 @@
-# QOL Improvements for TBP
- Quality of Life Improvements for the Baked Potatarium minecraft server that mostly covers changes to crafting recipes and textures that may be custom to The Baked Potatarium server. Currently the QOL Improvements are a mixture of datpacks written from scratch and those taken from Vanilla Tweaks and other sources.
+# Welcome to Minecraft by RWE Labs
+ This repository includes passion projects, such as:
+ -  [https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Datapacks](Datapacks) made for Minecraft (versions 1.14, 1.15, 1.16)
+    - Shulker Loot Adjustments
+    - Wooden Planks in Stonecutter
+    - Silence Mobs
+    - Player Head Drops
+    - Full Blocks from Slabs and Stairs
+    - Stripped to Regular Logs
+- [https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Datapacks/Quality%20of%20Life%20Updates](Quality of Life Improvements) used on The Baked Potatarium Minecraft server.
+- [https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Custom%20Villagers](Custom Villagers) used on The Baked Potatarium Minecraft server.
+- [https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Custom%20Resource%20Packs](Custom Resource Packs) made for and used on The Baked Potatarium Minecraft server.
 
 ### Special Thanks To...
  - Vanilla Tweaks [http://www.vanillatweaks.net](http://www.vanillatweaks.net) for QOL Datpacks (Various).
