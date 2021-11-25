@@ -4,7 +4,7 @@
  
 ### Download
 You can download the latest version of TBP World Saver at any point using the following download link:
-(Latest): [Download (EXE)](https://www.ryanwalpole.com/h/tbpsaver/latest.exe)
+- [Download (EXE)](https://www.ryanwalpole.com/h/tbpsaver/latest.exe)
  
 ### Terms and Conditions
 Please make sure you have read these terms and conditions. These are incredibly important to ensure that the integrity of the world saves are protected.
