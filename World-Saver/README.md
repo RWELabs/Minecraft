@@ -2,6 +2,10 @@
  TBP World Saver can be used to download and install the TBP world files for use offline or in single player. We always planned to have world downloads available for players from the beginning. Unfortunately there are logistic issues with this. As both Season 1 and 2 of TBP have lasted a year or longer, the world save files are often very large and difficult to host in a cost effective and clean way.
  It has taken us from April 2020 to find an appropriate way of hosting and distributing the world saves. In this time, we've done two entire seasons of TBP including a third SkyBlock season. All of these world downloads are available through the TBP World Saver application.
  
+### Download
+You can download the latest version of TBP World Saver at any point using the following download link:
+Download [https://www.ryanwalpole.com/h/tbpsaver/](https://www.ryanwalpole.com/h/tbpsaver/latest.exe)
+ 
 ### Terms and Conditions
 Please make sure you have read these terms and conditions. These are incredibly important to ensure that the integrity of the world saves are protected.
 - World saves downloaded in this utility are owned by Crutionix Media Group, a division of Crubo Entertainment LLC and Ryan Walpole Enterprises.
