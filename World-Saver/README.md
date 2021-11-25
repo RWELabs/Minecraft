@@ -9,7 +9,7 @@ Please make sure you have read these terms and conditions. These are incredibly 
 - World saves downloaded in this utility are not to be uploaded to a third party website.
 - If you did not play on a season but choose to download the world still, you are free to play in the world and edit it - but you cannot take sole credit for any build or project unless you built it entirely yourself.
 - World saves downloaded in this utility are not to be hosted as a multiplayer server.
-If you are unsure about whether or not you are allowed to do something with a world file, please consult Crutionix on Discord via The Potato Farm for clarification.
+- If you are unsure about whether or not you are allowed to do something with a world file, please consult Crutionix on Discord via The Potato Farm for clarification.
 
 ### Credits
 #### Lead Developer
