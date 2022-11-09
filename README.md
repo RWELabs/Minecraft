@@ -12,7 +12,8 @@ Select an option from the following list. Here you can find links to the most co
  - [Custom Villagers](https://github.com/RWELabs/Minecraft/tree/master/Modifications/Villagers)
 
 ## Credits 
- - Vanilla Tweaks [http://www.vanillatweaks.net](http://www.vanillatweaks.net) for QOL Datpacks (Various).
- - H4v0c21 [http://www.github.com/h4v0c21](http://www.github.com/h4v0c21) for Custom Datapacks, Custom Textures and more.
- - Crutionix [http://www.github.com/Crutionix](http://www.github.com/crutionix) for other Custom Datapacks.
- - Minecraft Heads [http://www.minecraft-heads.com](http://www.minecraft-heads.com) for custom halloween head textures.
+ - [Vanilla Tweaks](https://www.vanillatweaks.net) for providing templates, examples and also QOL datapacks.
+ - [H4v0c21](https://www.github.com/h4v0c21) for Custom Datapacks, Custom Textures and more.
+ - [Crutionix](https://www.github.com/crutionix) for other Custom Datapacks.
+ - [Ryan Walpole](https://www.github.com/RyanWalpole) for custom software projects (World Saver, TBP Launcher).
+ - [Minecraft Heads](http://www.minecraft-heads.com) for custom halloween head textures.
