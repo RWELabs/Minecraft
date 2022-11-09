@@ -1,17 +1,14 @@
-# Welcome to Minecraft by RWE Labs
- This repository includes passion projects, such as:
- -  [DataPacks](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Datapacks) made for Minecraft (versions 1.14, 1.15, 1.16)
-    - Shulker Loot Adjustments
-    - Wooden Planks in Stonecutter
-    - Silence Mobs
-    - Player Head Drops
-    - Full Blocks from Slabs and Stairs
-    - Stripped to Regular Logs
-- [Quality of Life Changes](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Datapacks/Quality%20of%20Life%20Updates) used on The Baked Potatarium Minecraft server.
-- [Custom Villagers](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Custom%20Villagers) used on The Baked Potatarium Minecraft server.
-- [Custom Resource Packs](https://github.com/RyanWalpoleEnterprises/QOL-Improvements-for-TBP/tree/master/Custom%20Resource%20Packs) made for and used on The Baked Potatarium Minecraft server.
+<a href="https://github.com/RWELabs/Minecraft/">![TBPTechnicalImage](https://user-images.githubusercontent.com/69621127/200734923-c9b72659-6cd2-4abe-be6c-29837767ec0e.jpg)</a>
 
-### Special Thanks To...
+## What is this repository?
+This repository was opened in 2019 to act as a home for modifications and additions that were being implemented in The Baked Potatarium Minecraft server. The repository housed datapacks and resource packs that were being created or modified specifically for use on the server, which is split up into "seasons".
+
+In 2021, this also became the default repository for source code and files pertaining to software products that were being built specifically around TBP - including the TBP World Saver application and the TBP Launcher in 2022.
+
+## Directory
+Coming soon
+
+## Credits 
  - Vanilla Tweaks [http://www.vanillatweaks.net](http://www.vanillatweaks.net) for QOL Datpacks (Various).
  - H4v0c21 [http://www.github.com/h4v0c21](http://www.github.com/h4v0c21) for Custom Datapacks, Custom Textures and more.
  - Crutionix [http://www.github.com/Crutionix](http://www.github.com/crutionix) for other Custom Datapacks.
