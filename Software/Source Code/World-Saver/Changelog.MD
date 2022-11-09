@@ -2,6 +2,12 @@
 ### Changelog
 This changelog contains information regarding updates to the application as they are released. If you are unsure about what new features exist with a new update, this is where you can find that information.
 
+
+#### v1.1 (09/12/2021)
+Version 1.1 contains the following additions, changes and bug fixes:
+- [Feature] Download the TBP Skyblock Season 1 world.
+- [Fix] The check for update and update functions have been fixed.
+
 #### v1.0 (26/11/2021)
 Version 1.0 contains the following additions, changes and bug fixes:
 - [Feature] Download Season 1 and Season 2 world saves.
