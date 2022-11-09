@@ -6,7 +6,10 @@ This repository was opened in 2019 to act as a home for modifications and additi
 In 2021, this also became the default repository for source code and files pertaining to software products that were being built specifically around TBP - including the TBP World Saver application and the TBP Launcher in 2022.
 
 ## Directory
-Coming soon
+Select an option from the following list. Here you can find links to the most common modifications.
+ - [Custom Datapacks](https://github.com/RWELabs/Minecraft/tree/master/Modifications/Datapacks)
+ - [Custom Resource Packs](https://github.com/RWELabs/Minecraft/tree/master/Modifications/Resource%20Packs)
+ - [Custom Villagers](https://github.com/RWELabs/Minecraft/tree/master/Modifications/Villagers)
 
 ## Credits 
  - Vanilla Tweaks [http://www.vanillatweaks.net](http://www.vanillatweaks.net) for QOL Datpacks (Various).
