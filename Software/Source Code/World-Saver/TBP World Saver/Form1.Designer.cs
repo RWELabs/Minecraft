@@ -88,10 +88,10 @@ namespace TBP_World_Saver
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TBP_World_Saver.Properties.Resources._7f95fe1b9a85e0fbc83648af3bf223eda07dad49ba7f9ef352961e43e57686c9a605f034aea35fa2da39a3ee5e6b4b0d3255bfef95601890afd80709f5a8277ae52df64c84269f538b5004f2;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(391, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(391, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -114,7 +114,8 @@ namespace TBP_World_Saver
             this.comboBox1.Items.AddRange(new object[] {
             "TBP Season 1 (2019-2020)",
             "TBP Season 2 (2020-2021)",
-            "TBP Skyblock Season 1 (2021)"});
+            "TBP Skyblock Season 1 (2021)",
+            "TBP Season 3 (2021-2022)"});
             this.comboBox1.Location = new System.Drawing.Point(14, 47);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(260, 21);

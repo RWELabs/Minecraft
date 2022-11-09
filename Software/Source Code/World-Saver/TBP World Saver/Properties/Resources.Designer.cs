@@ -19,7 +19,7 @@ namespace TBP_World_Saver.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,10 +63,9 @@ namespace TBP_World_Saver.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _7f95fe1b9a85e0fbc83648af3bf223eda07dad49ba7f9ef352961e43e57686c9a605f034aea35fa2da39a3ee5e6b4b0d3255bfef95601890afd80709f5a8277ae52df64c84269f538b5004f2 {
+        internal static System.Drawing.Bitmap WorldSaverLogo {
             get {
-                object obj = ResourceManager.GetObject("7f95fe1b9a85e0fbc83648af3bf223eda07dad49ba7f9ef352961e43e57686c9a605f034aea35fa2d" +
-                        "a39a3ee5e6b4b0d3255bfef95601890afd80709f5a8277ae52df64c84269f538b5004f2", resourceCulture);
+                object obj = ResourceManager.GetObject("WorldSaverLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -134,6 +134,12 @@ namespace TBP_World_Saver
                 Properties.Settings.Default.DownloadLocation = "https://onedrive.live.com/download?cid=2843D66BB53B6198&resid=2843D66BB53B6198%211344387&authkey=AEZmTPatEkutLOo";
                 Properties.Settings.Default.Save();
             }
+            else if (comboBox1.SelectedItem.ToString() == "TBP Season 3 (2021-2022)")
+            {
+                Properties.Settings.Default.WorldZipName = "TBPS3";
+                Properties.Settings.Default.DownloadLocation = ""; //URL for S3 Download
+                Properties.Settings.Default.Save();
+            }
 
             DialogResult dr = MessageBox.Show("TBP Worlds are often upwards of several gigabytes in size. Once you have started downloading a world, you can only abort the download by closing the application. If the file is 50% downloaded when you abort, you will need to manually remove this file from the download location to clear space. Please ensure that you have the correct disk space to download such a large world save. Are you sure you want to continue?","Are you sure you want to continue?",MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if(dr == DialogResult.Yes)

@@ -54,7 +54,9 @@
     <StartupObject>TBP_World_Saver.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -109,10 +111,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\7f95fe1b9a85e0fbc83648af3bf223eda07dad49ba7f9ef352961e43e57686c9a605f034aea35fa2da39a3ee5e6b4b0d3255bfef95601890afd80709f5a8277ae52df64c84269f538b5004f2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Potato.ico" />
+    <None Include="Resources\WorldSaverLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -126,5 +126,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
