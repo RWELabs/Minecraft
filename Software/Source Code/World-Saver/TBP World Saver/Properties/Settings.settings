@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.1</Value>
+      <Value Profile="(Default)">1.2</Value>
     </Setting>
     <Setting Name="SaveLocation" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
