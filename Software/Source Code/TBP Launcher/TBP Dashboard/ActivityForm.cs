@@ -57,6 +57,7 @@ namespace TBP_Dashboard
 
         private void GameNotInstalled_Tick(object sender, EventArgs e)
         {
+            MessageBox.Show("We tried looking for the Minecraft Launcher, but we weren't able to find it. You can specify the location manually through the TBP Launcher settings.");
             GameNotInstalled.Stop();
             this.Close();
         }
