@@ -1,0 +1,45 @@
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\TBP Dashboard.exe.config
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\TBP Dashboard.exe
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\TBP Dashboard.pdb
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Discord.Net.Core.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Buffers.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Collections.Immutable.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Interactive.Async.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Linq.Async.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Memory.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.ValueTuple.dll
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Discord.Net.Core.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Buffers.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Collections.Immutable.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Interactive.Async.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Linq.Async.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Memory.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\bin\Debug\System.ValueTuple.xml
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.csproj.AssemblyReference.cache
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.csproj.SuggestedBindingRedirects.cache
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP_Dashboard.Form1.resources
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP_Dashboard.Properties.Resources.resources
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.csproj.GenerateResource.cache
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.csproj.CopyComplete
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.exe
+C:\Users\rwalpole\source\repos\TBP Dashboard\obj\Debug\TBP Dashboard.pdb
