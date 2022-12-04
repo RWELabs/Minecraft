@@ -19,3 +19,6 @@ C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\World-Saver\TBP World Saver\obj\Release\TBP World Saver.csproj.CoreCompileInputs.cache
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\World-Saver\TBP World Saver\obj\Release\TBP World Saver.exe
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\World-Saver\TBP World Saver\obj\Release\TBP World Saver.pdb
+C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\TBP World Saver.exe.config
+C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\TBP World Saver.exe
+C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\TBP World Saver.pdb
