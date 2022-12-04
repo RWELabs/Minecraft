@@ -21,63 +21,12 @@ namespace TBP_World_Saver
         {
             InitializeComponent();
             //MessageBox.Show("Something happened","Something happened",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            label1.Text = "Version: " + Properties.Settings.Default.Version;
 
             string savelocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft\saves\";
             Properties.Settings.Default.SaveLocation = savelocation;
             Properties.Settings.Default.Save();
 
             //MessageBox.Show(Properties.Settings.Default.SaveLocation);
-        }
-
-        private void UpdateButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            XmlDocument document = new XmlDocument();
-            document.Load("https://www.ryanwalpole.com/h/tbpsaver/updatecheck.xml");
-            string allText = document.InnerText;
-            if (allText.Contains(Properties.Settings.Default.Version))
-            {
-                UpdateButton.Text = "Updates Available!";
-                DialogResult dr = MessageBox.Show("There is an update available for TBP World Saver. Would you like to update now?", "TBP World Saver", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
-                {
-                    using (WebClient wc = new WebClient())
-                    {
-                        string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-                        string updatelocation = Path.Combine(dataPath, "tbpsaverlatest.exe");
-                        progressBar1.Visible = true;
-                        UpdateButton.Text = "Downloading Updates..";
-
-                        wc.DownloadProgressChanged += wc_DownloadProgressChanged;
-                        wc.DownloadFileAsync(
-                            // Param1 = Link of file
-                            new System.Uri("https://www.ryanwalpole.com/h/tbpsaver/latest.exe"),
-                            // Param2 = Path to save
-                            updatelocation
-                        );
-                        this.BringToFront();
-                    }
-                }
-            }
-            else if (!allText.Contains(Properties.Settings.Default.Version))
-            {
-                UpdateButton.Text = "Up to date!";
-            }
-        }
-
-        void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            progressBar1.Value = e.ProgressPercentage;
-            long FileSize = e.TotalBytesToReceive / 1024;
-            //DLPercentText.Text = e.ProgressPercentage.ToString() + "% of " + FileSize.ToString() + " kb";
-            //DLPercentText.Text = e.ProgressPercentage.ToString() + "% of " + e.TotalBytesToReceive.ToString() + " bytes";
-
-            if (progressBar1.Value > 99)
-            {
-                this.BringToFront();
-                progressBar1.Value = 100;
-                timer1.Start();
-            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -137,7 +86,7 @@ namespace TBP_World_Saver
             else if (comboBox1.SelectedItem.ToString() == "TBP Season 3 (2021-2022)")
             {
                 Properties.Settings.Default.WorldZipName = "TBPS3";
-                Properties.Settings.Default.DownloadLocation = ""; //URL for S3 Download
+                Properties.Settings.Default.DownloadLocation = "https://onedrive.live.com/download?cid=2843D66BB53B6198&resid=2843D66BB53B6198%211352803&authkey=AG0PvlCK1MqKXpI"; //URL for S3 Download
                 Properties.Settings.Default.Save();
             }
 
@@ -220,7 +169,7 @@ namespace TBP_World_Saver
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/RyanWalpoleEnterprises/Minecraft/blob/master/World-Saver/README.md");
+            Process.Start("https://github.com/RWELabs/Minecraft/tree/master/Software/Source%20Code/World-Saver#welcome-to-tbp-world-saver");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
