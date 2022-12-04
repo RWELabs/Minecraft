@@ -31,10 +31,7 @@ namespace TBP_World_Saver
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.UpdateButton = new System.Windows.Forms.LinkLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -50,45 +47,14 @@ namespace TBP_World_Saver
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // UpdateButton
-            // 
-            this.UpdateButton.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.UpdateButton.AutoSize = true;
-            this.UpdateButton.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.UpdateButton.Location = new System.Drawing.Point(81, 350);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(96, 13);
-            this.UpdateButton.TabIndex = 0;
-            this.UpdateButton.TabStop = true;
-            this.UpdateButton.Text = "Check for Updates";
-            this.UpdateButton.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.UpdateButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UpdateButton_LinkClicked);
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(269, 349);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(134, 16);
-            this.progressBar1.TabIndex = 1;
-            this.progressBar1.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 350);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Version 1.0";
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::TBP_World_Saver.Properties.Resources.WorldSaverLogo;
             this.pictureBox1.Location = new System.Drawing.Point(12, 24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(391, 78);
@@ -206,18 +172,14 @@ namespace TBP_World_Saver
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(415, 380);
+            this.ClientSize = new System.Drawing.Size(415, 345);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(431, 419);
-            this.MinimumSize = new System.Drawing.Size(431, 419);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TBP World Saver";
@@ -232,11 +194,7 @@ namespace TBP_World_Saver
         }
 
         #endregion
-
-        private System.Windows.Forms.LinkLabel UpdateButton;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
