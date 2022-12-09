@@ -2,6 +2,11 @@
 ### Changelog
 This changelog contains information regarding updates to the application as they are released. If you are unsure about what new features exist with a new update, this is where you can find that information.
 
+#### v1.2 (09/12/2022)
+Version 1.2 (silent version) contains the following additions, changes and bug fixes:
+- [Feature] Download the TBP Season 3 World
+- [Change] This version is now a part of the TBP Launcher.
+- [Removal] Removed the indepdendent update check.
 
 #### v1.1 (09/12/2021)
 Version 1.1 contains the following additions, changes and bug fixes:
