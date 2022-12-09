@@ -17,6 +17,11 @@ Select an option from the following list. Here you can find links to the most co
     - [Download](https://rwe.app/tbp/launcher)
     - [Changelog](https://github.com/RWELabs/Minecraft/blob/master/Software/Source%20Code/TBP%20Launcher/Changelog.MD)
 
+## TBP Launcher
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://dotnet.microsoft.com/en-us/languages/csharp) [![forthebadge windows11](https://raw.githubusercontent.com/RWELabs/DKCUI/main/Resources/badgew11.svg)](https://windows.com)
+
+TBP Launcher is a powerful tool for players on The Baked Potatarium Minecraft server that allows for the distribution of modpacks, resource packs, additional content and previous world saves to those that are a part of the TBP community. It was released on Decemnber 9th, 2022 to compliment the release of TBP: Origins, the modpack.
+
 ## Credits 
  - [Vanilla Tweaks](https://www.vanillatweaks.net) for providing templates, examples and also QOL datapacks.
  - [H4v0c21](https://www.github.com/h4v0c21) for Custom Datapacks, Custom Textures and more.
