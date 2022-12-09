@@ -15,7 +15,7 @@
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">221101</Value>
+      <Value Profile="(Default)">221203</Value>
     </Setting>
     <Setting Name="DownloadItem" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -27,6 +27,12 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DownloadName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TmpString" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CVER" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

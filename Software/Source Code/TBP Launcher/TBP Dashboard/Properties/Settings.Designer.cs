@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("221101")]
+        [global::System.Configuration.DefaultSettingValueAttribute("221203")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -129,6 +129,30 @@ namespace TBP_Dashboard.Properties {
             }
             set {
                 this["DownloadName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TmpString {
+            get {
+                return ((string)(this["TmpString"]));
+            }
+            set {
+                this["TmpString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CVER {
+            get {
+                return ((string)(this["CVER"]));
+            }
+            set {
+                this["CVER"] = value;
             }
         }
     }
