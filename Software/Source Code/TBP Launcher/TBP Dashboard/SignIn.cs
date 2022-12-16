@@ -20,6 +20,7 @@ using WebView2 = Microsoft.Web.WebView2.WinForms.WebView2;
 using TBP_Dashboard.Get;
 using System.Web;
 using System.Runtime.ConstrainedExecution;
+using System.Net;
 
 namespace TBP_Dashboard
 {
@@ -81,6 +82,8 @@ namespace TBP_Dashboard
             else
             {
                 WebView.Source = new Uri("https://crutionix.com/oauth/");
+                StatusStrip.Text = "Starting Launcher...";
+                UpdateHeader.Text = "Starting TBP Launcher...";
             }
         }
 
@@ -165,26 +168,30 @@ namespace TBP_Dashboard
 
         private void CheckUpdates_DoWork(object sender, DoWorkEventArgs e)
         {
+            SkipUpdateCheck.Start();
+
             this.Invoke(new MethodInvoker(delegate
             {
                 this.Text = "Checking for updates... | TBP Launcher";
             }));
             StatusLabel.Text = "Checking for updates...";
-            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.xml";
+            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.txt";
 
             //View current stable version number
-            XmlDocument document = new XmlDocument();
-            document.Load(CurrentUpdateVersion);
-            string CVER = document.InnerText;
+            WebClient client = new WebClient();
+            Stream stream = client.OpenRead(CurrentUpdateVersion);
+            StreamReader reader = new StreamReader(stream);
+            String CVER = reader.ReadToEnd();
+
             Properties.Settings.Default.CVER = CVER;
             Properties.Settings.Default.Save();
-            
         }
 
         private void CheckUpdates_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled == true)
             {
+                SkipUpdateCheck.Stop();
                 StatusLabel.Text = "Starting Program...";
                 UpdateHeader.Text = "Starting TBP Launcher...";
                 WebView.Source = new Uri("https://crutionix.com/oauth/");
@@ -192,6 +199,7 @@ namespace TBP_Dashboard
             }
             else if (e.Error != null)
             {
+                SkipUpdateCheck.Stop();
                 //resultLabel.Text = "Error: " + e.Error.Message;
                 StatusLabel.Text = "Starting Program...";
                 UpdateHeader.Text = "Starting TBP Launcher...";
@@ -204,6 +212,7 @@ namespace TBP_Dashboard
                 //Compare current stable version against installed version
                 if (Properties.Settings.Default.CVER.Contains(Properties.Settings.Default.Version))
                 {
+                    SkipUpdateCheck.Stop();
                     StatusLabel.Text = "No updates found.";
                     UpdateHeader.Text = "Starting TBP Launcher...";
                     this.Text = "TBP Launcher";
@@ -211,6 +220,7 @@ namespace TBP_Dashboard
                 }
                 else
                 {
+                    SkipUpdateCheck.Stop();
                     StatusLabel.Text = "Updates available.";
                     UpdateHeader.Text = "Updates available.";
                     this.Text = "Updates Available | TBP Launcher";
@@ -561,6 +571,29 @@ namespace TBP_Dashboard
         private void SignIn_Load(object sender, EventArgs e)
         {
             PreInitializeBrowser();
+        }
+
+        private void SkipUpdateCheck_Tick(object sender, EventArgs e)
+        {
+            SkipUpdateCheck.Stop();
+            CheckUpdates.CancelAsync();
+            StatusLabel.Text = "Couldn't reach update server.";
+            UpdateHeader.Text = "Starting TBP Launcher...";
+            WebView.Source = new Uri("https://crutionix.com/oauth/");
+            this.Text = "TBP Launcher";
+        }
+
+        private void OpenMinecraftDir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                Process.Start(dataPath + @"\.minecraft");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("We couldn't open your Minecraft directory. Have you installed Minecraft on this system? Have you got a custom Minecraft Directory location?" + ex.Message);
+            }
         }
     }
 }

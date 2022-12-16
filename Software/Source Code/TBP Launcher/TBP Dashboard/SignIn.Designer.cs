@@ -52,10 +52,11 @@
             this.Maximise = new System.Windows.Forms.ToolStripMenuItem();
             this.Minimise = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.Back = new System.Windows.Forms.ToolStripMenuItem();
-            this.Forward = new System.Windows.Forms.ToolStripMenuItem();
             this.Refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.MCATimer = new System.Windows.Forms.Timer(this.components);
+            this.SkipUpdateCheck = new System.Windows.Forms.Timer(this.components);
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.OpenMinecraftDir = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -287,32 +288,18 @@
             // ToolsMenu
             // 
             this.ToolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Back,
-            this.Forward,
-            this.Refresh});
+            this.Refresh,
+            this.toolStripSeparator2,
+            this.OpenMinecraftDir});
             this.ToolsMenu.Name = "ToolsMenu";
             this.ToolsMenu.Size = new System.Drawing.Size(46, 20);
             this.ToolsMenu.Text = "Tools";
-            // 
-            // Back
-            // 
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(132, 22);
-            this.Back.Text = "Back";
-            this.Back.Click += new System.EventHandler(this.Back_Click);
-            // 
-            // Forward
-            // 
-            this.Forward.Name = "Forward";
-            this.Forward.Size = new System.Drawing.Size(132, 22);
-            this.Forward.Text = "Forward";
-            this.Forward.Click += new System.EventHandler(this.Forward_Click);
             // 
             // Refresh
             // 
             this.Refresh.Name = "Refresh";
             this.Refresh.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.Refresh.Size = new System.Drawing.Size(132, 22);
+            this.Refresh.Size = new System.Drawing.Size(208, 22);
             this.Refresh.Text = "Refresh";
             this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
@@ -320,6 +307,23 @@
             // 
             this.MCATimer.Interval = 5000;
             this.MCATimer.Tick += new System.EventHandler(this.MCATimer_Tick);
+            // 
+            // SkipUpdateCheck
+            // 
+            this.SkipUpdateCheck.Interval = 7000;
+            this.SkipUpdateCheck.Tick += new System.EventHandler(this.SkipUpdateCheck_Tick);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
+            // 
+            // OpenMinecraftDir
+            // 
+            this.OpenMinecraftDir.Name = "OpenMinecraftDir";
+            this.OpenMinecraftDir.Size = new System.Drawing.Size(208, 22);
+            this.OpenMinecraftDir.Text = "Open Minecraft Directory";
+            this.OpenMinecraftDir.Click += new System.EventHandler(this.OpenMinecraftDir_Click);
             // 
             // SignIn
             // 
@@ -379,10 +383,11 @@
         private System.Windows.Forms.ToolStripMenuItem Maximise;
         private System.Windows.Forms.ToolStripMenuItem Minimise;
         private System.Windows.Forms.ToolStripMenuItem ToolsMenu;
-        private System.Windows.Forms.ToolStripMenuItem Back;
-        private System.Windows.Forms.ToolStripMenuItem Forward;
         private System.Windows.Forms.ToolStripMenuItem Refresh;
         private System.Windows.Forms.Timer MCATimer;
+        private System.Windows.Forms.Timer SkipUpdateCheck;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem OpenMinecraftDir;
     }
 }
 
