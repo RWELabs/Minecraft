@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("221203")]
+        [global::System.Configuration.DefaultSettingValueAttribute("221204")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
