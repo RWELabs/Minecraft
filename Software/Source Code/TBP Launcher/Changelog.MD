@@ -2,6 +2,12 @@
 ### Changelog
 This changelog contains information regarding updates to the application as they are released. If you are unsure about what new features exist with a new update, this is where you can find that information.
 
+#### v221204 (20/12/2022)
+Version 221204 contains the following additons, changes and bug fixes:
+- [Fix] Some hardware configurations had issues during the update check process. This should now be resolved.
+- [Feature] Added the ability to open the Minecraft directory from the Tools menu.
+- [Removal] Removed the defunct navigation menu items.
+
 #### v221203 (09/12/2022)
 Version 221202 contains the following additions, changes and bug fixes:
 - [Fix] Moved InitializeBrowser() from Construct to FormLoad to prevent hanging on launch.
