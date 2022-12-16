@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,19 +72,19 @@ namespace TBP_Dashboard
         private void CheckForUpdates_Click(object sender, EventArgs e)
         {
             CheckForUpdates.Text = "Checking for updates...";
-            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.xml";
+            string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.txt";
 
             //View current stable version number
-            XmlDocument document = new XmlDocument();
-            document.Load(CurrentUpdateVersion);
-            string CVER = document.InnerText;
-            Properties.Settings.Default.CVER = CVER;
-            Properties.Settings.Default.Save();
+            //View current stable version number
+            WebClient client = new WebClient();
+            Stream stream = client.OpenRead(CurrentUpdateVersion);
+            StreamReader reader = new StreamReader(stream);
+            String CVER = reader.ReadToEnd();
 
             if (!CVER.Contains(Properties.Settings.Default.Version))
             {
                 CheckForUpdates.Text = "Updates available.";
-                AvailableVersion.Text = "Updates available.";
+                AvailableVersion.Text = "Update available: v" + CVER;
                 AvailableVersion.Visible = true;
 
                 //Alert to available update
