@@ -179,10 +179,10 @@ namespace TBP_Dashboard
 
             //View current stable version number
             WebClient client = new WebClient();
+            client.Proxy = null;
             Stream stream = client.OpenRead(CurrentUpdateVersion);
             StreamReader reader = new StreamReader(stream);
             String CVER = reader.ReadToEnd();
-
             Properties.Settings.Default.CVER = CVER;
             Properties.Settings.Default.Save();
         }
