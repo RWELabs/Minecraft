@@ -53,10 +53,13 @@
             this.Minimise = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.TestFeatures = new System.Windows.Forms.ToolStripMenuItem();
+            this.testDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenModManager = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenMinecraftDir = new System.Windows.Forms.ToolStripMenuItem();
             this.MCATimer = new System.Windows.Forms.Timer(this.components);
             this.SkipUpdateCheck = new System.Windows.Forms.Timer(this.components);
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.OpenMinecraftDir = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -224,8 +227,7 @@
             this.MainIcon.Image = global::TBP_Dashboard.Properties.Resources.icons8_minecraft_grass_cube_100;
             this.MainIcon.Name = "MainIcon";
             this.MainIcon.Size = new System.Drawing.Size(28, 20);
-            this.MainIcon.MouseEnter += new System.EventHandler(this.MainIcon_MouseEnter);
-            this.MainIcon.MouseLeave += new System.EventHandler(this.MainIcon_MouseLeave);
+            this.MainIcon.Click += new System.EventHandler(this.MainIcon_DoubleClick);
             // 
             // FileMenu
             // 
@@ -290,6 +292,7 @@
             this.ToolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Refresh,
             this.toolStripSeparator2,
+            this.TestFeatures,
             this.OpenMinecraftDir});
             this.ToolsMenu.Name = "ToolsMenu";
             this.ToolsMenu.Size = new System.Drawing.Size(46, 20);
@@ -303,6 +306,42 @@
             this.Refresh.Text = "Refresh";
             this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
+            // 
+            // TestFeatures
+            // 
+            this.TestFeatures.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testDownloadToolStripMenuItem,
+            this.OpenModManager});
+            this.TestFeatures.Name = "TestFeatures";
+            this.TestFeatures.Size = new System.Drawing.Size(208, 22);
+            this.TestFeatures.Text = "Beta Features";
+            this.TestFeatures.Visible = false;
+            // 
+            // testDownloadToolStripMenuItem
+            // 
+            this.testDownloadToolStripMenuItem.Name = "testDownloadToolStripMenuItem";
+            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testDownloadToolStripMenuItem.Text = "TestDownload";
+            this.testDownloadToolStripMenuItem.Click += new System.EventHandler(this.testDownloadToolStripMenuItem_Click);
+            // 
+            // OpenModManager
+            // 
+            this.OpenModManager.Name = "OpenModManager";
+            this.OpenModManager.Size = new System.Drawing.Size(180, 22);
+            this.OpenModManager.Text = "ModManager";
+            this.OpenModManager.Click += new System.EventHandler(this.OpenModManager_Click);
+            // 
+            // OpenMinecraftDir
+            // 
+            this.OpenMinecraftDir.Name = "OpenMinecraftDir";
+            this.OpenMinecraftDir.Size = new System.Drawing.Size(208, 22);
+            this.OpenMinecraftDir.Text = "Open Minecraft Directory";
+            this.OpenMinecraftDir.Click += new System.EventHandler(this.OpenMinecraftDir_Click);
+            // 
             // MCATimer
             // 
             this.MCATimer.Interval = 5000;
@@ -312,18 +351,6 @@
             // 
             this.SkipUpdateCheck.Interval = 7000;
             this.SkipUpdateCheck.Tick += new System.EventHandler(this.SkipUpdateCheck_Tick);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
-            // 
-            // OpenMinecraftDir
-            // 
-            this.OpenMinecraftDir.Name = "OpenMinecraftDir";
-            this.OpenMinecraftDir.Size = new System.Drawing.Size(208, 22);
-            this.OpenMinecraftDir.Text = "Open Minecraft Directory";
-            this.OpenMinecraftDir.Click += new System.EventHandler(this.OpenMinecraftDir_Click);
             // 
             // SignIn
             // 
@@ -388,6 +415,9 @@
         private System.Windows.Forms.Timer SkipUpdateCheck;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem OpenMinecraftDir;
+        private System.Windows.Forms.ToolStripMenuItem TestFeatures;
+        private System.Windows.Forms.ToolStripMenuItem testDownloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenModManager;
     }
 }
 

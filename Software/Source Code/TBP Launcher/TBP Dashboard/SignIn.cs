@@ -21,6 +21,7 @@ using TBP_Dashboard.Get;
 using System.Web;
 using System.Runtime.ConstrainedExecution;
 using System.Net;
+using TBP_Dashboard.ModManager;
 
 namespace TBP_Dashboard
 {
@@ -594,6 +595,30 @@ namespace TBP_Dashboard
             {
                 MessageBox.Show("We couldn't open your Minecraft directory. Have you installed Minecraft on this system? Have you got a custom Minecraft Directory location?" + ex.Message);
             }
+        }
+
+        private void MainIcon_DoubleClick(object sender, EventArgs e)
+        {
+            //Show Debug Options
+            TestFeatures.Visible = true;
+        }
+
+        private void OpenModManager_Click(object sender, EventArgs e)
+        {
+            Manager modmanager = new Manager();
+            modmanager.Show();
+        }
+
+        private void OpenSettings_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("!");
+        }
+
+        private void testDownloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Test URL
+            //WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/newsfeed/#wingo?ref=mpdownload_https://onedrive.live.com/download?cid=2843D66BB53B6198&resid=2843D66BB53B6198%211352660&authkey=AKUCVE7MZx-pWe8&type=modpack&name=Origins&version=fabric-loader-1.19.2&fwd=originschangelog1-1");
+            MessageBox.Show("You can specify a target from the source code, before building.");
         }
     }
 }
