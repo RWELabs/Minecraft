@@ -219,3 +219,4 @@ C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.Preferences.resources
+C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ModManager.Manager.resources
