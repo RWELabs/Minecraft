@@ -161,6 +161,26 @@ namespace TBP_Dashboard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InstallMod {
+            get {
+                object obj = ResourceManager.GetObject("InstallMod", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InstallModpack {
+            get {
+                object obj = ResourceManager.GetObject("InstallModpack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon MCGC {
@@ -177,6 +197,26 @@ namespace TBP_Dashboard.Properties {
             get {
                 object obj = ResourceManager.GetObject("Minecraft", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ModManagement {
+            get {
+                object obj = ResourceManager.GetObject("ModManagement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PresetsIcon {
+            get {
+                object obj = ResourceManager.GetObject("PresetsIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
