@@ -60,6 +60,7 @@
             this.OpenMinecraftDir = new System.Windows.Forms.ToolStripMenuItem();
             this.MCATimer = new System.Windows.Forms.Timer(this.components);
             this.SkipUpdateCheck = new System.Windows.Forms.Timer(this.components);
+            this.OpenPrivacyPolicy = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -242,21 +243,21 @@
             // OpenSettings
             // 
             this.OpenSettings.Name = "OpenSettings";
-            this.OpenSettings.Size = new System.Drawing.Size(135, 22);
+            this.OpenSettings.Size = new System.Drawing.Size(180, 22);
             this.OpenSettings.Text = "Settings";
             this.OpenSettings.Click += new System.EventHandler(this.OpenSettings_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // Exit
             // 
             this.Exit.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
             this.Exit.Name = "Exit";
             this.Exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.Exit.Size = new System.Drawing.Size(135, 22);
+            this.Exit.Size = new System.Drawing.Size(180, 22);
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -264,7 +265,8 @@
             // 
             this.ViewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Maximise,
-            this.Minimise});
+            this.Minimise,
+            this.OpenPrivacyPolicy});
             this.ViewMenu.Name = "ViewMenu";
             this.ViewMenu.Size = new System.Drawing.Size(44, 20);
             this.ViewMenu.Text = "View";
@@ -324,14 +326,14 @@
             // testDownloadToolStripMenuItem
             // 
             this.testDownloadToolStripMenuItem.Name = "testDownloadToolStripMenuItem";
-            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.testDownloadToolStripMenuItem.Text = "TestDownload";
             this.testDownloadToolStripMenuItem.Click += new System.EventHandler(this.testDownloadToolStripMenuItem_Click);
             // 
             // OpenModManager
             // 
             this.OpenModManager.Name = "OpenModManager";
-            this.OpenModManager.Size = new System.Drawing.Size(180, 22);
+            this.OpenModManager.Size = new System.Drawing.Size(148, 22);
             this.OpenModManager.Text = "ModManager";
             this.OpenModManager.Click += new System.EventHandler(this.OpenModManager_Click);
             // 
@@ -352,6 +354,13 @@
             this.SkipUpdateCheck.Interval = 7000;
             this.SkipUpdateCheck.Tick += new System.EventHandler(this.SkipUpdateCheck_Tick);
             // 
+            // OpenPrivacyPolicy
+            // 
+            this.OpenPrivacyPolicy.Name = "OpenPrivacyPolicy";
+            this.OpenPrivacyPolicy.Size = new System.Drawing.Size(190, 22);
+            this.OpenPrivacyPolicy.Text = "Privacy Policy";
+            this.OpenPrivacyPolicy.Click += new System.EventHandler(this.OpenPrivacyPolicy_Click);
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,8 +368,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1048, 684);
             this.Controls.Add(this.WebView2);
-            this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.StatusStrip);
+            this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.WebView);
             this.Controls.Add(this.LoadingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -418,6 +427,7 @@
         private System.Windows.Forms.ToolStripMenuItem TestFeatures;
         private System.Windows.Forms.ToolStripMenuItem testDownloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenModManager;
+        private System.Windows.Forms.ToolStripMenuItem OpenPrivacyPolicy;
     }
 }
 

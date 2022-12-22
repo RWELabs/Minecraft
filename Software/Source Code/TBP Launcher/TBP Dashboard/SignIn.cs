@@ -620,5 +620,10 @@ namespace TBP_Dashboard
             //WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/newsfeed/#wingo?ref=mpdownload_https://onedrive.live.com/download?cid=2843D66BB53B6198&resid=2843D66BB53B6198%211352660&authkey=AKUCVE7MZx-pWe8&type=modpack&name=Origins&version=fabric-loader-1.19.2&fwd=originschangelog1-1");
             MessageBox.Show("You can specify a target from the source code, before building.");
         }
+
+        private void OpenPrivacyPolicy_Click(object sender, EventArgs e)
+        {
+            WebView2.Source = new Uri("https://crutionix.com/policies/");
+        }
     }
 }
