@@ -1,0 +1,15 @@
+{
+    "pack": {
+        "pack_format": 9,
+        "description": [
+            {
+                "text": "Level Cap for PlayerEx",
+                "color":"gold"
+            },
+            {
+                "text": "\nCleverNucleus/PlayerEx",
+                "color":"yellow"
+            }
+        ]
+    }
+}
