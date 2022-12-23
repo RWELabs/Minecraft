@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:raw_iron"
+        },
+        {
+            "item": "minecraft:raw_copper"
+        }
+    ],
+    "result": {
+        "item": "create:raw_zinc",
+        "count": 2
+    }
+}
