@@ -177,6 +177,12 @@
     <Compile Include="Get\DownloadContent.Designer.cs">
       <DependentUpon>DownloadContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModManager\Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModManager\Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Preferences.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="MCGC.ico" />
+    <None Include="Resources\ModManagement.png" />
+    <None Include="Resources\InstallModpack.png" />
+    <None Include="Resources\InstallMod.png" />
+    <None Include="Resources\PresetsIcon.png" />
     <None Include="Resources\Close.png" />
     <None Include="Resources\Check.png" />
     <None Include="Resources\icons8-tick-box-96.png" />
@@ -215,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Get\DownloadContent.resx">
       <DependentUpon>DownloadContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModManager\Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Preferences.resx">
       <DependentUpon>Preferences.cs</DependentUpon>
