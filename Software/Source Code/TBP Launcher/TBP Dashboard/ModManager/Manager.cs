@@ -181,8 +181,11 @@ namespace TBP_Dashboard.ModManager
 
             foreach(string Files in Directory.GetFiles(ModsFolder))
             {
-                PresetManagement.AppendText(Files + Environment.NewLine);
+                string Mod = Path.GetFileName(Files);
+                PresetManagement.AppendText(Mod + Environment.NewLine);
             }
+
+            PresetManagement.SaveFile(ModsFolder + "TBPOriginsS1.txt", RichTextBoxStreamType.PlainText);
         }
     }
 }
