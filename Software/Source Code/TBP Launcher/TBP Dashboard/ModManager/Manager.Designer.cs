@@ -38,6 +38,7 @@
             this.InstallMod = new System.Windows.Forms.Button();
             this.InstallModpack = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PresetManagement = new System.Windows.Forms.RichTextBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +111,7 @@
             this.SetPreset.Text = "Load Preset";
             this.SetPreset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SetPreset.UseVisualStyleBackColor = true;
+            this.SetPreset.Click += new System.EventHandler(this.SetPreset_Click);
             // 
             // InstallMod
             // 
@@ -148,6 +150,14 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
+            // PresetManagement
+            // 
+            this.PresetManagement.Location = new System.Drawing.Point(12, 118);
+            this.PresetManagement.Name = "PresetManagement";
+            this.PresetManagement.Size = new System.Drawing.Size(466, 334);
+            this.PresetManagement.TabIndex = 9;
+            this.PresetManagement.Text = "";
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +172,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.DeleteMod);
             this.Controls.Add(this.ModList);
+            this.Controls.Add(this.PresetManagement);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -187,5 +198,6 @@
         private System.Windows.Forms.Button InstallMod;
         private System.Windows.Forms.Button InstallModpack;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.RichTextBox PresetManagement;
     }
 }

@@ -174,5 +174,15 @@ namespace TBP_Dashboard.ModManager
         {
             //Do absolutely nothing!
         }
+
+        private void SetPreset_Click(object sender, EventArgs e)
+        {
+            string ModsFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft\mods\";
+
+            foreach(string Files in Directory.GetFiles(ModsFolder))
+            {
+                PresetManagement.AppendText(Files + Environment.NewLine);
+            }
+        }
     }
 }
