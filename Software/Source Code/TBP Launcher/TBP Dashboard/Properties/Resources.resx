@@ -130,14 +130,14 @@
   <data name="285" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\285.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DiscordLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiscordLogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TBPLauncherHeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TBPLauncherHeader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InstallMod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InstallMod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MCGC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MCGC.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PresetsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PresetsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,11 +157,14 @@
   <data name="Minecraft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minecraft.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ModManagement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ModManagement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-play-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-play-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DiscordLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DiscordLogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MCGC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MCGC.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-minecraft-grass-cube-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-minecraft-grass-cube-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,7 +172,7 @@
   <data name="TBPLauncher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TBPLauncher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ModManagement" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ModManagement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DownloadUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DownloadUpdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
