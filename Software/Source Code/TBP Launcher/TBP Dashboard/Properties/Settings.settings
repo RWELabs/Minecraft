@@ -15,7 +15,7 @@
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">221204</Value>
+      <Value Profile="(Default)">230201</Value>
     </Setting>
     <Setting Name="DownloadItem" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -33,6 +33,9 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CVER" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CurrentModpack" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

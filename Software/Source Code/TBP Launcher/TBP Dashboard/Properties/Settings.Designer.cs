@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("221204")]
+        [global::System.Configuration.DefaultSettingValueAttribute("230201")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -153,6 +153,18 @@ namespace TBP_Dashboard.Properties {
             }
             set {
                 this["CVER"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentModpack {
+            get {
+                return ((string)(this["CurrentModpack"]));
+            }
+            set {
+                this["CurrentModpack"] = value;
             }
         }
     }
