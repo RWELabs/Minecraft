@@ -46,7 +46,6 @@ data-attributes-1.2.7.jar
 dawn-3.5.0.jar
 Decorative+Blocks-fabric-1.19.2-3.0.0.jar
 deepslatecutting-fabric-1.5.0.jar
-DistantHorizons-1.6.9a-1.19.2.jar
 dragonloot-1.1.2.jar
 duckling-2.0.7-fabric.jar
 DungeonsArise-1.19-2.1.51-fabric-beta-hf.jar
