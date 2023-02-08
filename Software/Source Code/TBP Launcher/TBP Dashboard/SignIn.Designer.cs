@@ -51,6 +51,7 @@
             this.ViewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Maximise = new System.Windows.Forms.ToolStripMenuItem();
             this.Minimise = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenPrivacyPolicy = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,9 +59,18 @@
             this.testDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenModManager = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenMinecraftDir = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpdateNotification = new System.Windows.Forms.ToolStripMenuItem();
+            this.InstallUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.DismissUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.modpackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MP_Vanilla = new System.Windows.Forms.ToolStripMenuItem();
+            this.MP_Origins1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MP_Custom = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ModManagerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MCATimer = new System.Windows.Forms.Timer(this.components);
-            this.SkipUpdateCheck = new System.Windows.Forms.Timer(this.components);
-            this.OpenPrivacyPolicy = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingsProcessing = new System.Windows.Forms.RichTextBox();
+            this.ModsProcessing = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -213,7 +223,9 @@
             this.MainIcon,
             this.FileMenu,
             this.ViewMenu,
-            this.ToolsMenu});
+            this.ToolsMenu,
+            this.UpdateNotification,
+            this.modpackToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
             this.MenuStrip.Size = new System.Drawing.Size(1048, 24);
@@ -243,21 +255,21 @@
             // OpenSettings
             // 
             this.OpenSettings.Name = "OpenSettings";
-            this.OpenSettings.Size = new System.Drawing.Size(180, 22);
+            this.OpenSettings.Size = new System.Drawing.Size(135, 22);
             this.OpenSettings.Text = "Settings";
             this.OpenSettings.Click += new System.EventHandler(this.OpenSettings_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
             // 
             // Exit
             // 
             this.Exit.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
             this.Exit.Name = "Exit";
             this.Exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.Exit.Size = new System.Drawing.Size(180, 22);
+            this.Exit.Size = new System.Drawing.Size(135, 22);
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -288,6 +300,13 @@
             this.Minimise.Size = new System.Drawing.Size(190, 22);
             this.Minimise.Text = "Minimise";
             this.Minimise.Click += new System.EventHandler(this.Minimise_Click);
+            // 
+            // OpenPrivacyPolicy
+            // 
+            this.OpenPrivacyPolicy.Name = "OpenPrivacyPolicy";
+            this.OpenPrivacyPolicy.Size = new System.Drawing.Size(190, 22);
+            this.OpenPrivacyPolicy.Text = "Privacy Policy";
+            this.OpenPrivacyPolicy.Click += new System.EventHandler(this.OpenPrivacyPolicy_Click);
             // 
             // ToolsMenu
             // 
@@ -344,22 +363,109 @@
             this.OpenMinecraftDir.Text = "Open Minecraft Directory";
             this.OpenMinecraftDir.Click += new System.EventHandler(this.OpenMinecraftDir_Click);
             // 
+            // UpdateNotification
+            // 
+            this.UpdateNotification.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.UpdateNotification.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.InstallUpdate,
+            this.DismissUpdate});
+            this.UpdateNotification.Image = global::TBP_Dashboard.Properties.Resources.UpdatesIcon;
+            this.UpdateNotification.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.UpdateNotification.Name = "UpdateNotification";
+            this.UpdateNotification.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.UpdateNotification.Size = new System.Drawing.Size(125, 20);
+            this.UpdateNotification.Text = "Updates Available";
+            this.UpdateNotification.Visible = false;
+            // 
+            // InstallUpdate
+            // 
+            this.InstallUpdate.Image = global::TBP_Dashboard.Properties.Resources.icons8_tick_box_96;
+            this.InstallUpdate.Name = "InstallUpdate";
+            this.InstallUpdate.Size = new System.Drawing.Size(180, 22);
+            this.InstallUpdate.Text = "Install Now";
+            this.InstallUpdate.Click += new System.EventHandler(this.InstallUpdate_Click);
+            // 
+            // DismissUpdate
+            // 
+            this.DismissUpdate.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
+            this.DismissUpdate.Name = "DismissUpdate";
+            this.DismissUpdate.Size = new System.Drawing.Size(180, 22);
+            this.DismissUpdate.Text = "Dismiss";
+            this.DismissUpdate.Click += new System.EventHandler(this.DismissUpdate_Click);
+            // 
+            // modpackToolStripMenuItem
+            // 
+            this.modpackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MP_Vanilla,
+            this.MP_Origins1,
+            this.MP_Custom,
+            this.toolStripSeparator3,
+            this.ModManagerMenuItem});
+            this.modpackToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.Potato;
+            this.modpackToolStripMenuItem.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.modpackToolStripMenuItem.Name = "modpackToolStripMenuItem";
+            this.modpackToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.modpackToolStripMenuItem.Text = "Active Modpack";
+            // 
+            // MP_Vanilla
+            // 
+            this.MP_Vanilla.CheckOnClick = true;
+            this.MP_Vanilla.Name = "MP_Vanilla";
+            this.MP_Vanilla.Size = new System.Drawing.Size(242, 22);
+            this.MP_Vanilla.Text = "No Modpack (Vanilla Minecraft)";
+            this.MP_Vanilla.Click += new System.EventHandler(this.VanillaMPChosen);
+            // 
+            // MP_Origins1
+            // 
+            this.MP_Origins1.CheckOnClick = true;
+            this.MP_Origins1.Name = "MP_Origins1";
+            this.MP_Origins1.Size = new System.Drawing.Size(242, 22);
+            this.MP_Origins1.Text = "TBP Origins (Season 1)";
+            this.MP_Origins1.Click += new System.EventHandler(this.OriginsMPChosen);
+            // 
+            // MP_Custom
+            // 
+            this.MP_Custom.CheckOnClick = true;
+            this.MP_Custom.Name = "MP_Custom";
+            this.MP_Custom.Size = new System.Drawing.Size(242, 22);
+            this.MP_Custom.Text = "Custom Modpack";
+            this.MP_Custom.Click += new System.EventHandler(this.CustomMPChosen);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(239, 6);
+            // 
+            // ModManagerMenuItem
+            // 
+            this.ModManagerMenuItem.Image = global::TBP_Dashboard.Properties.Resources.InstallModpack;
+            this.ModManagerMenuItem.Name = "ModManagerMenuItem";
+            this.ModManagerMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.ModManagerMenuItem.Text = "Mod Manager";
+            this.ModManagerMenuItem.Click += new System.EventHandler(this.OpenModManager_Click);
+            // 
             // MCATimer
             // 
             this.MCATimer.Interval = 5000;
             this.MCATimer.Tick += new System.EventHandler(this.MCATimer_Tick);
             // 
-            // SkipUpdateCheck
+            // SettingsProcessing
             // 
-            this.SkipUpdateCheck.Interval = 7000;
-            this.SkipUpdateCheck.Tick += new System.EventHandler(this.SkipUpdateCheck_Tick);
+            this.SettingsProcessing.Location = new System.Drawing.Point(12, 32);
+            this.SettingsProcessing.Name = "SettingsProcessing";
+            this.SettingsProcessing.Size = new System.Drawing.Size(381, 300);
+            this.SettingsProcessing.TabIndex = 5;
+            this.SettingsProcessing.Text = "";
+            this.SettingsProcessing.Visible = false;
             // 
-            // OpenPrivacyPolicy
+            // ModsProcessing
             // 
-            this.OpenPrivacyPolicy.Name = "OpenPrivacyPolicy";
-            this.OpenPrivacyPolicy.Size = new System.Drawing.Size(190, 22);
-            this.OpenPrivacyPolicy.Text = "Privacy Policy";
-            this.OpenPrivacyPolicy.Click += new System.EventHandler(this.OpenPrivacyPolicy_Click);
+            this.ModsProcessing.Location = new System.Drawing.Point(118, 65);
+            this.ModsProcessing.Name = "ModsProcessing";
+            this.ModsProcessing.Size = new System.Drawing.Size(482, 317);
+            this.ModsProcessing.TabIndex = 6;
+            this.ModsProcessing.Text = "";
+            this.ModsProcessing.Visible = false;
             // 
             // SignIn
             // 
@@ -368,10 +474,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1048, 684);
             this.Controls.Add(this.WebView2);
-            this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.MenuStrip);
+            this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.WebView);
             this.Controls.Add(this.LoadingPanel);
+            this.Controls.Add(this.SettingsProcessing);
+            this.Controls.Add(this.ModsProcessing);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuStrip;
@@ -421,13 +529,23 @@
         private System.Windows.Forms.ToolStripMenuItem ToolsMenu;
         private System.Windows.Forms.ToolStripMenuItem Refresh;
         private System.Windows.Forms.Timer MCATimer;
-        private System.Windows.Forms.Timer SkipUpdateCheck;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem OpenMinecraftDir;
         private System.Windows.Forms.ToolStripMenuItem TestFeatures;
         private System.Windows.Forms.ToolStripMenuItem testDownloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenModManager;
         private System.Windows.Forms.ToolStripMenuItem OpenPrivacyPolicy;
+        private System.Windows.Forms.ToolStripMenuItem UpdateNotification;
+        private System.Windows.Forms.ToolStripMenuItem InstallUpdate;
+        private System.Windows.Forms.ToolStripMenuItem DismissUpdate;
+        private System.Windows.Forms.RichTextBox SettingsProcessing;
+        private System.Windows.Forms.RichTextBox ModsProcessing;
+        private System.Windows.Forms.ToolStripMenuItem modpackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MP_Vanilla;
+        private System.Windows.Forms.ToolStripMenuItem MP_Origins1;
+        private System.Windows.Forms.ToolStripMenuItem MP_Custom;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem ModManagerMenuItem;
     }
 }
 
