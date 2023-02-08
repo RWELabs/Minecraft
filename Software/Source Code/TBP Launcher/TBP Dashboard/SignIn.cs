@@ -29,15 +29,93 @@ namespace TBP_Dashboard
     {
         public SignIn()
         {
+            //Define WV2 User Data
             string userDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\UserData\WV\";
             if (!Directory.Exists(userDataFolder))
             {
                 Directory.CreateDirectory(userDataFolder);
             }
 
+            //Define window
             InitializeComponent();
             this.Height = 723;
             this.Width = 676;
+
+            //Load user preferences from settings INI file if exists.
+            string SettingsINI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\settings.ini";
+            if (File.Exists(SettingsINI))
+            {
+                SettingsProcessing.LoadFile(SettingsINI, RichTextBoxStreamType.PlainText);
+
+                foreach(string line in SettingsProcessing.Lines)
+                {
+                    if (line.StartsWith("$mcdir=")){Settings.Default.LaunchMinecraft = line.Replace("$mcdir=", null);}
+                    if (line.StartsWith("$checkupdates=")) { Settings.Default.CheckUpdates = line.Replace("$checkupdates=", null); }
+                    if (line.StartsWith("$currentmp=")) { Settings.Default.CurrentModpack = line.Replace("$currentmp=", null); }
+                    Settings.Default.Save();
+                }
+            }
+            else
+            {
+                //file not yet generated, generates on first close
+            }
+
+            //Set current modpack
+            if(Settings.Default.CurrentModpack == "undefined")
+            {
+                string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string modsPath = dataPath + @"\.minecraft\mods\";
+                string disabledmodsPath = dataPath + @"\.minecraft\mods.disabled\";
+                string presetsPath = dataPath + @"\.minecraft\mods.presets\";
+
+                //No mods found, Vanilla
+                if (Directory.GetFiles(modsPath).Length == 0 && Directory.GetDirectories(modsPath).Length == 0)
+                {
+                    //mods directory is empty
+                    Properties.Settings.Default.CurrentModpack = "No Modpack (Vanilla Minecraft)";
+                    Properties.Settings.Default.Save();
+                }
+                //Mods have been found
+                else
+                {
+                    //Check if Modpack is Origins
+                    ModsProcessing.LoadFile(Application.ExecutablePath.Replace("TBP Dashboard.exe", "origins_season1_modlist.txt"),RichTextBoxStreamType.PlainText);
+                    int Num = 0;
+                    foreach(string filePath in Directory.GetFiles(modsPath))
+                    {
+                        string fn = Path.GetFileName(filePath);
+
+                        if (ModsProcessing.Text.Contains(fn))
+                        {
+                            Num = Num +1;
+                            if(Num > 30)
+                            {
+                                Properties.Settings.Default.CurrentModpack = "TBP Origins (Season 1)";
+                                Properties.Settings.Default.Save();
+                            }
+                            else
+                            {
+                                Properties.Settings.Default.CurrentModpack = "Custom Modpack";
+                                Properties.Settings.Default.Save();
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Set active modpack
+            switch(Properties.Settings.Default.CurrentModpack as string)
+            {
+                case "No Modpack (Vanilla Minecraft)":
+                    MP_Vanilla.Checked = true;
+                    break;
+                case "TBP Origins (Season 1)":
+                    MP_Origins1.Checked = true;
+                    break;
+                case "Custom Modpack":
+                    MP_Custom.Checked = true;
+                    break;
+            }
 
             ShowLoadingPanel();
         }
@@ -71,20 +149,17 @@ namespace TBP_Dashboard
         {
             WebView.CoreWebView2.Settings.IsStatusBarEnabled = false;
 
+            WebView.Source = new Uri("https://crutionix.com/oauth/");
+            StatusStrip.Text = "Starting Launcher...";
+            UpdateHeader.Text = "Starting TBP Launcher...";
             this.Text = "Starting... | TBP Launcher";
+
+            //Check for updates
             if (Properties.Settings.Default.CheckUpdates == "TRUE")
             {
                 StatusStrip.Visible = true;
-                StatusStrip.Text = "Checking for updates...";
                 UpdateHeader.Visible = true;
-
                 StartTimer.Start();
-            }
-            else
-            {
-                WebView.Source = new Uri("https://crutionix.com/oauth/");
-                StatusStrip.Text = "Starting Launcher...";
-                UpdateHeader.Text = "Starting TBP Launcher...";
             }
         }
 
@@ -101,7 +176,7 @@ namespace TBP_Dashboard
                 HideLoadingPanel();
                 StatusStrip.Visible = false;
                 this.Icon = Resources.MCGC;
-                this.Text = "Dashboard | TBP Launcher";
+                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")";
                 this.Width = 1064;
                 this.Height = 723;
                 WebView2.Visible = true;
@@ -119,7 +194,7 @@ namespace TBP_Dashboard
                 WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/newsfeed?ref=wingo");
                                 StatusStrip.Visible = false;
                 this.Icon = Resources.MCGC;
-                this.Text = "Dashboard | TBP Launcher";
+                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")";
                 this.Width = 1064;
                 this.Height = 723;
                 WebView2.Visible = true;
@@ -169,9 +244,7 @@ namespace TBP_Dashboard
 
         private void CheckUpdates_DoWork(object sender, DoWorkEventArgs e)
         {
-            SkipUpdateCheck.Start();
-
-            this.Invoke(new MethodInvoker(delegate
+             this.Invoke(new MethodInvoker(delegate
             {
                 this.Text = "Checking for updates... | TBP Launcher";
             }));
@@ -192,20 +265,11 @@ namespace TBP_Dashboard
         {
             if (e.Cancelled == true)
             {
-                SkipUpdateCheck.Stop();
-                StatusLabel.Text = "Starting Program...";
-                UpdateHeader.Text = "Starting TBP Launcher...";
-                WebView.Source = new Uri("https://crutionix.com/oauth/");
-                this.Text = "TBP Launcher";
+                this.Text = this.Text + " [Up-to-Date]";
             }
             else if (e.Error != null)
             {
-                SkipUpdateCheck.Stop();
-                //resultLabel.Text = "Error: " + e.Error.Message;
-                StatusLabel.Text = "Starting Program...";
-                UpdateHeader.Text = "Starting TBP Launcher...";
-                WebView.Source = new Uri("https://crutionix.com/oauth/");
-                this.Text = "TBP Launcher";
+                this.Text = this.Text + " [Up-to-Date]";
 
             }
             else
@@ -213,19 +277,13 @@ namespace TBP_Dashboard
                 //Compare current stable version against installed version
                 if (Properties.Settings.Default.CVER.Contains(Properties.Settings.Default.Version))
                 {
-                    SkipUpdateCheck.Stop();
-                    StatusLabel.Text = "No updates found.";
-                    UpdateHeader.Text = "Starting TBP Launcher...";
-                    this.Text = "TBP Launcher";
-                    WebView.Source = new Uri("https://crutionix.com/oauth/");
+                    this.Text = this.Text + " [Up-to-Date]";
                 }
                 else
                 {
-                    SkipUpdateCheck.Stop();
-                    StatusLabel.Text = "Updates available.";
-                    UpdateHeader.Text = "Updates available.";
-                    this.Text = "Updates Available | TBP Launcher";
-                    TryUpdate();
+                    this.Text = this.Text + " [Updates Available]";
+                    //Updates are available
+                    UpdateNotification.Visible = true;
                 }
             }
         }
@@ -249,30 +307,20 @@ namespace TBP_Dashboard
                     //Process.Start(LatestRelease);
                     UpdateDownload download = new UpdateDownload();
                     download.ShowDialog();
-                    StatusLabel.Text = "Trying to update...";
                 }
                 catch
                 {
-                    StatusLabel.Text = "Issue updating. Starting Program...";
-                    UpdateHeader.Text = "Starting TBP Launcher...";
-                    WebView.Source = new Uri("https://crutionix.com/oauth/");
-                    this.Text = "TBP Launcher";
+                    //Issue updating
                 }
             }
             else if (dr == DialogResult.No)
             {
-                StatusLabel.Text = "Starting Program...";
-                UpdateHeader.Text = "Starting TBP Launcher...";
-                WebView.Source = new Uri("https://crutionix.com/oauth/");
-                this.Text = "TBP Launcher";
+                //Refused Update
 
             }
             else
             {
-                StatusLabel.Text = "Starting Program...";
-                UpdateHeader.Text = "Starting TBP Launcher...";
-                WebView.Source = new Uri("https://crutionix.com/oauth/");
-                this.Text = "TBP Launcher";
+                //Issue updating
             }
         }
 
@@ -354,6 +402,9 @@ namespace TBP_Dashboard
                 string GoURL = queryParams["fwd"];
 
                 WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/" + GoURL);
+                MP_Custom.Checked = true;
+                MP_Origins1.Checked = false;
+                MP_Vanilla.Checked = false;
             }
             //If user clicks Download World
             if (WebView2.Source.ToString().Contains("#wingo?ref=worldsave_"))
@@ -490,6 +541,7 @@ namespace TBP_Dashboard
         {
             string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string updatelocation = Path.Combine(dataPath, "tbp-modpack.zip");
+            string SettingsINI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\settings.ini";
 
             if (File.Exists(updatelocation))
             {
@@ -503,6 +555,12 @@ namespace TBP_Dashboard
                 }
             }
 
+            //Save user preferences to settings INI file
+            SettingsProcessing.Clear();
+            SettingsProcessing.AppendText("$mcdir=" + Settings.Default.LaunchMinecraft + Environment.NewLine);
+            SettingsProcessing.AppendText("$checkupdates=" + Settings.Default.CheckUpdates + Environment.NewLine);
+            SettingsProcessing.AppendText("$currentmp=" + Settings.Default.CurrentModpack + Environment.NewLine);
+            SettingsProcessing.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
             Application.Exit();
         }
 
@@ -574,16 +632,6 @@ namespace TBP_Dashboard
             PreInitializeBrowser();
         }
 
-        private void SkipUpdateCheck_Tick(object sender, EventArgs e)
-        {
-            SkipUpdateCheck.Stop();
-            CheckUpdates.CancelAsync();
-            StatusLabel.Text = "Couldn't reach update server.";
-            UpdateHeader.Text = "Starting TBP Launcher...";
-            WebView.Source = new Uri("https://crutionix.com/oauth/");
-            this.Text = "TBP Launcher";
-        }
-
         private void OpenMinecraftDir_Click(object sender, EventArgs e)
         {
             try
@@ -624,6 +672,54 @@ namespace TBP_Dashboard
         private void OpenPrivacyPolicy_Click(object sender, EventArgs e)
         {
             WebView2.Source = new Uri("https://crutionix.com/policies/");
+        }
+
+        private void InstallUpdate_Click(object sender, EventArgs e)
+        {
+            TryUpdate();
+        }
+
+        private void DismissUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateNotification.Visible = false;
+        }
+
+        private void OriginsMPChosen(object sender, EventArgs e)
+        {
+            //Disable Other Packs
+            MP_Custom.Checked = false;
+            MP_Vanilla.Checked = false;
+
+            Settings.Default.CurrentModpack = "TBP Origins (Season 1)";
+            Settings.Default.Save();
+
+            ActivateModpack amp = new ActivateModpack();
+            amp.ShowDialog();
+        }
+
+        private void CustomMPChosen(object sender, EventArgs e)
+        {
+            //Disable Other Packs
+            MP_Origins1.Checked = false;
+            MP_Vanilla.Checked = false;
+
+            Settings.Default.CurrentModpack = "Custom Modpack";
+            Settings.Default.Save();
+
+            MessageBox.Show("You've chosen to use a Custom Modpack. To select which mods you'd like to use, open 'Mod Manager' and check the specific mods you'd like to use as a part of your custom modpack.", "Getting Started | Custom Modpacks", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        private void VanillaMPChosen(object sender, EventArgs e)
+        {
+            //Disable Other Packs
+            MP_Custom.Checked = false;
+            MP_Origins1.Checked = false;
+
+            Settings.Default.CurrentModpack = "No Modpack (Vanilla Minecraft)";
+            Settings.Default.Save();
+
+            ActivateModpack amp = new ActivateModpack();
+            amp.ShowDialog();
         }
     }
 }
