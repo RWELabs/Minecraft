@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RWE Labs, under exclusive license from Crutionix Media Group, Ryan Walpole Enterprises")]
 [assembly: AssemblyProduct("TBP Launcher")]
-[assembly: AssemblyCopyright("Copyright © Crutionix Media Group, Ryan Walpole Enterprises - 2022")]
+[assembly: AssemblyCopyright("Copyright © Crutionix Media Group, Ryan Walpole Enterprises - 2023. Developed by RWE Labs under exclusive license.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("22.11.0.1")]
-[assembly: AssemblyFileVersion("22.11.0.1")]
+[assembly: AssemblyVersion("23.02.0.1")]
+[assembly: AssemblyFileVersion("23.02.0.1")]
 [assembly: NeutralResourcesLanguage("en-AU")]
