@@ -65,7 +65,7 @@ namespace TBP_Dashboard.Get
 
             if(Properties.Settings.Default.DownloadType == "modpack")
             {
-                DoModpackDownload();
+                DisableMods.RunWorkerAsync();
             }
             else if (Properties.Settings.Default.DownloadType == "resourcepack")
             {
@@ -76,6 +76,47 @@ namespace TBP_Dashboard.Get
                 DoWorldDownload();
             }
 
+        }
+        private void DisableMods_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string modsPath = dataPath + @"\.minecraft\mods\";
+            string disabledmodsPath = dataPath + @"\.minecraft\mods.disabled\";
+
+            if (!Directory.Exists(disabledmodsPath))
+            {
+                Directory.CreateDirectory(disabledmodsPath);
+            }
+
+            foreach (string file in Directory.EnumerateFiles(disabledmodsPath))
+            {
+                string mod = Path.GetFullPath(file);
+                string modname = Path.GetFileName(file);
+                try
+                {
+                    File.Move(mod, modsPath + modname);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void DisableMods_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                //Cancelled
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                DoModpackDownload();
+            }
         }
 
         private void DoWorldDownload()
@@ -298,7 +339,8 @@ namespace TBP_Dashboard.Get
 
             StatusText.Text = "Cleaning up...";
             DownloadProgress.Text = "Finishing installation...";
-            MessageBox.Show("We have successfully installed a modpack. Please note that this modpack requires the use of " + Properties.Settings.Default.DownloadVersion + ". Please ensure you select this profile when launching Minecraft.");
+            MessageBox.Show("We have successfully installed a modpack. To use this modpack, ensure that it is enabled from the Active Modpack list. Please note that this modpack requires the use of " + Properties.Settings.Default.DownloadVersion + ". Please ensure you select this profile when launching Minecraft.");
+            Properties.Settings.Default.CurrentModpack = "Custom Modpack";
             this.Close();
         }
 
