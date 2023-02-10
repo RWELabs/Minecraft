@@ -41,6 +41,7 @@
             this.StartModpackUnzip = new System.Windows.Forms.Timer(this.components);
             this.ResourcePackInstallTimer = new System.Windows.Forms.Timer(this.components);
             this.StartWorldHandling = new System.Windows.Forms.Timer(this.components);
+            this.DisableMods = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +138,11 @@
             this.StartWorldHandling.Interval = 4500;
             this.StartWorldHandling.Tick += new System.EventHandler(this.StartWorldHandling_Tick);
             // 
+            // DisableMods
+            // 
+            this.DisableMods.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DisableMods_DoWork);
+            this.DisableMods.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DisableMods_RunWorkerCompleted);
+            // 
             // DownloadContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,5 +184,6 @@
         private System.Windows.Forms.Timer StartModpackUnzip;
         private System.Windows.Forms.Timer ResourcePackInstallTimer;
         private System.Windows.Forms.Timer StartWorldHandling;
+        private System.ComponentModel.BackgroundWorker DisableMods;
     }
 }
