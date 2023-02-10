@@ -34,7 +34,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.SetPreset = new System.Windows.Forms.Button();
             this.InstallMod = new System.Windows.Forms.Button();
             this.InstallModpack = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -61,12 +60,11 @@
             this.DeleteMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.DeleteMod.Image = global::TBP_Dashboard.Properties.Resources.Close;
             this.DeleteMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteMod.Location = new System.Drawing.Point(256, 468);
+            this.DeleteMod.Location = new System.Drawing.Point(339, 468);
             this.DeleteMod.Name = "DeleteMod";
-            this.DeleteMod.Size = new System.Drawing.Size(108, 45);
+            this.DeleteMod.Size = new System.Drawing.Size(139, 45);
             this.DeleteMod.TabIndex = 1;
             this.DeleteMod.Text = "Delete Mod";
-            this.DeleteMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.DeleteMod.UseVisualStyleBackColor = true;
             this.DeleteMod.Click += new System.EventHandler(this.DeleteMod_Click);
             // 
@@ -99,20 +97,6 @@
             this.label1.Text = "The following is a list of mods that are installed on your system. Enable or disa" +
     "ble specific mods by checking/unchecking them.";
             // 
-            // SetPreset
-            // 
-            this.SetPreset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.SetPreset.Image = global::TBP_Dashboard.Properties.Resources.PresetsIcon;
-            this.SetPreset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SetPreset.Location = new System.Drawing.Point(370, 468);
-            this.SetPreset.Name = "SetPreset";
-            this.SetPreset.Size = new System.Drawing.Size(108, 45);
-            this.SetPreset.TabIndex = 4;
-            this.SetPreset.Text = "Load Preset";
-            this.SetPreset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SetPreset.UseVisualStyleBackColor = true;
-            this.SetPreset.Click += new System.EventHandler(this.SetPreset_Click);
-            // 
             // InstallMod
             // 
             this.InstallMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -120,10 +104,9 @@
             this.InstallMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstallMod.Location = new System.Drawing.Point(12, 468);
             this.InstallMod.Name = "InstallMod";
-            this.InstallMod.Size = new System.Drawing.Size(108, 45);
+            this.InstallMod.Size = new System.Drawing.Size(139, 45);
             this.InstallMod.TabIndex = 5;
             this.InstallMod.Text = "Install Mod";
-            this.InstallMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.InstallMod.UseVisualStyleBackColor = true;
             // 
             // InstallModpack
@@ -131,12 +114,11 @@
             this.InstallModpack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.InstallModpack.Image = global::TBP_Dashboard.Properties.Resources.InstallMod;
             this.InstallModpack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InstallModpack.Location = new System.Drawing.Point(126, 468);
+            this.InstallModpack.Location = new System.Drawing.Point(167, 468);
             this.InstallModpack.Name = "InstallModpack";
-            this.InstallModpack.Size = new System.Drawing.Size(124, 45);
+            this.InstallModpack.Size = new System.Drawing.Size(155, 45);
             this.InstallModpack.TabIndex = 6;
             this.InstallModpack.Text = "Install Modpack";
-            this.InstallModpack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.InstallModpack.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
@@ -167,7 +149,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.InstallModpack);
             this.Controls.Add(this.InstallMod);
-            this.Controls.Add(this.SetPreset);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.DeleteMod);
@@ -194,7 +175,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel Status;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button SetPreset;
         private System.Windows.Forms.Button InstallMod;
         private System.Windows.Forms.Button InstallModpack;
         private System.Windows.Forms.PictureBox pictureBox2;
