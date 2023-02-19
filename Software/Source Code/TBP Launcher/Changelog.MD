@@ -5,6 +5,7 @@ This changelog contains information regarding updates to the application as they
 #### v230201 (/02/2022)
 Version 221204 contains the following additons, changes and bug fixes:
 - [Fix] Application would sometimes hang on update checking process.
+- [Feature] Updates are now less intrusive, offering an anytime update via a new menu.
 
 #### v221204 (20/12/2022)
 Version 221204 contains the following additons, changes and bug fixes:
