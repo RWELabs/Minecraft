@@ -2,6 +2,10 @@
 ### Changelog
 This changelog contains information regarding updates to the application as they are released. If you are unsure about what new features exist with a new update, this is where you can find that information.
 
+#### v230201 (/02/2022)
+Version 221204 contains the following additons, changes and bug fixes:
+- [Fix] Application would sometimes hang on update checking process.
+
 #### v221204 (20/12/2022)
 Version 221204 contains the following additons, changes and bug fixes:
 - [Fix] Some hardware configurations had issues during the update check process. This should now be resolved.
