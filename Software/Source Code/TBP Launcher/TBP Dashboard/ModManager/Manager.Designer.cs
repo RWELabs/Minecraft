@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager));
             this.ModList = new System.Windows.Forms.CheckedListBox();
             this.DeleteMod = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.InstallModpack = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PresetManagement = new System.Windows.Forms.RichTextBox();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -108,10 +110,12 @@
             this.InstallMod.TabIndex = 5;
             this.InstallMod.Text = "Install Mod";
             this.InstallMod.UseVisualStyleBackColor = true;
+            this.InstallMod.Click += new System.EventHandler(this.InstallMod_Click);
             // 
             // InstallModpack
             // 
             this.InstallModpack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.InstallModpack.Enabled = false;
             this.InstallModpack.Image = global::TBP_Dashboard.Properties.Resources.InstallMod;
             this.InstallModpack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstallModpack.Location = new System.Drawing.Point(167, 468);
@@ -119,6 +123,9 @@
             this.InstallModpack.Size = new System.Drawing.Size(155, 45);
             this.InstallModpack.TabIndex = 6;
             this.InstallModpack.Text = "Install Modpack";
+            this.ToolTip.SetToolTip(this.InstallModpack, "Modpacks can be installed from the main dashboard, by navigating to the mod downl" +
+        "oad section. This feature is intended for manual installation and is not yet imp" +
+        "lemented.");
             this.InstallModpack.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
@@ -139,6 +146,11 @@
             this.PresetManagement.Size = new System.Drawing.Size(466, 334);
             this.PresetManagement.TabIndex = 9;
             this.PresetManagement.Text = "";
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.ToolTipTitle = "Feature Availability";
             // 
             // Manager
             // 
@@ -179,5 +191,6 @@
         private System.Windows.Forms.Button InstallModpack;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.RichTextBox PresetManagement;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }
