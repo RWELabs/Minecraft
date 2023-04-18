@@ -187,5 +187,37 @@ namespace TBP_Dashboard.ModManager
 
             PresetManagement.SaveFile(ModsFolder + "TBPOriginsS1.txt", RichTextBoxStreamType.PlainText);
         }
+
+        private void InstallMod_Click(object sender, EventArgs e)
+        {
+            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string modsPath = dataPath + @"\.minecraft\mods\";
+            string disabledmodsPath = dataPath + @"\.minecraft\mods.disabled\";
+            string presetsPath = dataPath + @"\.minecraft\mods.presets\";
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select a JAR file";
+            ofd.Filter = "JAR files (*.jar)|*.jar";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                // The user selected a JAR file, so you can now use the file path
+                // in openFileDialog.FileName to open the file and do whatever you need to do with it.
+                if (File.Exists(ofd.FileName))
+                {
+                    try
+                    {
+                        File.Copy(ofd.FileName, modsPath + ofd.SafeFileName);
+                        MessageBox.Show(ofd.SafeFileName + "was installed successfully.","Mod Management | TBP Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("There was an issue installing this mod. More information: " + Environment.NewLine + Environment.NewLine + ex.Message, "Mod Management | TBP Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                }
+            }
+        }
     }
 }
