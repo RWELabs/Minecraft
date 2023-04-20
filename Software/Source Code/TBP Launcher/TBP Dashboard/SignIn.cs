@@ -265,11 +265,11 @@ namespace TBP_Dashboard
         {
             if (e.Cancelled == true)
             {
-                this.Text = this.Text + " [Up-to-Date]";
+                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
             }
             else if (e.Error != null)
             {
-                this.Text = this.Text + " [Up-to-Date]";
+                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
 
             }
             else
@@ -277,11 +277,11 @@ namespace TBP_Dashboard
                 //Compare current stable version against installed version
                 if (Properties.Settings.Default.CVER.Contains(Properties.Settings.Default.Version))
                 {
-                    this.Text = this.Text + " [Up-to-Date]";
+                    this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
                 }
                 else
                 {
-                    this.Text = this.Text + " [Updates Available]";
+                    this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Updates Available]";
                     //Updates are available
                     UpdateNotification.Visible = true;
                 }
