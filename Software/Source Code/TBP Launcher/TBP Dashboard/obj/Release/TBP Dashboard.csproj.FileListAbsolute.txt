@@ -194,13 +194,11 @@ C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.ValueTuple.xml
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.AssemblyReference.cache
-C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.SuggestedBindingRedirects.cache
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ActivityForm.resources
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.SignIn.resources
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.Properties.Resources.resources
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.GenerateResource.cache
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.CoreCompileInputs.cache
-C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.CopyComplete
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.exe
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.pdb
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.UpdateDownload.resources
@@ -307,3 +305,4 @@ C:\Users\ryanw\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP 
 C:\Users\ryanw\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.exe
 C:\Users\ryanw\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.pdb
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ModManager.ActivateModpack.resources
+C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dash.E42FDAB5.Up2Date
