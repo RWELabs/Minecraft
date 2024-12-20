@@ -64,7 +64,9 @@ namespace TBP_Dashboard
                     }
                     else
                     {
+                        CheckInstallProgress.Stop();
                         FRIStatusBar.Value = 99;
+                        Backup.Start();
                     }
                 }
             }
@@ -88,6 +90,13 @@ namespace TBP_Dashboard
             this.Hide();
             SignIn dash = new SignIn();
             dash.Show();
+        }
+
+        private void Backup_Tick(object sender, EventArgs e)
+        {
+            //launch anyway
+            Backup.Stop();
+            FinishSetup();
         }
     }
 }

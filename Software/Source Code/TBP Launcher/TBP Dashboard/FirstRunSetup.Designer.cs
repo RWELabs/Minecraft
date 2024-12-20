@@ -36,6 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MSWebViewInstall = new System.Windows.Forms.Timer(this.components);
             this.CheckInstallProgress = new System.Windows.Forms.Timer(this.components);
+            this.Backup = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +87,11 @@
             this.CheckInstallProgress.Interval = 1891;
             this.CheckInstallProgress.Tick += new System.EventHandler(this.CheckInstallProgress_Tick);
             // 
+            // Backup
+            // 
+            this.Backup.Interval = 1000;
+            this.Backup.Tick += new System.EventHandler(this.Backup_Tick);
+            // 
             // FirstRunSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,5 +122,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer MSWebViewInstall;
         private System.Windows.Forms.Timer CheckInstallProgress;
+        private System.Windows.Forms.Timer Backup;
     }
 }
