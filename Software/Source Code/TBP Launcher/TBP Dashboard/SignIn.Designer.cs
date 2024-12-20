@@ -51,6 +51,10 @@
             this.ViewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Maximise = new System.Windows.Forms.ToolStripMenuItem();
             this.Minimise = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.OpenPrivacyPolicy = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Refresh = new System.Windows.Forms.ToolStripMenuItem();
@@ -255,21 +259,21 @@
             // OpenSettings
             // 
             this.OpenSettings.Name = "OpenSettings";
-            this.OpenSettings.Size = new System.Drawing.Size(135, 22);
+            this.OpenSettings.Size = new System.Drawing.Size(180, 22);
             this.OpenSettings.Text = "Settings";
             this.OpenSettings.Click += new System.EventHandler(this.OpenSettings_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // Exit
             // 
             this.Exit.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
             this.Exit.Name = "Exit";
             this.Exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.Exit.Size = new System.Drawing.Size(135, 22);
+            this.Exit.Size = new System.Drawing.Size(180, 22);
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -278,6 +282,10 @@
             this.ViewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Maximise,
             this.Minimise,
+            this.toolStripSeparator4,
+            this.backToolStripMenuItem,
+            this.forwardToolStripMenuItem,
+            this.toolStripSeparator5,
             this.OpenPrivacyPolicy});
             this.ViewMenu.Name = "ViewMenu";
             this.ViewMenu.Size = new System.Drawing.Size(44, 20);
@@ -300,6 +308,30 @@
             this.Minimise.Size = new System.Drawing.Size(190, 22);
             this.Minimise.Text = "Minimise";
             this.Minimise.Click += new System.EventHandler(this.Minimise_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(187, 6);
+            // 
+            // backToolStripMenuItem
+            // 
+            this.backToolStripMenuItem.Name = "backToolStripMenuItem";
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.backToolStripMenuItem.Text = "Back";
+            this.backToolStripMenuItem.Click += new System.EventHandler(this.Back_Click);
+            // 
+            // forwardToolStripMenuItem
+            // 
+            this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
+            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.forwardToolStripMenuItem.Text = "Forward";
+            this.forwardToolStripMenuItem.Click += new System.EventHandler(this.Forward_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
             // 
             // OpenPrivacyPolicy
             // 
@@ -345,14 +377,14 @@
             // testDownloadToolStripMenuItem
             // 
             this.testDownloadToolStripMenuItem.Name = "testDownloadToolStripMenuItem";
-            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testDownloadToolStripMenuItem.Text = "TestDownload";
             this.testDownloadToolStripMenuItem.Click += new System.EventHandler(this.testDownloadToolStripMenuItem_Click);
             // 
             // OpenModManager
             // 
             this.OpenModManager.Name = "OpenModManager";
-            this.OpenModManager.Size = new System.Drawing.Size(148, 22);
+            this.OpenModManager.Size = new System.Drawing.Size(180, 22);
             this.OpenModManager.Text = "ModManager";
             this.OpenModManager.Click += new System.EventHandler(this.OpenModManager_Click);
             // 
@@ -381,7 +413,7 @@
             // 
             this.InstallUpdate.Image = global::TBP_Dashboard.Properties.Resources.icons8_tick_box_96;
             this.InstallUpdate.Name = "InstallUpdate";
-            this.InstallUpdate.Size = new System.Drawing.Size(180, 22);
+            this.InstallUpdate.Size = new System.Drawing.Size(133, 22);
             this.InstallUpdate.Text = "Install Now";
             this.InstallUpdate.Click += new System.EventHandler(this.InstallUpdate_Click);
             // 
@@ -389,7 +421,7 @@
             // 
             this.DismissUpdate.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
             this.DismissUpdate.Name = "DismissUpdate";
-            this.DismissUpdate.Size = new System.Drawing.Size(180, 22);
+            this.DismissUpdate.Size = new System.Drawing.Size(133, 22);
             this.DismissUpdate.Text = "Dismiss";
             this.DismissUpdate.Click += new System.EventHandler(this.DismissUpdate_Click);
             // 
@@ -402,7 +434,7 @@
             this.toolStripSeparator3,
             this.ModManagerMenuItem});
             this.modpackToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.Potato;
-            this.modpackToolStripMenuItem.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.modpackToolStripMenuItem.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.modpackToolStripMenuItem.Name = "modpackToolStripMenuItem";
             this.modpackToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
             this.modpackToolStripMenuItem.Text = "Active Modpack";
@@ -546,6 +578,10 @@
         private System.Windows.Forms.ToolStripMenuItem MP_Custom;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem ModManagerMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
 

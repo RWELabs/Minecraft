@@ -441,7 +441,9 @@ namespace TBP_Dashboard
             //Check for Win32 Install
             string InstallPath = (string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\Mojang\InstalledProducts\Minecraft Launcher", "Installed", null);
             string InstallPath10 = (string)Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Mojang\InstalledProducts\Minecraft Launcher", "Installed", null);
-            
+            string BackupInstallpath = @"C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe";
+
+
             if (InstallPath != null)
             {
                 if(File.Exists(InstallPath + @"MinecraftLauncher.exe"))
@@ -720,6 +722,11 @@ namespace TBP_Dashboard
 
             ActivateModpack amp = new ActivateModpack();
             amp.ShowDialog();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WebView2.Reload();
         }
     }
 }
