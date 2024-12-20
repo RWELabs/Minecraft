@@ -1,0 +1,2 @@
+# The default percentage of players who need to sleep to skip to day
+default-sleep-percent: 50

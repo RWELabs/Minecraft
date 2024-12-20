@@ -1,0 +1,50 @@
+# SimpleCommandBlocker by Civalo
+# Spigot address:   Github: https://github.com/johnelder/SimpleCommandBlocker
+# License: GNU Lesser General Public License v3
+# SOUND WILL NOT PLAY UNLESS A VALID SOUND STRING ID IS LISTED IN THIS CONFIG.
+# SEE GITHUB PAGE FOR VALID SOUND OPTIONS
+debug: false
+blockCommands: true
+blockTabComplete: true
+play_sound: false
+sound: ENTITY_GHAST_HURT
+allowed_commands:
+- me
+- msg
+- r
+- nick
+- tell
+- w
+- say
+- seen
+- time
+- realname
+- motd
+- list
+- afk
+- mail
+- trigger
+messages:
+  prefix: '[The Baked Potatarium]'
+  cmd_blocked: The command <cmd> is no longer allowed.
+  cmd_allowed: The command <cmd> is now allowed.
+  already_allowed: The command <cmd> is already allowed.
+  already_blocked: The command <cmd> is already blocked.
+  no_cmds: You cannot use the <cmd> command at this time!
+  no_perm: You do not have permission to use that command!
+  add_trust: <playername> has been trusted with commands.
+  remove_trust: <playername> is now blocked from commands.
+  already_trust: <playername> is already trusted with commands.
+  already_untrust: <playername> was not found on the trust list.
+  empty_list: There are no players on the trust list.
+  player_not_found: Cannot find the player <playername>.
+  bad_sound_config: The sound option in config.yml is not a valid sound string id.
+  not_a_command: <cmd> is not a known command.
+  help: |
+    All players are blocked from commands by default. To allow, use trust command or permissions: simplecommandblocker.bypass or scb.bypass
+    /scb allow <cmd> Allows all player to use a command.
+    /scb block <cmd> Removes command from allowed commands list.
+    /scb trust <player name> - Allows a specific player to use commands.
+    /scb untrust <player name> - Removes a player from the trusted list.
+    /scb trustlist - Displays a list of all players that you have trusted.
+    /scb reload - Reloads the config.yml file.

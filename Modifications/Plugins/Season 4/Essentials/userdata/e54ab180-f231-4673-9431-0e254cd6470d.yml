@@ -1,0 +1,37 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: ''
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1733723117405
+  login: 0
+money: '0'
+logoutlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: 297.17331351021124
+  y: 54.651122447998745
+  z: 10.402019160484064
+  yaw: 85.9833984375
+  pitch: 12.49986743927002
+mail:
+- legacy: false
+  read: false
+  message: Hello Mew. Welcome to the TBP Mod Team. Lorb!
+  sender-name: Crutionix
+  sender-uuid: b7b1dfb7-f083-43a7-a837-ab1bc9b242a2
+  timestamp: 1733724756123
+  expire: 0

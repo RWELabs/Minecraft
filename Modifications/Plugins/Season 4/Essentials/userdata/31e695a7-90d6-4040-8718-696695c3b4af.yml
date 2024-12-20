@@ -1,0 +1,48 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 143.238.173.13
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1733635514443
+  login: 1733633078335
+money: '0'
+last-account-name: OnyonSwomp
+nickname: §dOnyon
+logoutlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: -31.38593735196194
+  y: 63.41999998688698
+  z: 9.735606780899005
+  yaw: -2.602433919906616
+  pitch: 12.011220932006836
+lastlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: 278.7290396209611
+  y: 5.121296840539189
+  z: 42.51774941082218
+  yaw: -156.75726318359375
+  pitch: 2.6863834857940674
+mail:
+- legacy: false
+  read: false
+  message: Hello Onon. Welcome to the TBP Mod Team. Do you like to cum and piss, do
+    you piss and cum and piss?
+  sender-name: Crutionix
+  sender-uuid: b7b1dfb7-f083-43a7-a837-ab1bc9b242a2
+  timestamp: 1733724748817
+  expire: 0

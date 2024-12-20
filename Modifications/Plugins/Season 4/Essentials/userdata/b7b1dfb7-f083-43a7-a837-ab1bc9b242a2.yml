@@ -1,0 +1,46 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 65.181.12.24
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1733727605152
+  login: 1733724635621
+money: '0'
+logoutlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: 284.41576860417257
+  y: -11.0
+  z: -59.29802142347737
+  yaw: 90.81112670898438
+  pitch: 30.449731826782227
+last-account-name: Crutionix
+mail:
+- legacy: false
+  read: false
+  message: hewwo this will go well
+  sender-name: Novahawk12
+  sender-uuid: 0510cfb7-283f-4f3f-ab44-dcfa14ba156b
+  timestamp: 1733726433839
+  expire: 0
+lastlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: -38.59013631827969
+  y: 63.0
+  z: 6.403745977206975
+  yaw: -86.49365234375
+  pitch: 7.349738597869873

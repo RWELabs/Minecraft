@@ -1,0 +1,47 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 143.238.173.13
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1733635514441
+  login: 1733634995225
+money: '0'
+last-account-name: eternaldoom
+nickname: §5Birb
+lastlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: 270.2587174250082
+  y: 23.200086832140688
+  z: 12.298630930694898
+  yaw: 0.9171142578125
+  pitch: 16.664960861206055
+logoutlocation:
+  world: a02055af-04af-40d8-894f-4e6faac4284b
+  world-name: TBPS4
+  x: -31.101858284671604
+  y: 63.0
+  z: 13.313910598855097
+  yaw: 162.18698120117188
+  pitch: 10.161815643310547
+mail:
+- legacy: false
+  read: false
+  message: Hello Birb. Welcome to the TBP Mod Team. Weow!
+  sender-name: Crutionix
+  sender-uuid: b7b1dfb7-f083-43a7-a837-ab1bc9b242a2
+  timestamp: 1733724752230
+  expire: 0
