@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("241201")]
+        [global::System.Configuration.DefaultSettingValueAttribute("241202")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -165,6 +165,18 @@ namespace TBP_Dashboard.Properties {
             }
             set {
                 this["CurrentModpack"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("FALSE")]
+        public string wv2ignored {
+            get {
+                return ((string)(this["wv2ignored"]));
+            }
+            set {
+                this["wv2ignored"] = value;
             }
         }
     }
