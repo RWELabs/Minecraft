@@ -52,6 +52,7 @@ namespace TBP_Dashboard
                     if (line.StartsWith("$mcdir=")){Settings.Default.LaunchMinecraft = line.Replace("$mcdir=", null);}
                     if (line.StartsWith("$checkupdates=")) { Settings.Default.CheckUpdates = line.Replace("$checkupdates=", null); }
                     if (line.StartsWith("$currentmp=")) { Settings.Default.CurrentModpack = line.Replace("$currentmp=", null); }
+                    if (line.StartsWith("$wv2ignored=")) { Settings.Default.wv2ignored = line.Replace("$wv2ignored=", null); }
                     Settings.Default.Save();
                 }
             }
@@ -562,6 +563,7 @@ namespace TBP_Dashboard
             SettingsProcessing.AppendText("$mcdir=" + Settings.Default.LaunchMinecraft + Environment.NewLine);
             SettingsProcessing.AppendText("$checkupdates=" + Settings.Default.CheckUpdates + Environment.NewLine);
             SettingsProcessing.AppendText("$currentmp=" + Settings.Default.CurrentModpack + Environment.NewLine);
+            SettingsProcessing.AppendText("$wv2ignored=" + Settings.Default.wv2ignored + Environment.NewLine);
             SettingsProcessing.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
             Application.Exit();
         }
