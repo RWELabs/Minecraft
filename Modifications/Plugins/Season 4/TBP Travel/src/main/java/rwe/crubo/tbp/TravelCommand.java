@@ -43,8 +43,8 @@ public class TravelCommand implements CommandExecutor {
         String fromName = plugin.getConfig().getString("Stations." + from + ".Name");
         String toName = plugin.getConfig().getString("Stations." + to + ".Name");
 
-        Bukkit.broadcastMessage(ChatColor.GOLD + "Travel has commenced from " +
-                ChatColor.YELLOW + fromName +
+        Bukkit.broadcastMessage(ChatColor.GOLD + "A minecart has just departed " +
+                ChatColor.GREEN + fromName +
                 ChatColor.GOLD + ", travelling to " +
                 ChatColor.YELLOW + toName + ChatColor.GOLD + ".");
 
@@ -72,10 +72,10 @@ public class TravelCommand implements CommandExecutor {
         String fromName = plugin.getConfig().getString("Stations." + from + ".Name");
         String toName = plugin.getConfig().getString("Stations." + to + ".Name");
 
-        Bukkit.broadcastMessage(ChatColor.GREEN + "Travel has been completed from " +
-                ChatColor.YELLOW + fromName +
-                ChatColor.GREEN + " to " +
-                ChatColor.YELLOW + toName + ChatColor.GREEN + ". Line is now available.");
+        Bukkit.broadcastMessage(ChatColor.GOLD + "A minecart is arriving at " +
+                ChatColor.GREEN + toName +
+                ChatColor.GOLD + ", travelling from " +
+                ChatColor.GREEN + fromName + ChatColor.GOLD + ".");
 
         extinguishLantern(from);
         extinguishLantern(to);
