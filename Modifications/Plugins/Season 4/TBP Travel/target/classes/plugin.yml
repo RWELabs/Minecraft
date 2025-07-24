@@ -1,0 +1,11 @@
+name: TBP Travel
+version: 1.0
+main: rwe.crubo.tbp.TBPTravel
+api-version: 1.20
+commands:
+  carttravel:
+    usage: /carttravel <from> <to>
+    description: Announces cart travel between locations.
+    cartarrival:
+    usage: /cartarrival <from> <to>
+    description: Announces cart arrival between locations.
