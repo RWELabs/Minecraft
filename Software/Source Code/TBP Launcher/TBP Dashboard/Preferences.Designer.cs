@@ -47,9 +47,12 @@
             // 
             // LauncherLocation
             // 
-            this.LauncherLocation.Location = new System.Drawing.Point(12, 84);
+            this.LauncherLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.LauncherLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LauncherLocation.ForeColor = System.Drawing.Color.White;
+            this.LauncherLocation.Location = new System.Drawing.Point(12, 86);
             this.LauncherLocation.Name = "LauncherLocation";
-            this.LauncherLocation.Size = new System.Drawing.Size(405, 20);
+            this.LauncherLocation.Size = new System.Drawing.Size(405, 13);
             this.LauncherLocation.TabIndex = 0;
             // 
             // label1
@@ -64,16 +67,22 @@
             // 
             // SetManually
             // 
+            this.SetManually.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.SetManually.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.SetManually.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetManually.Location = new System.Drawing.Point(14, 109);
             this.SetManually.Name = "SetManually";
             this.SetManually.Size = new System.Drawing.Size(145, 23);
             this.SetManually.TabIndex = 2;
             this.SetManually.Text = "Set Manually (Browse)";
-            this.SetManually.UseVisualStyleBackColor = true;
+            this.SetManually.UseVisualStyleBackColor = false;
             this.SetManually.Click += new System.EventHandler(this.SetManually_Click);
             // 
             // Save
             // 
+            this.Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.Save.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Image = global::TBP_Dashboard.Properties.Resources.Check;
             this.Save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Save.Location = new System.Drawing.Point(336, 249);
@@ -82,12 +91,15 @@
             this.Save.TabIndex = 3;
             this.Save.Text = "Save Changes";
             this.Save.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Save.UseVisualStyleBackColor = true;
+            this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // Cancel
             // 
+            this.Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.Image = global::TBP_Dashboard.Properties.Resources.Close;
             this.Cancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Cancel.Location = new System.Drawing.Point(242, 249);
@@ -96,17 +108,20 @@
             this.Cancel.TabIndex = 4;
             this.Cancel.Text = "Cancel";
             this.Cancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // Clear
             // 
+            this.Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.Clear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear.Location = new System.Drawing.Point(349, 109);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(68, 23);
             this.Clear.TabIndex = 5;
             this.Clear.Text = "Clear";
-            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.UseVisualStyleBackColor = false;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // label2
@@ -122,12 +137,15 @@
             // 
             // SetMSLauncher
             // 
+            this.SetMSLauncher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.SetMSLauncher.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.SetMSLauncher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetMSLauncher.Location = new System.Drawing.Point(165, 109);
             this.SetMSLauncher.Name = "SetMSLauncher";
             this.SetMSLauncher.Size = new System.Drawing.Size(178, 23);
             this.SetMSLauncher.TabIndex = 7;
             this.SetMSLauncher.Text = "Set to Microsoft Store Launcher";
-            this.SetMSLauncher.UseVisualStyleBackColor = true;
+            this.SetMSLauncher.UseVisualStyleBackColor = false;
             this.SetMSLauncher.Click += new System.EventHandler(this.SetMSLauncher_Click);
             // 
             // label3
@@ -147,26 +165,29 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(405, 16);
             this.label4.TabIndex = 9;
-            this.label4.Text = "The following settings pertain solely to updating TBP Launcher.";
+            this.label4.Text = "The following settings pertain solely to updating TBPlay.";
             // 
             // CheckTBPUpdates
             // 
             this.CheckTBPUpdates.AutoSize = true;
             this.CheckTBPUpdates.Location = new System.Drawing.Point(16, 193);
             this.CheckTBPUpdates.Name = "CheckTBPUpdates";
-            this.CheckTBPUpdates.Size = new System.Drawing.Size(245, 17);
+            this.CheckTBPUpdates.Size = new System.Drawing.Size(210, 17);
             this.CheckTBPUpdates.TabIndex = 10;
-            this.CheckTBPUpdates.Text = "Check for updates when TBP Launcher starts.";
+            this.CheckTBPUpdates.Text = "Check for updates when TBPlay starts.";
             this.CheckTBPUpdates.UseVisualStyleBackColor = true;
             // 
             // CheckForUpdates
             // 
+            this.CheckForUpdates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.CheckForUpdates.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.CheckForUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckForUpdates.Location = new System.Drawing.Point(16, 216);
             this.CheckForUpdates.Name = "CheckForUpdates";
             this.CheckForUpdates.Size = new System.Drawing.Size(143, 23);
             this.CheckForUpdates.TabIndex = 11;
             this.CheckForUpdates.Text = "Check for Updates";
-            this.CheckForUpdates.UseVisualStyleBackColor = true;
+            this.CheckForUpdates.UseVisualStyleBackColor = false;
             this.CheckForUpdates.Click += new System.EventHandler(this.CheckForUpdates_Click);
             // 
             // CurrentVersion
@@ -195,9 +216,9 @@
             this.AcceptButton = this.Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(436, 313);
+            this.ClientSize = new System.Drawing.Size(436, 318);
             this.ControlBox = false;
             this.Controls.Add(this.AvailableVersion);
             this.Controls.Add(this.CurrentVersion);
@@ -213,11 +234,12 @@
             this.Controls.Add(this.SetManually);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LauncherLocation);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Preferences";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings | TBP Launcher";
+            this.Text = "Settings | TBPlay";
             this.ResumeLayout(false);
             this.PerformLayout();
 

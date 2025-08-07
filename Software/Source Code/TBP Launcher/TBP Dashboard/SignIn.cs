@@ -22,11 +22,19 @@ using System.Web;
 using System.Runtime.ConstrainedExecution;
 using System.Net;
 using TBP_Dashboard.ModManager;
+using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace TBP_Dashboard
 {
     public partial class SignIn : Form
     {
+        // Windows 10/11 only
+        [DllImport("dwmapi.dll")]
+        public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
+
+        const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
+
         public SignIn()
         {
             //Define WV2 User Data
@@ -38,8 +46,10 @@ namespace TBP_Dashboard
 
             //Define window
             InitializeComponent();
+            EnableDarkTitleBar();
             this.Height = 723;
             this.Width = 676;
+            MenuStrip.Renderer = new DarkMenuRenderer();
 
             //Load user preferences from settings INI file if exists.
             string SettingsINI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\settings.ini";
@@ -120,6 +130,14 @@ namespace TBP_Dashboard
 
             ShowLoadingPanel();
         }
+        private void EnableDarkTitleBar()
+        {
+            if (Environment.OSVersion.Version.Major >= 10)
+            {
+                int useImmersiveDarkMode = 1;
+                DwmSetWindowAttribute(this.Handle, DWMWA_USE_IMMERSIVE_DARK_MODE, ref useImmersiveDarkMode, sizeof(int));
+            }
+        }
 
         private void PreInitializeBrowser()
         {
@@ -149,11 +167,14 @@ namespace TBP_Dashboard
         private void WebView_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
             WebView.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            //Start listen events
+            WebView.CoreWebView2.WebMessageReceived += WebView2_WebMessageReceived;
+            WebView.CoreWebView2.Settings.IsWebMessageEnabled = true;
 
             WebView.Source = new Uri("https://crutionix.com/oauth/");
-            StatusStrip.Text = "Starting Launcher...";
-            UpdateHeader.Text = "Starting TBP Launcher...";
-            this.Text = "Starting... | TBP Launcher";
+            StatusStrip.Text = "Starting TBPlay...";
+            UpdateHeader.Text = "Starting TBPlay...";
+            this.Text = "Starting... | TBPlay";
 
             //Check for updates
             if (Properties.Settings.Default.CheckUpdates == "TRUE")
@@ -169,6 +190,100 @@ namespace TBP_Dashboard
             StatusLabel.Text = WebView.Source.ToString();
         }
 
+        private void WebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            //debug box: MessageBox.Show("WebMessageReceived fired!");
+            try
+            {
+                var json = e.WebMessageAsJson;
+                dynamic msg = JsonConvert.DeserializeObject(json);
+
+                string action = msg.action ?? "";
+
+                switch (action)
+                {
+                    case "play":
+                        HandlePlay();
+                        break;
+                    case "download":
+                        HandleDownload(msg);
+                        break;
+                    case "install_fabric":
+                        HandleInstallFabric();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Oops. An issue occured: {ex.Message}");
+            }
+        }
+
+        private void HandlePlay()
+        {
+            string MinecraftLocation = Properties.Settings.Default.LaunchMinecraft;
+            if (String.IsNullOrEmpty(MinecraftLocation) || String.IsNullOrWhiteSpace(MinecraftLocation))
+            {
+                FindLauncher();
+            }
+            else if (MinecraftLocation == Properties.Settings.Default.MSStoreMinecraftLocation)
+            {
+                LaunchLauncher();
+            }
+            else
+            {
+                LaunchLauncher();
+            }
+            WebView.Source = new Uri("https://crutionix.com/tbp/launcher/play");
+        }
+
+        private void HandleDownload(dynamic msg)
+        {
+            string type = msg.type;
+            string name = msg.name;
+            string version = msg.version;
+            string url = msg.url;
+            string profile = msg.profile ?? "";
+            string description = msg.description ?? "";
+
+            Properties.Settings.Default.DownloadItem = url;
+            Properties.Settings.Default.Save();
+
+            // UI logic as needed
+            if (type == "modpack")
+            {
+                Properties.Settings.Default.DownloadType = "modpack";
+                Properties.Settings.Default.DownloadVersion = version;
+                Properties.Settings.Default.DownloadName = name;
+                Properties.Settings.Default.Save();
+            }
+            else if (type == "resourcepack")
+            {
+                Properties.Settings.Default.DownloadType = "resourcepack";
+                Properties.Settings.Default.DownloadVersion = version;
+                Properties.Settings.Default.DownloadName = name;
+                Properties.Settings.Default.Save();
+            }
+            else if (type == "world")
+            {
+                Properties.Settings.Default.DownloadType = "world";
+                Properties.Settings.Default.DownloadVersion = version;
+                Properties.Settings.Default.DownloadName = name;
+                Properties.Settings.Default.Save();
+            }
+
+            DoContentInstall.Start();
+        }
+
+        private void HandleInstallFabric()
+        {
+            string dataPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("TBP Dashboard.exe", null);
+            string fabriclocation = Path.Combine(dataPath, "fabric-installer.exe");
+            Process.Start(fabriclocation);
+        }
+
         private void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             if (WebView.Source.ToString().EndsWith("/dashboard/"))
@@ -177,7 +292,7 @@ namespace TBP_Dashboard
                 HideLoadingPanel();
                 StatusStrip.Visible = false;
                 this.Icon = Resources.MCGC;
-                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")";
+                this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")";
                 this.Width = 1064;
                 this.Height = 723;
                 WebView2.Visible = true;
@@ -192,10 +307,10 @@ namespace TBP_Dashboard
             }
             else if (WebView.Source.ToString().EndsWith("crutionix.com/"))
             {
-                WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/newsfeed?ref=wingo");
-                                StatusStrip.Visible = false;
+                WebView2.Source = new Uri("https://crutionix.com/tbp/launcher/");
+                StatusStrip.Visible = false;
                 this.Icon = Resources.MCGC;
-                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")";
+                this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")";
                 this.Width = 1064;
                 this.Height = 723;
                 WebView2.Visible = true;
@@ -247,7 +362,7 @@ namespace TBP_Dashboard
         {
              this.Invoke(new MethodInvoker(delegate
             {
-                this.Text = "Checking for updates... | TBP Launcher";
+                this.Text = "Checking for updates... | TBPlay";
             }));
             StatusLabel.Text = "Checking for updates...";
             string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.txt";
@@ -266,11 +381,11 @@ namespace TBP_Dashboard
         {
             if (e.Cancelled == true)
             {
-                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
+                this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
             }
             else if (e.Error != null)
             {
-                this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
+                this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
 
             }
             else
@@ -278,11 +393,11 @@ namespace TBP_Dashboard
                 //Compare current stable version against installed version
                 if (Properties.Settings.Default.CVER.Contains(Properties.Settings.Default.Version))
                 {
-                    this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
+                    this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
                 }
                 else
                 {
-                    this.Text = "Dashboard - TBP Launcher (v" + Settings.Default.Version + ")" + " [Updates Available]";
+                    this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Updates Available]";
                     //Updates are available
                     UpdateNotification.Visible = true;
                 }
@@ -298,7 +413,7 @@ namespace TBP_Dashboard
         private void TryUpdate()
         {
             //Alert to available update
-            DialogResult dr = MessageBox.Show("There are updates available for TBP Launcher. Would you like to download and install the latest version?", "Update | TBP Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("There are updates available for TBPlay. Would you like to download and install the latest version?", "Update | TBPlay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             //User clicks yes
             if (dr == DialogResult.Yes)
@@ -327,7 +442,9 @@ namespace TBP_Dashboard
 
         private void WebView2_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-             WebView2.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            WebView2.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            WebView2.CoreWebView2.Settings.IsWebMessageEnabled = true;
+            WebView2.CoreWebView2.WebMessageReceived += WebView2_WebMessageReceived;
         }
 
         private void WebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
@@ -345,96 +462,7 @@ namespace TBP_Dashboard
 
         private void WebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            //If user clicks Play
-            if (WebView2.Source.ToString().EndsWith("#wingo?ref=play"))
-            {
-                string MinecraftLocation = Properties.Settings.Default.LaunchMinecraft;
-                if (String.IsNullOrEmpty(MinecraftLocation))
-                {
-                    //Launcher Location is not specified
-                    FindLauncher();
-                }
-                else if (String.IsNullOrWhiteSpace(MinecraftLocation))
-                {
-                    //Launcher Location is not specified.
-                    FindLauncher();
-                }
-                else if (MinecraftLocation == Properties.Settings.Default.MSStoreMinecraftLocation)
-                {
-                    //Launcher Location is MS Store Launcher
-                    LaunchLauncher();
-                }
-                else
-                {
-                    //Other Launcher Location Specified
-                    LaunchLauncher();
-                }
-            }
-            //If user clicks Worlds
-            if (WebView2.Source.ToString().EndsWith("#wingo?ref=worlddownload"))
-            {
-                try
-                {
-                    string InstallLocation = Path.GetDirectoryName(Application.ExecutablePath).Replace("TBP Dashboard.exe", null);
-                    Process.Start(InstallLocation + @"\TBP World Saver.exe");
-                    WebView2.Source = new Uri(WebView2.Source.ToString().Replace("#wingo?ref=worlddownload", null));
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("There was an issue. " + ex.Message);
-                }
-            }
-            //If user clicks "Install Modpack"
-            if (WebView2.Source.ToString().Contains("#wingo?ref=mpdownload_"))
-            {
-                string Source = WebView2.Source.ToString().Replace("https://crutionix.com/tbpdashboard/newsfeed/#wingo?ref=mpdownload_", null); ;
-                Properties.Settings.Default.DownloadItem = Source;
-                Properties.Settings.Default.Save();
-
-                DoContentInstall.Start();
-
-                //Query URL for Download Type
-                Uri QueryURL = new Uri(Source);
-                // Grabs the query string from the URL:
-                string query = QueryURL.Query;
-                // Parses the query string as a NameValueCollection:
-                var queryParams = HttpUtility.ParseQueryString(query);
-
-                string GoURL = queryParams["fwd"];
-
-                WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/" + GoURL);
-                MP_Custom.Checked = true;
-                MP_Origins1.Checked = false;
-                MP_Vanilla.Checked = false;
-            }
-            //If user clicks Download World
-            if (WebView2.Source.ToString().Contains("#wingo?ref=worldsave_"))
-            {
-                string Source = WebView2.Source.ToString().Replace("https://crutionix.com/tbpdashboard/newsfeed/#wingo?ref=worldsave_", null); 
-                Properties.Settings.Default.DownloadItem = Source;
-                Properties.Settings.Default.Save();
-
-                //Query URL for Download Type
-                Uri QueryURL = new Uri(Source);
-                // Grabs the query string from the URL:
-                string query = QueryURL.Query;
-                // Parses the query string as a NameValueCollection:
-                var queryParams = HttpUtility.ParseQueryString(query);
-
-                string GoURL = queryParams["fwd"];
-
-                WebView2.Source = new Uri("https://crutionix.com/tbpdashboard/" + GoURL);
-
-                DoContentInstall.Start();
-            }
-            //If user clicks a File Link
-            if (WebView2.Source.ToString().Contains("#wingo?ref=installfabric"))
-            {
-                string dataPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("TBP Dashboard.exe", null);
-                string fabriclocation = Path.Combine(dataPath, "fabric-installer.exe");
-                Process.Start(fabriclocation);
-                WebView2.Source = new Uri(WebView2.Source.ToString().Replace("#wingo?ref=installfabric", null));
-            }
+            //
         }
 
         private void FindLauncher()

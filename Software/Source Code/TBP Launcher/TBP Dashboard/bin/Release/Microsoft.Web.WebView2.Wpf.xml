@@ -1376,8 +1376,8 @@
              Visual hosting version of the WebView2 control.
              </summary>
              <remarks>
-             This control is effectively a wrapper around the [WebView2 COM
-             API](https://aka.ms/webview2). You can directly access the underlying
+             This control is effectively a wrapper around the
+             <see href="https://aka.ms/webview2">WebView2 COM API</see>. You can directly access the underlying
              ICoreWebView2 interface and all of its functionality by accessing the
              <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> property. Some of the most common COM
              functionality is also accessible directly through wrapper
@@ -1471,8 +1471,8 @@
              By default, <see cref="P:System.Windows.FrameworkElement.UseLayoutRounding"/> of WebView2CompositionControl
              is set to true. This can prevent the <see cref="T:System.Windows.Controls.Image"/> from becoming blurry at certain dimensions,
              but it disables anti-aliasing. Set it to false if you want to keep the anti-aliasing.
-             
-             Note that the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl"/> uses a [GraphicsCaptureSession](https://learn.microsoft.com/en-us/uwp/api/windows.graphics.capture.graphicscapturesession)
+            
+             Note that the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl"/> uses a [GraphicsCaptureSession](/uwp/api/windows.graphics.capture.graphicscapturesession)
              to capture the screen content from the underlying browser processes.
              As such, you may experience lower framerates compared to the standard <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, and DRM protected
              content will fail to play or display properly.
@@ -1896,36 +1896,6 @@
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.IsInDesignMode">
             <summary>
             True when we're in design mode and shouldn't create an underlying CoreWebView2.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

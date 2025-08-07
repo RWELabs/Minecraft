@@ -141,13 +141,13 @@
             this.LoadingPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadingPanel.BackColor = System.Drawing.Color.White;
+            this.LoadingPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.LoadingPanel.Controls.Add(this.UpdateHeader);
             this.LoadingPanel.Controls.Add(this.pictureBox2);
             this.LoadingPanel.Controls.Add(this.pictureBox1);
-            this.LoadingPanel.Location = new System.Drawing.Point(1016, 646);
+            this.LoadingPanel.Location = new System.Drawing.Point(467, 245);
             this.LoadingPanel.Name = "LoadingPanel";
-            this.LoadingPanel.Size = new System.Drawing.Size(32, 26);
+            this.LoadingPanel.Size = new System.Drawing.Size(581, 427);
             this.LoadingPanel.TabIndex = 2;
             this.LoadingPanel.Visible = false;
             // 
@@ -156,10 +156,10 @@
             this.UpdateHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateHeader.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateHeader.ForeColor = System.Drawing.Color.Gray;
-            this.UpdateHeader.Location = new System.Drawing.Point(3, -99);
+            this.UpdateHeader.ForeColor = System.Drawing.Color.DarkGray;
+            this.UpdateHeader.Location = new System.Drawing.Point(3, 302);
             this.UpdateHeader.Name = "UpdateHeader";
-            this.UpdateHeader.Size = new System.Drawing.Size(22, 25);
+            this.UpdateHeader.Size = new System.Drawing.Size(571, 25);
             this.UpdateHeader.TabIndex = 2;
             this.UpdateHeader.Text = "Checking for updates...";
             this.UpdateHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,10 +169,10 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPLauncherHeader;
-            this.pictureBox2.Location = new System.Drawing.Point(3, -43);
+            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 358);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 36);
+            this.pictureBox2.Size = new System.Drawing.Size(571, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -180,10 +180,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._285;
-            this.pictureBox1.Location = new System.Drawing.Point(3, -60);
+            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 140);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 64);
+            this.pictureBox1.Size = new System.Drawing.Size(571, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -223,6 +223,7 @@
             // 
             // MenuStrip
             // 
+            this.MenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainIcon,
             this.FileMenu,
@@ -252,6 +253,7 @@
             this.OpenSettings,
             this.toolStripSeparator1,
             this.Exit});
+            this.FileMenu.ForeColor = System.Drawing.Color.White;
             this.FileMenu.Name = "FileMenu";
             this.FileMenu.Size = new System.Drawing.Size(37, 20);
             this.FileMenu.Text = "File";
@@ -259,21 +261,21 @@
             // OpenSettings
             // 
             this.OpenSettings.Name = "OpenSettings";
-            this.OpenSettings.Size = new System.Drawing.Size(180, 22);
+            this.OpenSettings.Size = new System.Drawing.Size(135, 22);
             this.OpenSettings.Text = "Settings";
             this.OpenSettings.Click += new System.EventHandler(this.OpenSettings_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
             // 
             // Exit
             // 
             this.Exit.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
             this.Exit.Name = "Exit";
             this.Exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.Exit.Size = new System.Drawing.Size(180, 22);
+            this.Exit.Size = new System.Drawing.Size(135, 22);
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -287,6 +289,7 @@
             this.forwardToolStripMenuItem,
             this.toolStripSeparator5,
             this.OpenPrivacyPolicy});
+            this.ViewMenu.ForeColor = System.Drawing.Color.White;
             this.ViewMenu.Name = "ViewMenu";
             this.ViewMenu.Size = new System.Drawing.Size(44, 20);
             this.ViewMenu.Text = "View";
@@ -347,6 +350,7 @@
             this.toolStripSeparator2,
             this.TestFeatures,
             this.OpenMinecraftDir});
+            this.ToolsMenu.ForeColor = System.Drawing.Color.White;
             this.ToolsMenu.Name = "ToolsMenu";
             this.ToolsMenu.Size = new System.Drawing.Size(46, 20);
             this.ToolsMenu.Text = "Tools";
@@ -377,14 +381,14 @@
             // testDownloadToolStripMenuItem
             // 
             this.testDownloadToolStripMenuItem.Name = "testDownloadToolStripMenuItem";
-            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.testDownloadToolStripMenuItem.Text = "TestDownload";
             this.testDownloadToolStripMenuItem.Click += new System.EventHandler(this.testDownloadToolStripMenuItem_Click);
             // 
             // OpenModManager
             // 
             this.OpenModManager.Name = "OpenModManager";
-            this.OpenModManager.Size = new System.Drawing.Size(180, 22);
+            this.OpenModManager.Size = new System.Drawing.Size(148, 22);
             this.OpenModManager.Text = "ModManager";
             this.OpenModManager.Click += new System.EventHandler(this.OpenModManager_Click);
             // 
@@ -401,6 +405,7 @@
             this.UpdateNotification.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.InstallUpdate,
             this.DismissUpdate});
+            this.UpdateNotification.ForeColor = System.Drawing.Color.White;
             this.UpdateNotification.Image = global::TBP_Dashboard.Properties.Resources.UpdatesIcon;
             this.UpdateNotification.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.UpdateNotification.Name = "UpdateNotification";
@@ -433,6 +438,7 @@
             this.MP_Custom,
             this.toolStripSeparator3,
             this.ModManagerMenuItem});
+            this.modpackToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.modpackToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.Potato;
             this.modpackToolStripMenuItem.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.modpackToolStripMenuItem.Name = "modpackToolStripMenuItem";
@@ -441,7 +447,9 @@
             // 
             // MP_Vanilla
             // 
+            this.MP_Vanilla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.MP_Vanilla.CheckOnClick = true;
+            this.MP_Vanilla.ForeColor = System.Drawing.Color.White;
             this.MP_Vanilla.Name = "MP_Vanilla";
             this.MP_Vanilla.Size = new System.Drawing.Size(242, 22);
             this.MP_Vanilla.Text = "No Modpack (Vanilla Minecraft)";
@@ -449,7 +457,9 @@
             // 
             // MP_Origins1
             // 
+            this.MP_Origins1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.MP_Origins1.CheckOnClick = true;
+            this.MP_Origins1.ForeColor = System.Drawing.Color.White;
             this.MP_Origins1.Name = "MP_Origins1";
             this.MP_Origins1.Size = new System.Drawing.Size(242, 22);
             this.MP_Origins1.Text = "TBP Origins (Season 1)";
@@ -457,7 +467,9 @@
             // 
             // MP_Custom
             // 
+            this.MP_Custom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.MP_Custom.CheckOnClick = true;
+            this.MP_Custom.ForeColor = System.Drawing.Color.White;
             this.MP_Custom.Name = "MP_Custom";
             this.MP_Custom.Size = new System.Drawing.Size(242, 22);
             this.MP_Custom.Text = "Custom Modpack";
@@ -465,11 +477,15 @@
             // 
             // toolStripSeparator3
             // 
+            this.toolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.toolStripSeparator3.ForeColor = System.Drawing.Color.White;
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(239, 6);
             // 
             // ModManagerMenuItem
             // 
+            this.ModManagerMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.ModManagerMenuItem.ForeColor = System.Drawing.Color.White;
             this.ModManagerMenuItem.Image = global::TBP_Dashboard.Properties.Resources.InstallModpack;
             this.ModManagerMenuItem.Name = "ModManagerMenuItem";
             this.ModManagerMenuItem.Size = new System.Drawing.Size(242, 22);
@@ -503,22 +519,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1048, 684);
             this.Controls.Add(this.WebView2);
-            this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.StatusStrip);
+            this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.WebView);
-            this.Controls.Add(this.LoadingPanel);
             this.Controls.Add(this.SettingsProcessing);
             this.Controls.Add(this.ModsProcessing);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.LoadingPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuStrip;
             this.MinimumSize = new System.Drawing.Size(1064, 723);
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TBP Launcher";
+            this.Text = "TBPlay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignIn_FormClosing);
             this.Load += new System.EventHandler(this.SignIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).EndInit();

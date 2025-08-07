@@ -90,6 +90,7 @@
             this.StatusText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.StatusText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.StatusText.ForeColor = System.Drawing.Color.White;
             this.StatusText.Location = new System.Drawing.Point(18, 83);
             this.StatusText.Name = "StatusText";
             this.StatusText.Size = new System.Drawing.Size(352, 23);
@@ -99,10 +100,10 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPLauncherHeader;
+            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
             this.pictureBox2.Location = new System.Drawing.Point(12, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(226, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(146, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -110,7 +111,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._285;
+            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
             this.pictureBox1.Location = new System.Drawing.Point(322, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(52, 39);
@@ -147,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(389, 194);
             this.ControlBox = false;
             this.Controls.Add(this.DownloadProgress);
@@ -162,7 +163,7 @@
             this.Name = "DownloadContent";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Download Content | TBP Launcher";
+            this.Text = "Download Content | TBPlay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DownloadContent_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

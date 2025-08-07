@@ -35,24 +35,6 @@ namespace TBP_Dashboard.Get
             string LauncherProfiles = MinecraftDir + @"launcher_profiles.json";
 
             FileDestination.Text = Properties.Settings.Default.DownloadItem;
-            
-            //Query URL for Download Type
-            Uri DownloadURL = new Uri(Properties.Settings.Default.DownloadItem);
-            // Grabs the query string from the URL:
-            string query = DownloadURL.Query;
-            // Parses the query string as a NameValueCollection:
-            var queryParams = HttpUtility.ParseQueryString(query);
-
-            foreach (string param in queryParams)
-            {
-                if (param == "type") { string DownloadType = queryParams["type"]; Properties.Settings.Default.DownloadType = DownloadType.ToLower(); }
-                if (param == "version") { string GameVersion = queryParams["version"]; Properties.Settings.Default.DownloadVersion = GameVersion.ToString(); }
-                if (param == "name") { string Name = queryParams["name"]; Properties.Settings.Default.DownloadName = Name.ToString(); }
-            }
-            
-            //MessageBox.Show(DownloadType + " " + GameVersion);
-            
-            Properties.Settings.Default.Save();
 
             try
             {

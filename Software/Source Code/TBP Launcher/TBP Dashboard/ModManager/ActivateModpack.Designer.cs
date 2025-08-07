@@ -59,7 +59,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._285;
+            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
             this.pictureBox1.Location = new System.Drawing.Point(-2, 118);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(362, 50);
@@ -70,6 +70,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(335, 23);
@@ -80,6 +81,7 @@
             // StatusLabel
             // 
             this.StatusLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.White;
             this.StatusLabel.Location = new System.Drawing.Point(12, 67);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(335, 23);
@@ -91,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(359, 248);
             this.ControlBox = false;
             this.Controls.Add(this.ProcessingList);
@@ -102,7 +104,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ActivateModpack";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Swapping Modpacks | TBP Launcher";
+            this.Text = "Swapping Modpacks | TBPlay";
             this.Load += new System.EventHandler(this.ActivateModpack_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

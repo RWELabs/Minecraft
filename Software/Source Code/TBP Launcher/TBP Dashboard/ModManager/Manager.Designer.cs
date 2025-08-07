@@ -49,7 +49,9 @@
             this.ModList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ModList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ModList.CheckOnClick = true;
+            this.ModList.ForeColor = System.Drawing.Color.White;
             this.ModList.FormattingEnabled = true;
             this.ModList.Location = new System.Drawing.Point(12, 118);
             this.ModList.Margin = new System.Windows.Forms.Padding(7, 7, 3, 3);
@@ -60,6 +62,10 @@
             // DeleteMod
             // 
             this.DeleteMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.DeleteMod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.DeleteMod.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.DeleteMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteMod.ForeColor = System.Drawing.Color.White;
             this.DeleteMod.Image = global::TBP_Dashboard.Properties.Resources.Close;
             this.DeleteMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DeleteMod.Location = new System.Drawing.Point(339, 468);
@@ -67,7 +73,7 @@
             this.DeleteMod.Size = new System.Drawing.Size(139, 45);
             this.DeleteMod.TabIndex = 1;
             this.DeleteMod.Text = "Delete Mod";
-            this.DeleteMod.UseVisualStyleBackColor = true;
+            this.DeleteMod.UseVisualStyleBackColor = false;
             this.DeleteMod.Click += new System.EventHandler(this.DeleteMod_Click);
             // 
             // statusStrip1
@@ -92,6 +98,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(466, 29);
@@ -102,6 +109,10 @@
             // InstallMod
             // 
             this.InstallMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.InstallMod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.InstallMod.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.InstallMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InstallMod.ForeColor = System.Drawing.Color.White;
             this.InstallMod.Image = global::TBP_Dashboard.Properties.Resources.InstallModpack;
             this.InstallMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstallMod.Location = new System.Drawing.Point(12, 468);
@@ -109,13 +120,17 @@
             this.InstallMod.Size = new System.Drawing.Size(139, 45);
             this.InstallMod.TabIndex = 5;
             this.InstallMod.Text = "Install Mod";
-            this.InstallMod.UseVisualStyleBackColor = true;
+            this.InstallMod.UseVisualStyleBackColor = false;
             this.InstallMod.Click += new System.EventHandler(this.InstallMod_Click);
             // 
             // InstallModpack
             // 
             this.InstallModpack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.InstallModpack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.InstallModpack.Enabled = false;
+            this.InstallModpack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.InstallModpack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InstallModpack.ForeColor = System.Drawing.Color.White;
             this.InstallModpack.Image = global::TBP_Dashboard.Properties.Resources.InstallMod;
             this.InstallModpack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstallModpack.Location = new System.Drawing.Point(167, 468);
@@ -126,7 +141,7 @@
             this.ToolTip.SetToolTip(this.InstallModpack, "Modpacks can be installed from the main dashboard, by navigating to the mod downl" +
         "oad section. This feature is intended for manual installation and is not yet imp" +
         "lemented.");
-            this.InstallModpack.UseVisualStyleBackColor = true;
+            this.InstallModpack.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
@@ -156,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(492, 553);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.InstallModpack);

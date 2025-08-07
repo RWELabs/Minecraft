@@ -73,6 +73,16 @@ namespace TBP_Dashboard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2851 {
+            get {
+                object obj = ResourceManager.GetObject("2851", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Check {
             get {
                 object obj = ResourceManager.GetObject("Check", resourceCulture);
@@ -256,6 +266,16 @@ namespace TBP_Dashboard.Properties {
         internal static System.Drawing.Bitmap TBPLauncherHeader {
             get {
                 object obj = ResourceManager.GetObject("TBPLauncherHeader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TBPlayText {
+            get {
+                object obj = ResourceManager.GetObject("TBPlayText", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
