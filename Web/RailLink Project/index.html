@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner | TBP RailLink</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #36393f;
+            min-height: 100vh;
+            padding: 20px;
+            color: #dcddde;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #f2f3f5;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016, #4a7c59, #5d8a66);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 32px;
+            background: #f2f3f5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4f545c;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            transition: all 0.15s ease;
+        }
+
+        select {
+            background: white;
+            color: #2f3136;
+            border: 1px solid #dcddde;
+        }
+
+        select:focus {
+            border-color: #5865f2;
+            outline: none;
+            box-shadow: 0 0 0 1px #5865f2;
+        }
+
+        .route-button {
+            background: linear-gradient(135deg, #2d5016, #4a7c59, #5d8a66);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: none;
+            letter-spacing: normal;
+            margin-top: 10px;
+            height: 44px;
+        }
+
+        .route-button:hover {
+            background: linear-gradient(135deg, #1f3a0f, #356641, #467552);
+        }
+
+        .route-button:disabled {
+            background: #4f545c;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 24px;
+            padding: 14px;
+            background: #ffffff;
+            border-radius: 4px;
+            border: 1px solid #e3e5e8;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .route-info {
+            background: #f2f3f5;
+            padding: 14px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        .route-info h3 {
+            color: #2f3136;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .route-step {
+            padding: 10px;
+            margin: 6px 0;
+            background: #ffffff;
+            border-radius: 4px;
+            border-left: 3px solid #5865f2;
+            font-size: 13px;
+            color: #2f3136;
+        }
+
+        .route-step:last-child {
+            background: #e8f5e8;
+            border-left-color: #4caf50;
+        }
+
+        .route-substep {
+            padding: 7px 10px;
+            margin: 3px 0 3px 18px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            border-left: 2px solid #d3d3d3;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .intermediate-stations {
+            font-size: 12px;
+            color: #72767d;
+            font-style: normal;
+            margin-top: 4px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .stat-item {
+            background: #f2f3f5;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid #e3e5e8;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2f3136;
+        }
+
+        .stat-label {
+            color: #4f545c;
+            margin-top: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .clear-button {
+            background: #ed4245;
+            margin-left: 10px;
+            width: auto;
+            display: inline-block;
+            padding: 10px 16px;
+            height: 44px;
+        }
+
+        .clear-button:hover {
+            background: #c73034;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .button-group > * {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 8px;
+            }
+            
+            .header {
+                padding: 18px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .main-content {
+                padding: 18px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .button-group > * {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TBP RailLink</h1>
+            <p>Plan your journey on TBP's premium rail service.</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="form-group">
+                <label for="origin">Where are you travelling from?</label>
+                <select id="origin">
+                    <option value="">Select your closest station.</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="destination">Where would you like to go?</label>
+                <select id="destination">
+                    <option value="">Select your destination.</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button id="planRoute" class="route-button" disabled>Plan My Journey</button>
+                <button id="clearRoute" class="route-button clear-button" style="display: none;">Start Fresh</button>
+            </div>
+            
+            <div id="result" class="result">
+                <div id="routeInfo" class="route-info">
+                    <h3>🗺️ Your Route</h3>
+                    <div id="routeSteps"></div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalStations">-</div>
+                        <div class="stat-label">Total Stations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="estimatedTime">-</div>
+                        <div class="stat-label">Est. Travel Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalDistance">-</div>
+                        <div class="stat-label">Distance (blocks)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // TBP Server Rail Network
+        const stations = {
+            // S2/N2 Line Stations
+            'official-industries': { name: 'Official Industries Station', x: 158, z: -70, line: 'N2, S2' },
+            'spawn-north': { name: 'Spawn North Station', x: -76, z: -3, line: 'N2, S2' },
+            'spawn-south': { name: 'Spawn South Station', x: -9, z: 184, line: 'N1, N2, S1, S2' },
+            'auralis-ground': { name: 'Auralis Ground Station', x: -355, z: 495, line: 'N2, S2' },
+            
+            // N1/S1 Line Stations
+            'daeyrock-east': { name: 'Daeyrock East Station', x: -5, z: 644, line: 'N1, S1' },
+            'daeyrock-west': { name: 'Daeyrock West Station', x: 11, z: 475, line: 'N1, S1' },
+            'luthorne': { name: 'Luthorne Station', x: 240, z: 96, line: 'N1, S1' },
+            'formulation': { name: 'Formulation Station', x: 401, z: 114, line: 'N1, S1' },
+            'willowcrest': { name: 'Willowcrest Station', x: 721, z: -25, line: 'N1, S1' }
+        };
+
+        // Define rail connections based on the line system
+        const connections = {
+            // S2 Line: Official Industries → Spawn North → Spawn South → Auralis Ground
+            'official-industries': ['spawn-north'],
+            'spawn-north': ['official-industries', 'spawn-south'],
+            
+            // Central Hub - Spawn South connects all lines
+            'spawn-south': ['spawn-north', 'auralis-ground', 'daeyrock-west', 'luthorne'],
+            
+            // S2 Line continued: Spawn South → Auralis Ground
+            'auralis-ground': ['spawn-south'],
+            
+            // N1 Line: Daeyrock East → Daeyrock West → Spawn South → Luthorne → Formulation → Willowcrest
+            'daeyrock-east': ['daeyrock-west'],
+            'daeyrock-west': ['daeyrock-east', 'spawn-south'],
+            'luthorne': ['spawn-south', 'formulation'],
+            'formulation': ['luthorne', 'willowcrest'],
+            'willowcrest': ['formulation']
+        };
+
+        // Initialize the application
+        function init() {
+            populateStations();
+            setupEventListeners();
+        }
+
+        function populateStations() {
+            const originSelect = document.getElementById('origin');
+            const destinationSelect = document.getElementById('destination');
+            
+            // Clear existing options (except the first one)
+            originSelect.innerHTML = '<option value="">Select your starting station...</option>';
+            destinationSelect.innerHTML = '<option value="">Select your destination...</option>';
+            
+            // Sort stations alphabetically by name
+            const sortedStations = Object.keys(stations)
+                .map(stationId => ({ id: stationId, name: stations[stationId].name }))
+                .sort((a, b) => a.name.localeCompare(b.name));
+            
+            // Add station options in alphabetical order
+            sortedStations.forEach(station => {
+                const option = new Option(station.name, station.id);
+                originSelect.add(option.cloneNode(true));
+                destinationSelect.add(option);
+            });
+        }
+
+        function setupEventListeners() {
+            const originSelect = document.getElementById('origin');
+            const destinationSelect = document.getElementById('destination');
+            const planButton = document.getElementById('planRoute');
+            const clearButton = document.getElementById('clearRoute');
+
+            // Enable/disable plan button based on selections
+            function updatePlanButton() {
+                const canPlan = originSelect.value && destinationSelect.value && originSelect.value !== destinationSelect.value;
+                planButton.disabled = !canPlan;
+            }
+
+            originSelect.addEventListener('change', updatePlanButton);
+            destinationSelect.addEventListener('change', updatePlanButton);
+            planButton.addEventListener('click', planRoute);
+            clearButton.addEventListener('click', clearRoute);
+        }
+
+        // Dijkstra's algorithm for shortest path
+        function findShortestPath(start, end) {
+            const distances = {};
+            const previous = {};
+            const unvisited = new Set();
+            
+            // Initialize distances
+            Object.keys(stations).forEach(station => {
+                distances[station] = station === start ? 0 : Infinity;
+                unvisited.add(station);
+            });
+            
+            while (unvisited.size > 0) {
+                // Find unvisited node with minimum distance
+                let current = null;
+                let minDistance = Infinity;
+                
+                for (const station of unvisited) {
+                    if (distances[station] < minDistance) {
+                        minDistance = distances[station];
+                        current = station;
+                    }
+                }
+                
+                if (current === null || current === end) break;
+                
+                unvisited.delete(current);
+                
+                // Check neighbors
+                if (connections[current]) {
+                    connections[current].forEach(neighbor => {
+                        if (unvisited.has(neighbor)) {
+                            const distance = calculateDistance(current, neighbor);
+                            const alt = distances[current] + distance;
+                            
+                            if (alt < distances[neighbor]) {
+                                distances[neighbor] = alt;
+                                previous[neighbor] = current;
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Reconstruct path
+            const path = [];
+            let current = end;
+            
+            while (current !== undefined) {
+                path.unshift(current);
+                current = previous[current];
+            }
+            
+            return path[0] === start ? path : null; // Return null if no path found
+        }
+
+        function calculateDistance(station1, station2) {
+            const s1 = stations[station1];
+            const s2 = stations[station2];
+            return Math.sqrt(Math.pow(s2.x - s1.x, 2) + Math.pow(s2.z - s1.z, 2));
+        }
+
+        function planRoute() {
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            
+            if (!origin || !destination || origin === destination) {
+                alert('Please select different origin and destination stations.');
+                return;
+            }
+            
+            const path = findShortestPath(origin, destination);
+            
+            if (!path) {
+                alert('No route found between the selected stations.');
+                return;
+            }
+            
+            displayRoute(path);
+        }
+
+        // Function to determine which line is being used based on the route direction
+        function getLineForDirection(currentStation, nextStation, prevStation) {
+            const stationId = currentStation;
+            
+            // For stations that are on multiple lines, determine direction
+            if (stationId === 'spawn-south') {
+                return 'Transfer Hub';
+            }
+            
+            // For N1/S1 line stations
+            if (['willowcrest', 'formulation', 'luthorne', 'daeyrock-west', 'daeyrock-east'].includes(stationId)) {
+                if (nextStation) {
+                    // Determine direction based on next station
+                    // S1 Direction: Willowcrest → Formulation → Luthorne → Spawn South → Daeyrock West → Daeyrock East
+                    // N1 Direction: Daeyrock East → Daeyrock West → Spawn South → Luthorne → Formulation → Willowcrest
+                    const s1Direction = ['willowcrest', 'formulation', 'luthorne', 'spawn-south', 'daeyrock-west', 'daeyrock-east'];
+                    
+                    const currentIndex = s1Direction.indexOf(stationId);
+                    const nextIndex = s1Direction.indexOf(nextStation);
+                    
+                    if (nextIndex > currentIndex) {
+                        return 'S1'; // Going in S1 direction
+                    } else {
+                        return 'N1'; // Going in N1 direction
+                    }
+                } else if (prevStation) {
+                    // For the final station, determine based on previous station
+                    const s1Direction = ['willowcrest', 'formulation', 'luthorne', 'spawn-south', 'daeyrock-west', 'daeyrock-east'];
+                    const currentIndex = s1Direction.indexOf(stationId);
+                    const prevIndex = s1Direction.indexOf(prevStation);
+                    
+                    if (currentIndex > prevIndex) {
+                        return 'S1'; // Arrived via S1 direction
+                    } else {
+                        return 'N1'; // Arrived via N1 direction
+                    }
+                }
+            }
+            
+            // For N2/S2 line stations
+            if (['official-industries', 'spawn-north', 'auralis-ground'].includes(stationId)) {
+                if (nextStation) {
+                    const northToSouth = ['official-industries', 'spawn-north', 'spawn-south', 'auralis-ground'];
+                    const currentIndex = northToSouth.indexOf(stationId);
+                    const nextIndex = northToSouth.indexOf(nextStation);
+                    
+                    if (nextIndex > currentIndex) {
+                        return 'S2'; // Going south direction
+                    } else {
+                        return 'N2'; // Going north direction
+                    }
+                } else if (prevStation) {
+                    const northToSouth = ['official-industries', 'spawn-north', 'spawn-south', 'auralis-ground'];
+                    const currentIndex = northToSouth.indexOf(stationId);
+                    const prevIndex = northToSouth.indexOf(prevStation);
+                    
+                    if (currentIndex > prevIndex) {
+                        return 'S2'; // Arrived via south direction
+                    } else {
+                        return 'N2'; // Arrived via north direction
+                    }
+                }
+            }
+            
+            // Fallback to original line info
+            return stations[stationId].line;
+        }
+
+        function displayRoute(path) {
+            const resultDiv = document.getElementById('result');
+            const routeStepsDiv = document.getElementById('routeSteps');
+            const clearButton = document.getElementById('clearRoute');
+            
+            // Clear previous results
+            routeStepsDiv.innerHTML = '';
+            
+            let totalDistance = 0;
+            
+            // Group consecutive stations on the same line for better display
+            const routeSegments = [];
+            let currentSegment = [path[0]];
+            
+            for (let i = 1; i < path.length; i++) {
+                const currentStation = path[i];
+                
+                // Check if we're at a transfer point (Spawn South) or destination
+                if (currentStation === 'spawn-south' || i === path.length - 1) {
+                    currentSegment.push(currentStation);
+                    routeSegments.push(currentSegment);
+                    if (i < path.length - 1) {
+                        currentSegment = [currentStation]; // Start new segment from transfer station
+                    }
+                } else {
+                    currentSegment.push(currentStation);
+                }
+            }
+            
+            // Display each segment
+            routeSegments.forEach((segment, segmentIndex) => {
+                const stepDiv = document.createElement('div');
+                stepDiv.className = 'route-step';
+                
+                const startStation = segment[0];
+                const endStation = segment[segment.length - 1];
+                const lineInfo = getLineForDirection(startStation, segment[1], null);
+                
+                if (segmentIndex === 0 && segment.length === 1) {
+                    // Single station trip
+                    stepDiv.innerHTML = `<strong>🎯 Destination:</strong> ${stations[startStation].name}<br><small>Already at destination!</small>`;
+                } else if (segmentIndex === 0) {
+                    // First segment - starting station
+                    const intermediateStations = segment.slice(1, -1);
+                    let content = `<strong>🚀 Start:</strong> ${stations[startStation].name}<br><small>Take Line ${lineInfo}`;
+                    
+                    if (endStation === 'spawn-south') {
+                        content += ` to Spawn South Station (transfer hub)`;
+                    } else {
+                        content += ` to ${stations[endStation].name}`;
+                    }
+                    content += `</small>`;
+                    stepDiv.innerHTML = content;
+                    routeStepsDiv.appendChild(stepDiv);
+                    
+                    // Add intermediate stations as sub-steps
+                    intermediateStations.forEach(stationId => {
+                        const subStepDiv = document.createElement('div');
+                        subStepDiv.className = 'route-substep';
+                        subStepDiv.innerHTML = `🚉 Pass through: ${stations[stationId].name}`;
+                        routeStepsDiv.appendChild(subStepDiv);
+                    });
+                    
+                    // Don't append stepDiv again, we already did it above
+                    return;
+                } else {
+                    // Check if this is actually a line transfer or just a direction change
+                    const prevSegment = routeSegments[segmentIndex - 1];
+                    const prevStartStation = prevSegment[0];
+                    const currentEndStation = segment[segment.length - 1];
+                    
+                    // Get the line used in the previous segment
+                    const prevLineInfo = getLineForDirection(prevStartStation, prevSegment[1], null);
+                    // Get the line used in the current segment - for spawn-south, determine based on destination
+                    let currentLineInfo;
+                    if (startStation === 'spawn-south' && segment.length > 1) {
+                        // When starting from spawn-south, determine line based on the destination
+                        const nextStation = segment[1];
+                        if (['daeyrock-west', 'daeyrock-east', 'luthorne', 'formulation', 'willowcrest'].includes(nextStation)) {
+                            // Going to S1/N1 line stations
+                            const s1Direction = ['willowcrest', 'formulation', 'luthorne', 'spawn-south', 'daeyrock-west', 'daeyrock-east'];
+                            const spawnIndex = s1Direction.indexOf('spawn-south');
+                            const nextIndex = s1Direction.indexOf(nextStation);
+                            currentLineInfo = nextIndex > spawnIndex ? 'S1' : 'N1';
+                        } else if (['spawn-north', 'official-industries', 'auralis-ground'].includes(nextStation)) {
+                            // Going to S2/N2 line stations
+                            const s2Direction = ['official-industries', 'spawn-north', 'spawn-south', 'auralis-ground'];
+                            const spawnIndex = s2Direction.indexOf('spawn-south');
+                            const nextIndex = s2Direction.indexOf(nextStation);
+                            currentLineInfo = nextIndex > spawnIndex ? 'S2' : 'N2';
+                        } else {
+                            currentLineInfo = 'Transfer Hub';
+                        }
+                    } else {
+                        currentLineInfo = getLineForDirection(startStation, segment[1], null);
+                    }
+                    
+                    const intermediateStations = segment.slice(1, -1);
+                    
+                    let content;
+                    // Check if we're continuing on the same line through spawn-south
+                    if (startStation === 'spawn-south' && prevLineInfo === currentLineInfo) {
+                        // Same line, just direction change - not a transfer
+                        content = `<strong>🔄 Continue:</strong> ${stations[startStation].name}<br><small>Continue on Line ${prevLineInfo} to ${stations[currentEndStation].name}`;
+                    } else if (prevLineInfo === currentLineInfo && startStation !== 'spawn-south') {
+                        // Same line, just direction change - not a transfer
+                        content = `<strong>🔄 Continue:</strong> ${stations[startStation].name}<br><small>Continue on Line ${currentLineInfo} to ${stations[currentEndStation].name}`;
+                    } else {
+                        // Actual line transfer
+                        content = `<strong>🔄 Transfer:</strong> ${stations[startStation].name}<br><small>Transfer to Line ${currentLineInfo} to ${stations[currentEndStation].name}`;
+                    }
+                    content += `</small>`;
+                    stepDiv.innerHTML = content;
+                    routeStepsDiv.appendChild(stepDiv);
+                    
+                    // Add intermediate stations as sub-steps
+                    intermediateStations.forEach(stationId => {
+                        const subStepDiv = document.createElement('div');
+                        subStepDiv.className = 'route-substep';
+                        subStepDiv.innerHTML = `🚉 Pass through: ${stations[stationId].name}`;
+                        routeStepsDiv.appendChild(subStepDiv);
+                    });
+                    
+                    // Don't append stepDiv again, we already did it above
+                    return;
+                }
+                
+                // Only append stepDiv if we haven't already (for single station trips)
+                if (segmentIndex === 0 && segment.length === 1) {
+                    routeStepsDiv.appendChild(stepDiv);
+                }
+            });
+            
+            // Calculate total distance for all segments
+            routeSegments.forEach(segment => {
+                for (let i = 0; i < segment.length - 1; i++) {
+                    totalDistance += calculateDistance(segment[i], segment[i + 1]);
+                }
+            });
+            
+            // Add final arrival step (unless it's a single station trip where origin = destination)
+            if (path.length > 1) {
+                const finalStepDiv = document.createElement('div');
+                finalStepDiv.className = 'route-step';
+                const finalStation = path[path.length - 1];
+                const finalLineInfo = getLineForDirection(finalStation, null, path[path.length - 2]);
+                finalStepDiv.innerHTML = `<strong>🎯 Arrive:</strong> ${stations[finalStation].name}<br><small>You have reached your destination!</small>`;
+                routeStepsDiv.appendChild(finalStepDiv);
+            }
+            
+            // Update statistics (add modest padding for rail curves and elevation changes)
+            const adjustedDistance = totalDistance * 1.15; // Add 15% padding for curves and terrain
+            document.getElementById('totalStations').textContent = path.length;
+            document.getElementById('estimatedTime').textContent = "~" + `${Math.ceil(adjustedDistance / 150)} min`;
+            document.getElementById('totalDistance').textContent = "~" + Math.round(adjustedDistance);
+            
+            // Show results
+            resultDiv.classList.add('show');
+            clearButton.style.display = 'inline-block';
+        }
+
+        function clearRoute() {
+            const resultDiv = document.getElementById('result');
+            const clearButton = document.getElementById('clearRoute');
+            
+            resultDiv.classList.remove('show');
+            clearButton.style.display = 'none';
+            
+            // Reset selections
+            document.getElementById('origin').value = '';
+            document.getElementById('destination').value = '';
+            document.getElementById('planRoute').disabled = true;
+        }
+
+        // Initialize the app when the page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
