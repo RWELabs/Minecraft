@@ -228,6 +228,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="MCGC.ico" />
+    <None Include="Resources\294 %281%29.gif" />
+    <None Include="Resources\294.gif" />
+    <None Include="Resources\IconSpw.png" />
     <None Include="Resources\TBPlayText.png" />
     <None Include="Resources\2851.gif" />
     <None Include="Resources\UpdatesIcon.png" />
