@@ -163,21 +163,12 @@ namespace TBP_Dashboard.Get
         {
             if (Properties.Settings.Default.DownloadVersion.StartsWith("fabric"))
             {
-                if (!FileRead.Text.Contains(Properties.Settings.Default.DownloadVersion))
-                {
-                    //DialogResult dr = MessageBox.Show("This modpack requires a version of the Fabric mod loader to be installed. We'll download and launch the Fabric Installer for you to complete the setup. This modpack requires the latest version of " + Properties.Settings.Default.DownloadVersion + Environment.NewLine + Environment.NewLine + "We'll download the modpack and install it while you complete the Fabric installation.", "TBP Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //download fabric
-                    //string FabricInstaller = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/Launcher/fabric-installer.exe";
-                    StartFabricInstaller.Start();
-                    StatusText.Text = "Launching Fabric Installer";
-                    DownloadProgress.Text = "Please wait...";
-                }
-
-                else if (FileRead.Text.Contains(Properties.Settings.Default.DownloadVersion))
-                {
-                    //Skip fabric install
-                    DoModpackInstall();
-                }
+                MessageBox.Show("This modpack will require you to install " + Properties.Settings.Default.DownloadVersion + ". You can do this from TBPlay downloads.");
+                DoModpackInstall();
+            }
+            else
+            {
+                DoModpackInstall();
             }
         }
 

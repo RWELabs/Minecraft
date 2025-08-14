@@ -35,15 +35,16 @@
             this.DownloadProgress = new System.Windows.Forms.Label();
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.StatusText = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.StartFabricInstaller = new System.Windows.Forms.Timer(this.components);
             this.StartModpackUnzip = new System.Windows.Forms.Timer(this.components);
             this.ResourcePackInstallTimer = new System.Windows.Forms.Timer(this.components);
             this.StartWorldHandling = new System.Windows.Forms.Timer(this.components);
             this.DisableMods = new System.ComponentModel.BackgroundWorker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FileRead
@@ -68,9 +69,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DownloadProgress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DownloadProgress.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.DownloadProgress.Location = new System.Drawing.Point(18, 152);
+            this.DownloadProgress.Location = new System.Drawing.Point(14, 290);
             this.DownloadProgress.Name = "DownloadProgress";
-            this.DownloadProgress.Size = new System.Drawing.Size(352, 23);
+            this.DownloadProgress.Size = new System.Drawing.Size(377, 23);
             this.DownloadProgress.TabIndex = 9;
             this.DownloadProgress.Text = "label1";
             this.DownloadProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,44 +81,23 @@
             this.ProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgressBar.Location = new System.Drawing.Point(16, 115);
+            this.ProgressBar.Location = new System.Drawing.Point(14, 267);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(358, 31);
+            this.ProgressBar.Size = new System.Drawing.Size(377, 14);
             this.ProgressBar.TabIndex = 8;
             // 
             // StatusText
             // 
             this.StatusText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.StatusText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.StatusText.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.StatusText.ForeColor = System.Drawing.Color.White;
-            this.StatusText.Location = new System.Drawing.Point(18, 83);
+            this.StatusText.Location = new System.Drawing.Point(14, 138);
             this.StatusText.Name = "StatusText";
-            this.StatusText.Size = new System.Drawing.Size(352, 23);
+            this.StatusText.Size = new System.Drawing.Size(377, 23);
             this.StatusText.TabIndex = 7;
             this.StatusText.Text = "StatusText";
             this.StatusText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(146, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
-            this.pictureBox1.Location = new System.Drawing.Point(322, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 39);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // StartFabricInstaller
             // 
@@ -144,29 +124,60 @@
             this.DisableMods.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DisableMods_DoWork);
             this.DisableMods.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.DisableMods_RunWorkerCompleted);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(35, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(335, 26);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Working on it...";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::TBP_Dashboard.Properties.Resources._2851;
+            this.pictureBox3.Location = new System.Drawing.Point(21, 174);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(362, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(138, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
             // DownloadContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(389, 194);
+            this.ClientSize = new System.Drawing.Size(405, 344);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.DownloadProgress);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.StatusText);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.FileDestination);
             this.Controls.Add(this.FileRead);
+            this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DownloadContent";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Download Content | TBPlay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DownloadContent_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,12 +190,13 @@
         private System.Windows.Forms.Label DownloadProgress;
         private System.Windows.Forms.ProgressBar ProgressBar;
         private System.Windows.Forms.Label StatusText;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer StartFabricInstaller;
         private System.Windows.Forms.Timer StartModpackUnzip;
         private System.Windows.Forms.Timer ResourcePackInstallTimer;
         private System.Windows.Forms.Timer StartWorldHandling;
         private System.ComponentModel.BackgroundWorker DisableMods;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
