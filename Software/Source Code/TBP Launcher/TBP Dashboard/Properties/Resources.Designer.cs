@@ -83,6 +83,26 @@ namespace TBP_Dashboard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _294 {
+            get {
+                object obj = ResourceManager.GetObject("294", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _294__1_ {
+            get {
+                object obj = ResourceManager.GetObject("294 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Check {
             get {
                 object obj = ResourceManager.GetObject("Check", resourceCulture);
@@ -177,6 +197,26 @@ namespace TBP_Dashboard.Properties {
             get {
                 object obj = ResourceManager.GetObject("icons8-tick-box-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSpw {
+            get {
+                object obj = ResourceManager.GetObject("IconSpw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconSpw1 {
+            get {
+                object obj = ResourceManager.GetObject("IconSpw1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
