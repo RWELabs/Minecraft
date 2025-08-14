@@ -139,34 +139,41 @@ namespace TBP_Dashboard.ModManager
 
         private void DeleteMod_Click(object sender, EventArgs e)
         {
-            string TargetMod = ModList.SelectedItem.ToString();
-            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string modsPath = dataPath + @"\.minecraft\mods\";
-            string disabledmodsPath = dataPath + @"\.minecraft\mods.disabled\";
-
-            //ModList.ItemCheck += PauseItemCheck;
-
             try
             {
-                if (ModList.GetItemChecked(ModList.SelectedIndex) == true)
+                string TargetMod = ModList.SelectedItem.ToString();
+                string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string modsPath = dataPath + @"\.minecraft\mods\";
+                string disabledmodsPath = dataPath + @"\.minecraft\mods.disabled\";
+
+                //ModList.ItemCheck += PauseItemCheck;
+
+                try
                 {
-                    File.Delete(modsPath + TargetMod);
-                    Status.Text = "Deleting enabled mod...";
-                    ModList.Items.Remove(TargetMod);
+                    if (ModList.GetItemChecked(ModList.SelectedIndex) == true)
+                    {
+                        File.Delete(modsPath + TargetMod);
+                        Status.Text = "Deleting enabled mod...";
+                        ModList.Items.Remove(TargetMod);
+                    }
+                    else if (ModList.GetItemChecked(ModList.SelectedIndex) == false)
+                    {
+                        File.Delete(disabledmodsPath + TargetMod);
+                        Status.Text = "Deleting disabled mod...";
+                        ModList.Items.Remove(TargetMod);
+                    }
                 }
-                else if (ModList.GetItemChecked(ModList.SelectedIndex) == false)
+                catch (Exception ex)
                 {
-                    File.Delete(disabledmodsPath + TargetMod);
-                    Status.Text = "Deleting disabled mod...";
-                    ModList.Items.Remove(TargetMod);
+                    MessageBox.Show("We couldn't process your request. Error:" + ex.Message);
+                    Status.Text = "Issue deleting mod.";
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show("We couldn't process your request. Error:" + ex.Message);
                 Status.Text = "Issue deleting mod.";
             }
-
             Status.Text = "Ready";
         }
 
