@@ -31,7 +31,7 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 UninstallDisplayIcon={app}\{#MyAppExeName}
-UninstallDisplayName=TBP Launcher
+UninstallDisplayName=TBPlay
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
