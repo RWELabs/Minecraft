@@ -203,13 +203,19 @@ namespace TBP_Dashboard
                 switch (action)
                 {
                     case "play":
-                        HandlePlay();
+                        UpdateHeader.Text = "Launching Minecraft...";
+                        ShowLoadingPanel();
+                        HandlePlay(msg);
                         break;
                     case "download":
+                        UpdateHeader.Text = "Preparing to Download...";
+                        ShowLoadingPanel();
                         HandleDownload(msg);
                         break;
                     case "install_fabric":
-                        HandleInstallFabric();
+                        UpdateHeader.Text = "Launching Fabric Installer...";
+                        ShowLoadingPanel();
+                        HandleInstallFabric(msg);
                         break;
                     default:
                         break;
@@ -221,8 +227,10 @@ namespace TBP_Dashboard
             }
         }
 
-        private void HandlePlay()
+        private void HandlePlay(dynamic msg)
         {
+            string fwd = msg.fwd ?? "";
+
             string MinecraftLocation = Properties.Settings.Default.LaunchMinecraft;
             if (String.IsNullOrEmpty(MinecraftLocation) || String.IsNullOrWhiteSpace(MinecraftLocation))
             {
@@ -236,7 +244,13 @@ namespace TBP_Dashboard
             {
                 LaunchLauncher();
             }
-            WebView.Source = new Uri("https://crutionix.com/tbp/launcher/play");
+
+            if (!string.IsNullOrEmpty(fwd))
+            {
+                WebView2.Source = new Uri(fwd);
+            }
+
+            NaviTimer.Start();
         }
 
         private void HandleDownload(dynamic msg)
@@ -247,6 +261,7 @@ namespace TBP_Dashboard
             string url = msg.url;
             string profile = msg.profile ?? "";
             string description = msg.description ?? "";
+            string fwd = msg.fwd ?? "";
 
             Properties.Settings.Default.DownloadItem = url;
             Properties.Settings.Default.Save();
@@ -275,13 +290,29 @@ namespace TBP_Dashboard
             }
 
             DoContentInstall.Start();
+            //MessageBox.Show(fwd);
+
+            if (!string.IsNullOrEmpty(fwd))
+            {
+                WebView2.Source = new Uri(fwd);
+            }
+
+            NaviTimer.Start();
         }
 
-        private void HandleInstallFabric()
+        private void HandleInstallFabric(dynamic msg)
         {
+            string fwd = msg.fwd ?? "";
             string dataPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("TBP Dashboard.exe", null);
             string fabriclocation = Path.Combine(dataPath, "fabric-installer.exe");
             Process.Start(fabriclocation);
+
+            if (!string.IsNullOrEmpty(fwd))
+            {
+                WebView2.Source = new Uri(fwd);
+            }
+
+            NaviTimer.Start();
         }
 
         private void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
@@ -291,7 +322,7 @@ namespace TBP_Dashboard
                 HideWebBrowser();
                 HideLoadingPanel();
                 StatusStrip.Visible = false;
-                this.Icon = Resources.MCGC;
+                this.Icon = Resources.IconSpw1;
                 this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")";
                 this.Width = 1064;
                 this.Height = 723;
@@ -299,6 +330,7 @@ namespace TBP_Dashboard
             }
             else if (WebView.Source.ToString().StartsWith("https://discord.com/oauth2/"))
             {
+                UpdateHeader.Text = "Chatting with Discord...";
                 this.Text = "Sign in with Discord";
                 this.Icon = Resources.DiscordLogo;
                 DiscordSwitchAccounts.Visible = true;
@@ -307,9 +339,10 @@ namespace TBP_Dashboard
             }
             else if (WebView.Source.ToString().EndsWith("crutionix.com/"))
             {
+                UpdateHeader.Text = "Collecting News and Events...";
                 WebView2.Source = new Uri("https://crutionix.com/tbp/launcher/");
                 StatusStrip.Visible = false;
-                this.Icon = Resources.MCGC;
+                this.Icon = Resources.IconSpw1;
                 this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")";
                 this.Width = 1064;
                 this.Height = 723;
@@ -344,6 +377,15 @@ namespace TBP_Dashboard
             StatusStrip.Visible = true;
         }
 
+        private void HideNavigatePanel()
+        {
+            LoadingPanel.Dock = DockStyle.None;
+            LoadingPanel.Location = new Point(-1000, -1000);
+            LoadingPanel.Visible = false;
+            LoadingPanel.SendToBack();
+            StatusStrip.Visible = false;
+        }
+
         private void ShowLoadingPanel()
         {
             LoadingPanel.Location = new Point(0, 0);
@@ -364,6 +406,7 @@ namespace TBP_Dashboard
             {
                 this.Text = "Checking for updates... | TBPlay";
             }));
+            UpdateHeader.Text = "Checking for updates...";
             StatusLabel.Text = "Checking for updates...";
             string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.txt";
 
@@ -449,6 +492,7 @@ namespace TBP_Dashboard
 
         private void WebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
+            LazyLoader.Visible = false;
             if (e.IsSuccess)
             {
                 ((WebView2)sender).ExecuteScriptAsync("document.querySelector('body').style.overflow='scroll';var style=document.createElement('style');style.type='text/css';style.innerHTML='::-webkit-scrollbar{display:none}';document.getElementsByTagName('body')[0].appendChild(style)");
@@ -462,7 +506,7 @@ namespace TBP_Dashboard
 
         private void WebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            //
+            
         }
 
         private void FindLauncher()
@@ -757,6 +801,17 @@ namespace TBP_Dashboard
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WebView2.Reload();
+        }
+
+        private void NaviTimer_Tick(object sender, EventArgs e)
+        {
+            NaviTimer.Stop();
+            HideNavigatePanel();
+        }
+
+        private void WebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
+        {
+            LazyLoader.Visible = true;
         }
     }
 }
