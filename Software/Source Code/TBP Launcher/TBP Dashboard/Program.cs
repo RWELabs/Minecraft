@@ -32,6 +32,8 @@ namespace TBP_Dashboard
             {
                 //System is running Windows 11 21H2
                 Application.Run(new SignIn());
+                Properties.Settings.Default.wv2ignored = "true";
+                Properties.Settings.Default.Save();
             } 
             else 
             {
@@ -50,7 +52,7 @@ namespace TBP_Dashboard
                         if (WV == null)
                         {
                             string Message = "We were unable to find a valid WebView2 Core Environment on this PC. Would you like to try installing WebView2?";
-                            string Title = "Prerequisite Install | TBP Launcher";
+                            string Title = "Prerequisite Install | TBPlay";
                             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                             DialogResult result = MessageBox.Show(Message, Title, buttons);
 
@@ -75,7 +77,7 @@ namespace TBP_Dashboard
                         {
                             //MessageBox.Show($"There was an issue determining your available web browser environment. {ex.Message}");
                             string Message = "We were unable to find a valid WebView2 Core Environment on this PC. Would you like to try installing WebView2?";
-                            string Title = "Prerequisite Install | TBP Launcher";
+                            string Title = "Prerequisite Install | TBPlay";
                             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                             DialogResult result = MessageBox.Show(Message, Title, buttons);
 
