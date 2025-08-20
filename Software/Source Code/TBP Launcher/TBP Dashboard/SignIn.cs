@@ -24,6 +24,10 @@ using System.Net;
 using TBP_Dashboard.ModManager;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
+using System.Text.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Net.Http;
+using static TBP_Dashboard.SignIn;
 
 namespace TBP_Dashboard
 {
@@ -50,6 +54,7 @@ namespace TBP_Dashboard
             this.Height = 723;
             this.Width = 676;
             MenuStrip.Renderer = new DarkMenuRenderer();
+            WebControlContextMenu.Renderer = new DarkMenuRenderer();
 
             //Load user preferences from settings INI file if exists.
             string SettingsINI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\settings.ini";
@@ -57,9 +62,9 @@ namespace TBP_Dashboard
             {
                 SettingsProcessing.LoadFile(SettingsINI, RichTextBoxStreamType.PlainText);
 
-                foreach(string line in SettingsProcessing.Lines)
+                foreach (string line in SettingsProcessing.Lines)
                 {
-                    if (line.StartsWith("$mcdir=")){Settings.Default.LaunchMinecraft = line.Replace("$mcdir=", null);}
+                    if (line.StartsWith("$mcdir=")) { Settings.Default.LaunchMinecraft = line.Replace("$mcdir=", null); }
                     if (line.StartsWith("$checkupdates=")) { Settings.Default.CheckUpdates = line.Replace("$checkupdates=", null); }
                     if (line.StartsWith("$currentmp=")) { Settings.Default.CurrentModpack = line.Replace("$currentmp=", null); }
                     if (line.StartsWith("$wv2ignored=")) { Settings.Default.wv2ignored = line.Replace("$wv2ignored=", null); }
@@ -71,8 +76,41 @@ namespace TBP_Dashboard
                 //file not yet generated, generates on first close
             }
 
+            //Load user pins - if exists.
+            string UserPins = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\pins.json";
+            List<Pin> pins;
+
+            if (!File.Exists(UserPins))
+            {
+                // Initialize default pins
+                pins = new List<Pin>
+                    {
+                        new Pin { Name = "TBPlay Newsfeed", Url = "https://crutionix.com/tbp/launcher" },
+                        new Pin { Name = "TBPlay World Map", Url = "http://play.crutionix.com:8100/" }
+                    };
+
+                // Save to file
+                string json = System.Text.Json.JsonSerializer.Serialize(pins, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(UserPins, json);
+            }
+            else
+            {
+                // Load existing pins
+                string json = File.ReadAllText(UserPins);
+                pins = System.Text.Json.JsonSerializer.Deserialize<List<Pin>>(json) ?? new List<Pin>();
+            }
+
+            string faviconFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                @"RWE Labs\TBP\pins.imagelibrary"
+                );
+            if (!Directory.Exists(faviconFolder)){ Directory.CreateDirectory(faviconFolder); }
+
+
+            PopulatePinsMenuAsync(pins);
+
             //Set current modpack
-            if(Settings.Default.CurrentModpack == "undefined")
+            if (Settings.Default.CurrentModpack == "undefined")
             {
                 string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 string modsPath = dataPath + @"\.minecraft\mods\";
@@ -90,16 +128,16 @@ namespace TBP_Dashboard
                 else
                 {
                     //Check if Modpack is Origins
-                    ModsProcessing.LoadFile(Application.ExecutablePath.Replace("TBP Dashboard.exe", "origins_season1_modlist.txt"),RichTextBoxStreamType.PlainText);
+                    ModsProcessing.LoadFile(Application.ExecutablePath.Replace("TBP Dashboard.exe", "origins_season1_modlist.txt"), RichTextBoxStreamType.PlainText);
                     int Num = 0;
-                    foreach(string filePath in Directory.GetFiles(modsPath))
+                    foreach (string filePath in Directory.GetFiles(modsPath))
                     {
                         string fn = Path.GetFileName(filePath);
 
                         if (ModsProcessing.Text.Contains(fn))
                         {
-                            Num = Num +1;
-                            if(Num > 30)
+                            Num = Num + 1;
+                            if (Num > 30)
                             {
                                 Properties.Settings.Default.CurrentModpack = "TBP Origins (Season 1)";
                                 Properties.Settings.Default.Save();
@@ -115,7 +153,7 @@ namespace TBP_Dashboard
             }
 
             //Set active modpack
-            switch(Properties.Settings.Default.CurrentModpack as string)
+            switch (Properties.Settings.Default.CurrentModpack as string)
             {
                 case "No Modpack (Vanilla Minecraft)":
                     MP_Vanilla.Checked = true;
@@ -130,6 +168,196 @@ namespace TBP_Dashboard
 
             ShowLoadingPanel();
         }
+
+        public class Pin
+        {
+            public string Name { get; set; }
+            public string Url { get; set; }
+        }
+
+        private async Task PopulatePinsMenuAsync(List<Pin> pins)
+        {
+            pinsToolStripMenuItem.DropDownItems.Clear();
+
+            foreach (var pin in pins)
+            {
+                ToolStripMenuItem item = await CreatePinMenuItemAsync(pin);
+                pinsToolStripMenuItem.DropDownItems.Add(item);
+            }
+        }
+
+        private async Task<ToolStripMenuItem> CreatePinMenuItemAsync(Pin pin)
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem(pin.Name);
+            item.Click += (s, e) => WebView2.Source = new Uri(pin.Url);
+
+            if (pin.Name != "TBPlay Newsfeed" && pin.Name != "TBPlay World Map")
+            {
+                ContextMenuStrip contextMenu = new ContextMenuStrip();
+                contextMenu.Renderer = new DarkMenuRenderer();
+                ToolStripMenuItem visitItem = new ToolStripMenuItem("Visit Pin");
+                visitItem.Image = Resources.icons8_play_32; ;
+                visitItem.Click += (s, e) => WebView2.Source = new Uri(pin.Url);
+                ToolStripMenuItem deleteItem = new ToolStripMenuItem("Delete Pin");
+                deleteItem.Image = Resources.icons8_close_window_96__1_;
+                deleteItem.Click += (s, e) => DeletePin(pin);
+                contextMenu.Items.Add(visitItem);
+                contextMenu.Items.Add(deleteItem);
+                item.MouseUp += (s, e) =>
+                {
+                    if (e.Button == MouseButtons.Right)
+                    {
+                        contextMenu.Show(Cursor.Position);
+                    }
+                };
+            }
+
+            if (pin.Name == "TBPlay Newsfeed")
+            {
+                item.Image = Resources.IconSpw; // Convert Icon to Bitmap
+            }
+            else if (pin.Name == "TBPlay World Map")
+            {
+                item.Image = Resources.icons8_map_28;
+            }
+            else if (!string.IsNullOrEmpty(pin.Url))
+            {
+                try
+                {
+                    string domain = new Uri(pin.Url).Host;
+                    string faviconUrl = $"https://www.google.com/s2/favicons?sz=16&domain={domain}";
+
+                    using (HttpClient client = new HttpClient())
+                    {
+                        byte[] bytes = await client.GetByteArrayAsync(faviconUrl);
+                        using (MemoryStream ms = new MemoryStream(bytes))
+                        {
+                            Image icon = Image.FromStream(ms);
+                            item.Image = new Bitmap(icon, new Size(16, 16));
+                        }
+                    }
+                }
+                catch
+                {
+                    item.Image = Resources.icons8_website_28; // fallback
+                }
+            }
+
+            return item;
+        }
+
+
+
+        private async Task<string> GetFaviconBase64FromWebViewAsync(WebView2 webView)
+        {
+            try
+            {
+                string script = @"
+    (async function() {
+        let icons = document.querySelectorAll('link[rel*=""icon""]');
+        if (icons.length > 0) {
+            return await new Promise(resolve => {
+                let img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.src = icons[0].href;
+                img.onload = () => {
+                    let canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    canvas.getContext('2d').drawImage(img, 0, 0);
+                    resolve(canvas.toDataURL('image/png'));
+                };
+                img.onerror = () => resolve(null);
+            });
+        } else {
+            return null;
+        }
+    })();
+";
+
+                string result = await webView.ExecuteScriptAsync(script);
+
+                if (string.IsNullOrEmpty(result) || result == "null")
+                    return null;
+
+                // Remove wrapping quotes from WebView2
+                if (result.StartsWith("\"") && result.EndsWith("\""))
+                    result = result.Substring(1, result.Length - 2);
+
+                result = result.Replace("\\u0022", "\""); // unescape quotes
+                result = result.Replace("\\/", "/");       // unescape slashes
+
+                // Remove "data:image/png;base64," prefix
+                int commaIndex = result.IndexOf(',');
+                if (commaIndex < 0) return null;
+                return result.Substring(commaIndex + 1);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            // Keep panel inside client area
+            int newX = WebControlPanel.Location.X;
+            int newY = WebControlPanel.Location.Y;
+
+            if (newX + WebControlPanel.Width > this.ClientSize.Width)
+                newX = this.ClientSize.Width - WebControlPanel.Width;
+            if (newX < 0) newX = 0;
+
+            if (newY + WebControlPanel.Height > this.ClientSize.Height)
+                newY = this.ClientSize.Height - WebControlPanel.Height;
+            if (newY < 0) newY = 0;
+
+            WebControlPanel.Location = new Point(newX, newY);
+        }
+
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+
+        private void WebControlPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = WebControlPanel.Location;
+        }
+
+        private void WebControlPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                Point newLocation = Point.Add(dragFormPoint, new Size(diff));
+
+                // clamp X
+                if (newLocation.X < 0)
+                    newLocation.X = 0;
+                if (newLocation.X + WebControlPanel.Width > this.ClientSize.Width)
+                    newLocation.X = this.ClientSize.Width - WebControlPanel.Width;
+
+                // clamp Y
+                if (newLocation.Y < 0)
+                    newLocation.Y = 0;
+                if (newLocation.Y + WebControlPanel.Height > this.ClientSize.Height)
+                    newLocation.Y = this.ClientSize.Height - WebControlPanel.Height;
+
+                WebControlPanel.Location = newLocation;
+            }
+        }
+
+
+        private void WebControlPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+
         private void EnableDarkTitleBar()
         {
             if (Environment.OSVersion.Version.Major >= 10)
@@ -142,11 +370,11 @@ namespace TBP_Dashboard
         private void PreInitializeBrowser()
         {
             //Check WV
-            if(WebView == null)
+            if (WebView == null)
             {
                 //
             }
-            if(WebView2 == null)
+            if (WebView2 == null)
             {
                 //
             }
@@ -157,7 +385,7 @@ namespace TBP_Dashboard
         private async Task InitializeBrowser()
         {
             //var env = await CoreWebView2Environment.CreateAsync(Application.ExecutablePath.Replace("TBP Dashboard.exe", null) + @"WV\", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\UserData\WV\");
-            var env = await CoreWebView2Environment.CreateAsync(null,Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\UserData\WV\");
+            var env = await CoreWebView2Environment.CreateAsync(null, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\UserData\WV\");
             await WebView.EnsureCoreWebView2Async(env);
             await WebView2.EnsureCoreWebView2Async(env);
 
@@ -230,6 +458,7 @@ namespace TBP_Dashboard
         private void HandlePlay(dynamic msg)
         {
             string fwd = msg.fwd ?? "";
+            string version = msg.version ?? "";
 
             string MinecraftLocation = Properties.Settings.Default.LaunchMinecraft;
             if (String.IsNullOrEmpty(MinecraftLocation) || String.IsNullOrWhiteSpace(MinecraftLocation))
@@ -250,7 +479,43 @@ namespace TBP_Dashboard
                 WebView2.Source = new Uri(fwd);
             }
 
+            try
+            {
+                CheckMinecraftVersion(version);
+            }
+            catch
+            {
+                //
+            }
+
             NaviTimer.Start();
+        }
+
+        public void CheckMinecraftVersion(string requiredVersion)
+        {
+            // Path to the .minecraft folder
+            string mcPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                ".minecraft"
+            );
+
+            string versionsPath = Path.Combine(mcPath, "versions");
+            string versionFolder = Path.Combine(versionsPath, requiredVersion);
+
+            if (!Directory.Exists(versionFolder))
+            {
+                MessageBox.Show(
+                    $"You do not have Minecraft version {requiredVersion} installed.\n" +
+                    "This is the version required by the server. Please install it in the official launcher before continuing.",
+                    "Minecraft Version | TBPlay",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+            else
+            {
+                //MessageBox.Show($"Version {requiredVersion} is installed ✅");
+            }
         }
 
         private void HandleDownload(dynamic msg)
@@ -315,8 +580,33 @@ namespace TBP_Dashboard
             NaviTimer.Start();
         }
 
-        private void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        private async void WebView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
+            try
+            {
+                Uri currentUri = new Uri(WebView.Source.ToString());
+                if (currentUri.Host.Contains("crutionix.com"))
+                {
+                    string bodyText = await WebView.ExecuteScriptAsync("document.body.innerText");
+
+                    if (!string.IsNullOrEmpty(bodyText))
+                    {
+                        // Remove the surrounding quotes added by ExecuteScriptAsync
+                        bodyText = bodyText.Trim('"');
+
+                        if (bodyText.Contains("Page not found") ||
+                            bodyText.Contains("The link you followed may be broken"))
+                        {
+                            WebView.Reload();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error checking for 404: " + ex.Message);
+            }
+
             if (WebView.Source.ToString().EndsWith("/dashboard/"))
             {
                 HideWebBrowser();
@@ -324,14 +614,19 @@ namespace TBP_Dashboard
                 StatusStrip.Visible = false;
                 this.Icon = Resources.IconSpw1;
                 this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")";
-                this.Width = 1064;
-                this.Height = 723;
+                if (this.Text.Contains("[Up-to-Date]")) { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ") " + "[Up-to-Date]"; }
+                else if (this.Text.Contains("[Updates Available]")) { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ") " + "[Updates Available]"; }
+                else { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")"; }
+                //this.Width = 1064;
+                //this.Height = 723;
                 WebView2.Visible = true;
             }
             else if (WebView.Source.ToString().StartsWith("https://discord.com/oauth2/"))
             {
                 UpdateHeader.Text = "Chatting with Discord...";
-                this.Text = "Sign in with Discord";
+                if (this.Text.Contains("[Up-to-Date]")) { this.Text = "Sign In with Discord - TBPlay (v" + Settings.Default.Version + ") " + "[Up-to-Date]"; }
+                else if (this.Text.Contains("[Updates Available]")) { this.Text = "Sign In with Discord - TBPlay (v" + Settings.Default.Version + ") " + "[Updates Available]"; }
+                else { this.Text = "Sign In with Discord - TBPlay (v" + Settings.Default.Version + ")"; }
                 this.Icon = Resources.DiscordLogo;
                 DiscordSwitchAccounts.Visible = true;
                 HideLoadingPanel();
@@ -343,9 +638,11 @@ namespace TBP_Dashboard
                 WebView2.Source = new Uri("https://crutionix.com/tbp/launcher/");
                 StatusStrip.Visible = false;
                 this.Icon = Resources.IconSpw1;
-                this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")";
-                this.Width = 1064;
-                this.Height = 723;
+                if (this.Text.Contains("[Up-to-Date]")) { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ") " + "[Up-to-Date]"; }
+                else if (this.Text.Contains("[Updates Available]")) { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ") " + "[Updates Available]"; }
+                else { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ")"; }
+                //this.Width = 1064;
+                //this.Height = 723;
                 WebView2.Visible = true;
             }
             else
@@ -402,10 +699,10 @@ namespace TBP_Dashboard
 
         private void CheckUpdates_DoWork(object sender, DoWorkEventArgs e)
         {
-             this.Invoke(new MethodInvoker(delegate
-            {
-                this.Text = "Checking for updates... | TBPlay";
-            }));
+            this.Invoke(new MethodInvoker(delegate
+           {
+               this.Text = "Checking for updates... | TBPlay";
+           }));
             UpdateHeader.Text = "Checking for updates...";
             StatusLabel.Text = "Checking for updates...";
             string CurrentUpdateVersion = "https://raw.githubusercontent.com/RWELabs/Minecraft/master/Web/launcheruc.txt";
@@ -424,11 +721,11 @@ namespace TBP_Dashboard
         {
             if (e.Cancelled == true)
             {
-                this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
+                this.Text = this.Text + " [Up-to-Date]";
             }
             else if (e.Error != null)
             {
-                this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
+                this.Text = this.Text + " [Up-to-Date]";
 
             }
             else
@@ -436,11 +733,11 @@ namespace TBP_Dashboard
                 //Compare current stable version against installed version
                 if (Properties.Settings.Default.CVER.Contains(Properties.Settings.Default.Version))
                 {
-                    this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Up-to-Date]";
+                    this.Text = this.Text + " [Up-to-Date]";
                 }
                 else
                 {
-                    this.Text = "Dashboard - TBPlay (v" + Settings.Default.Version + ")" + " [Updates Available]";
+                    this.Text = this.Text + " [Updates Available]";
                     //Updates are available
                     UpdateNotification.Visible = true;
                 }
@@ -490,9 +787,36 @@ namespace TBP_Dashboard
             WebView2.CoreWebView2.WebMessageReceived += WebView2_WebMessageReceived;
         }
 
-        private void WebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        private async void WebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            LazyLoader.Visible = false;
+            if (WebView2.CanGoForward) { ForwardToolButton.Enabled = true; forwardToolStripMenuItem.Enabled = true; } else { ForwardToolButton.Enabled = false; forwardToolStripMenuItem.Enabled = false; }
+            if (WebView2.CanGoBack) { BackToolButton.Enabled = true; backToolStripMenuItem.Enabled = true; } else { BackToolButton.Enabled = false; backToolStripMenuItem.Enabled = false; }
+
+            try
+            {
+                Uri currentUri = new Uri(((WebView2)sender).Source.ToString());
+                if (currentUri.Host.Contains("crutionix.com"))
+                {
+                    string bodyText = await ((WebView2)sender).ExecuteScriptAsync("document.body.innerText");
+
+                    if (!string.IsNullOrEmpty(bodyText))
+                    {
+                        bodyText = bodyText.Trim('"'); // remove JSON string quotes
+
+                        if (bodyText.Contains("Page not found") ||
+                            bodyText.Contains("The link you followed may be broken"))
+                        {
+                            ((WebView2)sender).Reload();
+                            return; // Don't hide LazyLoader if we're reloading
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error checking for 404 in WebView2: " + ex.Message);
+            }
+
             if (e.IsSuccess)
             {
                 ((WebView2)sender).ExecuteScriptAsync("document.querySelector('body').style.overflow='scroll';var style=document.createElement('style');style.type='text/css';style.innerHTML='::-webkit-scrollbar{display:none}';document.getElementsByTagName('body')[0].appendChild(style)");
@@ -501,12 +825,49 @@ namespace TBP_Dashboard
                 StatusStrip.Visible = false;
                 MenuStrip.Visible = true;
             }
+
+            Uri checkURL = new Uri(((WebView2)sender).Source.ToString());
+            ToggleWebControlPanel(checkURL);
             
+            // Hide the loading indicator after all processing is complete
+            LazyLoader.Visible = false;
+        }
+
+        private void ToggleWebControlPanel(Uri currentUri)
+        {
+            if (currentUri.Host.Contains("crutionix.com"))
+            {
+                WebControlPanel.Visible = false;
+                WebControlPanel.BringToFront();
+            }
+            else
+            {
+                WebControlPanel.Visible = true;
+                WebControlPanel.BringToFront();
+            }
+        }
+
+        private void WebControlPanel_Paint(object sender, PaintEventArgs e)
+        {
+            int shadowSize = 3; // how "thick" the shadow is
+            for (int i = shadowSize; i >= 1; i--)
+            {
+                int alpha = (int)(40.0 * (i / (float)shadowSize)); // fade outward
+                using (Pen pen = new Pen(Color.FromArgb(alpha, 0, 0, 0), 1))
+                {
+                    e.Graphics.DrawRectangle(
+                        pen,
+                        new Rectangle(i - 1, i - 1,
+                        WebControlPanel.Width - ((i - 1) * 2),
+                        WebControlPanel.Height - ((i - 1) * 2))
+                    );
+                }
+            }
         }
 
         private void WebView2_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            
+
         }
 
         private void FindLauncher()
@@ -519,7 +880,7 @@ namespace TBP_Dashboard
 
             if (InstallPath != null)
             {
-                if(File.Exists(InstallPath + @"MinecraftLauncher.exe"))
+                if (File.Exists(InstallPath + @"MinecraftLauncher.exe"))
                 {
                     Properties.Settings.Default.LaunchMinecraft = InstallPath + @"MinecraftLauncher.exe";
                     Properties.Settings.Default.Save();
@@ -533,19 +894,19 @@ namespace TBP_Dashboard
                 }
             }
             else if (InstallPath10 != null)
+            {
+                if (File.Exists(InstallPath10 + @"MinecraftLauncher.exe"))
                 {
-                    if (File.Exists(InstallPath10 + @"MinecraftLauncher.exe"))
-                    {
-                        Properties.Settings.Default.LaunchMinecraft = InstallPath + @"MinecraftLauncher.exe";
-                        Properties.Settings.Default.Save();
-                        LaunchLauncher();
-                    }
-                    else if (File.Exists(InstallPath10 + "Minecraft Launcher" + @"MinecraftLauncher.exe"))
-                    {
-                        Properties.Settings.Default.LaunchMinecraft = InstallPath + @"MinecraftLauncher.exe";
-                        Properties.Settings.Default.Save();
-                        LaunchLauncher();
-                    }
+                    Properties.Settings.Default.LaunchMinecraft = InstallPath + @"MinecraftLauncher.exe";
+                    Properties.Settings.Default.Save();
+                    LaunchLauncher();
+                }
+                else if (File.Exists(InstallPath10 + "Minecraft Launcher" + @"MinecraftLauncher.exe"))
+                {
+                    Properties.Settings.Default.LaunchMinecraft = InstallPath + @"MinecraftLauncher.exe";
+                    Properties.Settings.Default.Save();
+                    LaunchLauncher();
+                }
             }
             else if (File.Exists(@"C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe"))
             {
@@ -679,12 +1040,12 @@ namespace TBP_Dashboard
 
         private void Back_Click(object sender, EventArgs e)
         {
-            if (WebView2.CanGoBack) { WebView.GoBack(); }
+            if (WebView2.CanGoBack) { WebView2.GoBack(); }
         }
 
         private void Forward_Click(object sender, EventArgs e)
         {
-            if (WebView2.CanGoForward) { WebView.GoForward(); }
+            if (WebView2.CanGoForward) { WebView2.GoForward(); }
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -715,7 +1076,7 @@ namespace TBP_Dashboard
                 string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 Process.Start(dataPath + @"\.minecraft");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("We couldn't open your Minecraft directory. Have you installed Minecraft on this system? Have you got a custom Minecraft Directory location?" + ex.Message);
             }
@@ -812,6 +1173,157 @@ namespace TBP_Dashboard
         private void WebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
             LazyLoader.Visible = true;
+            LazyLoader.BringToFront();
+            // Ensure it's on top of WebView2
+            this.Controls.SetChildIndex(LazyLoader, 0);
+        }
+
+        private void RefreshToolButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomeToolButton_Click(object sender, EventArgs e)
+        {
+            WebView2.Source = new Uri("https://crutionix.com/tbp/launcher");
+        }
+
+        private bool WebControlPanelCollapsed = false;
+
+        private void collapseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WebControlPanel.Size = new Size(36, 54);
+            WebControlPanelCollapsed = true;
+            WebControlPanel.Invalidate();
+        }
+
+        private void WebControlContextMenu_Opening(object sender, CancelEventArgs e)
+        {
+            if (WebControlPanelCollapsed == true)
+            {
+                collapseToolStripMenuItem.Visible = false;
+                expandToolStripMenuItem.Visible = true;
+            }
+            else if (WebControlPanelCollapsed == false)
+            {
+                collapseToolStripMenuItem.Visible = true;
+                expandToolStripMenuItem.Visible = false;
+            }
+        }
+
+        private void expandToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WebControlPanel.Size = new Size(260, 54);
+            WebControlPanelCollapsed = false;
+            WebControlPanel.Invalidate();
+        }
+
+        private async void SavePinToolButton_Click(object sender, EventArgs e)
+        {
+            string currentUrl = WebView2.Source.ToString();
+            string defaultName = WebView2.CoreWebView2.DocumentTitle;
+
+            // Get favicon as base64 from WebView2
+            string faviconBase64 = await GetFaviconBase64FromWebViewAsync(WebView2);
+
+            using (SavePinForm form = new SavePinForm(defaultName, currentUrl, faviconBase64))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    await SavePinAsync(form.PinName, form.PinUrl, form.FaviconBase64);
+                }
+            }
+        }
+
+        private Image Base64ToImage(string base64)
+        {
+            if (string.IsNullOrEmpty(base64))
+                return null;
+
+            try
+            {
+                byte[] bytes = Convert.FromBase64String(base64);
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+
+        private async Task SavePinAsync(string name, string url, string faviconBase64)
+        {
+            string userPinsFile = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                @"RWE Labs\TBP\pins.json"
+            );
+            Directory.CreateDirectory(Path.GetDirectoryName(userPinsFile));
+
+            List<Pin> pins = File.Exists(userPinsFile)
+                ? System.Text.Json.JsonSerializer.Deserialize<List<Pin>>(File.ReadAllText(userPinsFile)) ?? new List<Pin>()
+                : new List<Pin>();
+
+            Pin newPin = new Pin
+            {
+                Name = name,
+                Url = url,
+            };
+
+            pins.Add(newPin);
+
+            string json = System.Text.Json.JsonSerializer.Serialize(pins, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(userPinsFile, json);
+
+            // Add the new pin to the existing menu instead of repopulating entire menu
+            await AddSinglePinToMenuAsync(newPin);
+        }
+
+        private async Task AddSinglePinToMenuAsync(Pin pin)
+        {
+            ToolStripMenuItem item = await CreatePinMenuItemAsync(pin);
+            pinsToolStripMenuItem.DropDownItems.Add(item);
+        }
+
+        private void DeletePin(Pin pinToDelete)
+        {
+            DialogResult result = MessageBox.Show(
+                $"Are you sure you want to delete the pin: '{pinToDelete.Name}'?",
+                "Delete Pin | TBPlay",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                string userPinsFile = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    @"RWE Labs\TBP\pins.json"
+                );
+
+                if (File.Exists(userPinsFile))
+                {
+                    List<Pin> pins = System.Text.Json.JsonSerializer.Deserialize<List<Pin>>(File.ReadAllText(userPinsFile)) ?? new List<Pin>();
+                    pins.RemoveAll(p => p.Name == pinToDelete.Name && p.Url == pinToDelete.Url);
+
+                    string json = System.Text.Json.JsonSerializer.Serialize(pins, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(userPinsFile, json);
+
+                    // Remove the item from the menu
+                    for (int i = pinsToolStripMenuItem.DropDownItems.Count - 1; i >= 0; i--)
+                    {
+                        if (pinsToolStripMenuItem.DropDownItems[i] is ToolStripMenuItem menuItem && 
+                            menuItem.Text == pinToDelete.Name)
+                        {
+                            pinsToolStripMenuItem.DropDownItems.RemoveAt(i);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

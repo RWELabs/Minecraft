@@ -66,6 +66,7 @@
             this.UpdateNotification = new System.Windows.Forms.ToolStripMenuItem();
             this.InstallUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.DismissUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modpackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MP_Vanilla = new System.Windows.Forms.ToolStripMenuItem();
             this.MP_Origins1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +78,17 @@
             this.ModsProcessing = new System.Windows.Forms.RichTextBox();
             this.NaviTimer = new System.Windows.Forms.Timer(this.components);
             this.LazyLoader = new System.Windows.Forms.PictureBox();
+            this.WebControlPanel = new System.Windows.Forms.Panel();
+            this.WebControlContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.collapseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SavePinToolButton = new System.Windows.Forms.Button();
+            this.HomeToolButton = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.BackToolButton = new System.Windows.Forms.Button();
+            this.ForwardToolButton = new System.Windows.Forms.Button();
+            this.RefreshToolButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -85,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.WebView2)).BeginInit();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LazyLoader)).BeginInit();
+            this.WebControlPanel.SuspendLayout();
+            this.WebControlContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // WebView
@@ -234,6 +249,7 @@
             this.ViewMenu,
             this.ToolsMenu,
             this.UpdateNotification,
+            this.pinsToolStripMenuItem,
             this.modpackToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
@@ -326,6 +342,7 @@
             // 
             // backToolStripMenuItem
             // 
+            this.backToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.icons8_back_28;
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
             this.backToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.backToolStripMenuItem.Text = "Back";
@@ -333,6 +350,7 @@
             // 
             // forwardToolStripMenuItem
             // 
+            this.forwardToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.icons8_forward_28;
             this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
             this.forwardToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.forwardToolStripMenuItem.Text = "Forward";
@@ -365,6 +383,7 @@
             // 
             // Refresh
             // 
+            this.Refresh.Image = global::TBP_Dashboard.Properties.Resources.icons8_refresh_28;
             this.Refresh.Name = "Refresh";
             this.Refresh.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.Refresh.Size = new System.Drawing.Size(208, 22);
@@ -438,6 +457,14 @@
             this.DismissUpdate.Size = new System.Drawing.Size(133, 22);
             this.DismissUpdate.Text = "Dismiss";
             this.DismissUpdate.Click += new System.EventHandler(this.DismissUpdate_Click);
+            // 
+            // pinsToolStripMenuItem
+            // 
+            this.pinsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.pinsToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.icons8_pin_28;
+            this.pinsToolStripMenuItem.Name = "pinsToolStripMenuItem";
+            this.pinsToolStripMenuItem.Size = new System.Drawing.Size(57, 28);
+            this.pinsToolStripMenuItem.Text = "Pins";
             // 
             // modpackToolStripMenuItem
             // 
@@ -546,6 +573,145 @@
             this.LazyLoader.TabStop = false;
             this.LazyLoader.Visible = false;
             // 
+            // WebControlPanel
+            // 
+            this.WebControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.WebControlPanel.ContextMenuStrip = this.WebControlContextMenu;
+            this.WebControlPanel.Controls.Add(this.SavePinToolButton);
+            this.WebControlPanel.Controls.Add(this.HomeToolButton);
+            this.WebControlPanel.Controls.Add(this.pictureBox3);
+            this.WebControlPanel.Controls.Add(this.BackToolButton);
+            this.WebControlPanel.Controls.Add(this.ForwardToolButton);
+            this.WebControlPanel.Controls.Add(this.RefreshToolButton);
+            this.WebControlPanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.WebControlPanel.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.WebControlPanel.Location = new System.Drawing.Point(12, 608);
+            this.WebControlPanel.Name = "WebControlPanel";
+            this.WebControlPanel.Size = new System.Drawing.Size(260, 54);
+            this.WebControlPanel.TabIndex = 8;
+            this.WebControlPanel.Visible = false;
+            this.WebControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.WebControlPanel_Paint);
+            this.WebControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WebControlPanel_MouseDown);
+            this.WebControlPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WebControlPanel_MouseMove);
+            this.WebControlPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WebControlPanel_MouseUp);
+            // 
+            // WebControlContextMenu
+            // 
+            this.WebControlContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.collapseToolStripMenuItem,
+            this.expandToolStripMenuItem});
+            this.WebControlContextMenu.Name = "contextMenuStrip1";
+            this.WebControlContextMenu.Size = new System.Drawing.Size(120, 48);
+            this.WebControlContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.WebControlContextMenu_Opening);
+            // 
+            // collapseToolStripMenuItem
+            // 
+            this.collapseToolStripMenuItem.Name = "collapseToolStripMenuItem";
+            this.collapseToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.collapseToolStripMenuItem.Text = "Collapse";
+            this.collapseToolStripMenuItem.Click += new System.EventHandler(this.collapseToolStripMenuItem_Click);
+            // 
+            // expandToolStripMenuItem
+            // 
+            this.expandToolStripMenuItem.Name = "expandToolStripMenuItem";
+            this.expandToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.expandToolStripMenuItem.Text = "Expand";
+            this.expandToolStripMenuItem.Click += new System.EventHandler(this.expandToolStripMenuItem_Click);
+            // 
+            // SavePinToolButton
+            // 
+            this.SavePinToolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.SavePinToolButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.SavePinToolButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.SavePinToolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SavePinToolButton.Image = global::TBP_Dashboard.Properties.Resources.icons8_pin_28;
+            this.SavePinToolButton.Location = new System.Drawing.Point(82, 8);
+            this.SavePinToolButton.Name = "SavePinToolButton";
+            this.SavePinToolButton.Size = new System.Drawing.Size(38, 38);
+            this.SavePinToolButton.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.SavePinToolButton, "Return to the TBPlay Dashboard.");
+            this.SavePinToolButton.UseVisualStyleBackColor = false;
+            this.SavePinToolButton.Click += new System.EventHandler(this.SavePinToolButton_Click);
+            // 
+            // HomeToolButton
+            // 
+            this.HomeToolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.HomeToolButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.HomeToolButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.HomeToolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeToolButton.Image = global::TBP_Dashboard.Properties.Resources.icons8_squared_menu_28;
+            this.HomeToolButton.Location = new System.Drawing.Point(36, 8);
+            this.HomeToolButton.Name = "HomeToolButton";
+            this.HomeToolButton.Size = new System.Drawing.Size(38, 38);
+            this.HomeToolButton.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.HomeToolButton, "Return to the TBPlay Dashboard.");
+            this.HomeToolButton.UseVisualStyleBackColor = false;
+            this.HomeToolButton.Click += new System.EventHandler(this.HomeToolButton_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ContextMenuStrip = this.WebControlContextMenu;
+            this.pictureBox3.Image = global::TBP_Dashboard.Properties.Resources.icons8_menu_28;
+            this.pictureBox3.Location = new System.Drawing.Point(5, 7);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 42);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WebControlPanel_MouseDown);
+            this.pictureBox3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WebControlPanel_MouseMove);
+            this.pictureBox3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WebControlPanel_MouseUp);
+            // 
+            // BackToolButton
+            // 
+            this.BackToolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.BackToolButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BackToolButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.BackToolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackToolButton.Image = global::TBP_Dashboard.Properties.Resources.icons8_back_28;
+            this.BackToolButton.Location = new System.Drawing.Point(126, 8);
+            this.BackToolButton.Name = "BackToolButton";
+            this.BackToolButton.Size = new System.Drawing.Size(38, 38);
+            this.BackToolButton.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BackToolButton, "Navigate to the previous page.");
+            this.BackToolButton.UseVisualStyleBackColor = false;
+            this.BackToolButton.Click += new System.EventHandler(this.Back_Click);
+            // 
+            // ForwardToolButton
+            // 
+            this.ForwardToolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.ForwardToolButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ForwardToolButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.ForwardToolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ForwardToolButton.Image = global::TBP_Dashboard.Properties.Resources.icons8_forward_28;
+            this.ForwardToolButton.Location = new System.Drawing.Point(214, 8);
+            this.ForwardToolButton.Name = "ForwardToolButton";
+            this.ForwardToolButton.Size = new System.Drawing.Size(38, 38);
+            this.ForwardToolButton.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.ForwardToolButton, "Navigate forward in your page history.");
+            this.ForwardToolButton.UseVisualStyleBackColor = false;
+            this.ForwardToolButton.Click += new System.EventHandler(this.Forward_Click);
+            // 
+            // RefreshToolButton
+            // 
+            this.RefreshToolButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(78)))));
+            this.RefreshToolButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.RefreshToolButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.RefreshToolButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshToolButton.Image = global::TBP_Dashboard.Properties.Resources.icons8_refresh_28;
+            this.RefreshToolButton.Location = new System.Drawing.Point(170, 8);
+            this.RefreshToolButton.Name = "RefreshToolButton";
+            this.RefreshToolButton.Size = new System.Drawing.Size(38, 38);
+            this.RefreshToolButton.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.RefreshToolButton, "Refresh the current page.");
+            this.RefreshToolButton.UseVisualStyleBackColor = false;
+            this.RefreshToolButton.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.toolTip1.ForeColor = System.Drawing.SystemColors.Info;
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,11 +719,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1048, 684);
             this.Controls.Add(this.LazyLoader);
+            this.Controls.Add(this.LoadingPanel);
+            this.Controls.Add(this.WebControlPanel);
             this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.WebView2);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.WebView);
-            this.Controls.Add(this.LoadingPanel);
             this.Controls.Add(this.ModsProcessing);
             this.Controls.Add(this.SettingsProcessing);
             this.DoubleBuffered = true;
@@ -569,6 +736,7 @@
             this.Text = "TBPlay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignIn_FormClosing);
             this.Load += new System.EventHandler(this.SignIn_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).EndInit();
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
@@ -579,6 +747,9 @@
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LazyLoader)).EndInit();
+            this.WebControlPanel.ResumeLayout(false);
+            this.WebControlContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -633,6 +804,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Timer NaviTimer;
         private System.Windows.Forms.PictureBox LazyLoader;
+        private System.Windows.Forms.Panel WebControlPanel;
+        private System.Windows.Forms.Button RefreshToolButton;
+        private System.Windows.Forms.Button ForwardToolButton;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button BackToolButton;
+        private System.Windows.Forms.Button HomeToolButton;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ContextMenuStrip WebControlContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem collapseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem expandToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pinsToolStripMenuItem;
+        private System.Windows.Forms.Button SavePinToolButton;
     }
 }
 
