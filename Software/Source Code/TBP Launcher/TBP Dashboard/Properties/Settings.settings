@@ -15,7 +15,7 @@
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">250801</Value>
+      <Value Profile="(Default)">250802</Value>
     </Setting>
     <Setting Name="DownloadItem" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
