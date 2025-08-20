@@ -211,6 +211,12 @@
     <Compile Include="Preferences.Designer.cs">
       <DependentUpon>Preferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="SavePinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SavePinForm.Designer.cs">
+      <DependentUpon>SavePinForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="MCGC.ico" />
+    <None Include="Resources\icons8-map-28.png" />
+    <None Include="Resources\icons8-website-28.png" />
+    <None Include="Resources\icons8-pin-28.png" />
+    <None Include="Resources\icons8-squared-menu-28.png" />
+    <None Include="Resources\icons8-menu-28.png" />
+    <None Include="Resources\icons8-back-28.png" />
+    <None Include="Resources\icons8-forward-28.png" />
+    <None Include="Resources\icons8-refresh-28.png" />
+    <None Include="Resources\icons8-refresh-48.png" />
     <None Include="Resources\294 %281%29.gif" />
     <None Include="Resources\294.gif" />
     <None Include="Resources\IconSpw.png" />
@@ -265,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Preferences.resx">
       <DependentUpon>Preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SavePinForm.resx">
+      <DependentUpon>SavePinForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
