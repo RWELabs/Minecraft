@@ -306,3 +306,4 @@ C:\Users\ryanw\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP 
 C:\Users\ryanw\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.pdb
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ModManager.ActivateModpack.resources
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dash.E42FDAB5.Up2Date
+C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.SavePinForm.resources
