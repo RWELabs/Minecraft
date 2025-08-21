@@ -88,7 +88,7 @@
             this.BackToolButton = new System.Windows.Forms.Button();
             this.ForwardToolButton = new System.Windows.Forms.Button();
             this.RefreshToolButton = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -606,6 +606,7 @@
             // 
             // collapseToolStripMenuItem
             // 
+            this.collapseToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.icons8_collapse_28;
             this.collapseToolStripMenuItem.Name = "collapseToolStripMenuItem";
             this.collapseToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.collapseToolStripMenuItem.Text = "Collapse";
@@ -613,6 +614,7 @@
             // 
             // expandToolStripMenuItem
             // 
+            this.expandToolStripMenuItem.Image = global::TBP_Dashboard.Properties.Resources.icons8_expand_28;
             this.expandToolStripMenuItem.Name = "expandToolStripMenuItem";
             this.expandToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.expandToolStripMenuItem.Text = "Expand";
@@ -629,7 +631,7 @@
             this.SavePinToolButton.Name = "SavePinToolButton";
             this.SavePinToolButton.Size = new System.Drawing.Size(38, 38);
             this.SavePinToolButton.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.SavePinToolButton, "Return to the TBPlay Dashboard.");
+            this.ToolTip1.SetToolTip(this.SavePinToolButton, "Pin this page");
             this.SavePinToolButton.UseVisualStyleBackColor = false;
             this.SavePinToolButton.Click += new System.EventHandler(this.SavePinToolButton_Click);
             // 
@@ -644,7 +646,7 @@
             this.HomeToolButton.Name = "HomeToolButton";
             this.HomeToolButton.Size = new System.Drawing.Size(38, 38);
             this.HomeToolButton.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.HomeToolButton, "Return to the TBPlay Dashboard.");
+            this.ToolTip1.SetToolTip(this.HomeToolButton, "Return to the TBPlay Dashboard.");
             this.HomeToolButton.UseVisualStyleBackColor = false;
             this.HomeToolButton.Click += new System.EventHandler(this.HomeToolButton_Click);
             // 
@@ -673,7 +675,7 @@
             this.BackToolButton.Name = "BackToolButton";
             this.BackToolButton.Size = new System.Drawing.Size(38, 38);
             this.BackToolButton.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.BackToolButton, "Navigate to the previous page.");
+            this.ToolTip1.SetToolTip(this.BackToolButton, "Navigate to the previous page.");
             this.BackToolButton.UseVisualStyleBackColor = false;
             this.BackToolButton.Click += new System.EventHandler(this.Back_Click);
             // 
@@ -688,7 +690,7 @@
             this.ForwardToolButton.Name = "ForwardToolButton";
             this.ForwardToolButton.Size = new System.Drawing.Size(38, 38);
             this.ForwardToolButton.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.ForwardToolButton, "Navigate forward in your page history.");
+            this.ToolTip1.SetToolTip(this.ForwardToolButton, "Navigate forward in your page history.");
             this.ForwardToolButton.UseVisualStyleBackColor = false;
             this.ForwardToolButton.Click += new System.EventHandler(this.Forward_Click);
             // 
@@ -703,14 +705,14 @@
             this.RefreshToolButton.Name = "RefreshToolButton";
             this.RefreshToolButton.Size = new System.Drawing.Size(38, 38);
             this.RefreshToolButton.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.RefreshToolButton, "Refresh the current page.");
+            this.ToolTip1.SetToolTip(this.RefreshToolButton, "Refresh the current page.");
             this.RefreshToolButton.UseVisualStyleBackColor = false;
             this.RefreshToolButton.Click += new System.EventHandler(this.Refresh_Click);
             // 
-            // toolTip1
+            // ToolTip1
             // 
-            this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.toolTip1.ForeColor = System.Drawing.SystemColors.Info;
+            this.ToolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.ToolTip1.ForeColor = System.Drawing.SystemColors.Info;
             // 
             // SignIn
             // 
@@ -810,7 +812,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button BackToolButton;
         private System.Windows.Forms.Button HomeToolButton;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip ToolTip1;
         private System.Windows.Forms.ContextMenuStrip WebControlContextMenu;
         private System.Windows.Forms.ToolStripMenuItem collapseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem expandToolStripMenuItem;
