@@ -234,6 +234,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="MCGC.ico" />
+    <None Include="Resources\icons8-expand-28.png" />
+    <None Include="Resources\icons8-collapse-28.png" />
     <None Include="Resources\icons8-map-28.png" />
     <None Include="Resources\icons8-website-28.png" />
     <None Include="Resources\icons8-pin-28.png" />
