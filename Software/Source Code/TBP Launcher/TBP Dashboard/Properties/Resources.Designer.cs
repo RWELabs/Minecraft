@@ -173,6 +173,26 @@ namespace TBP_Dashboard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_collapse_28 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-collapse-28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_expand_28 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-expand-28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_forward_28 {
             get {
                 object obj = ResourceManager.GetObject("icons8-forward-28", resourceCulture);
