@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.StatusText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBfavicon)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             this.SavePin.FlatAppearance.BorderSize = 0;
             this.SavePin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SavePin.ForeColor = System.Drawing.Color.White;
-            this.SavePin.Location = new System.Drawing.Point(256, 128);
+            this.SavePin.Location = new System.Drawing.Point(254, 174);
             this.SavePin.Name = "SavePin";
             this.SavePin.Size = new System.Drawing.Size(84, 34);
             this.SavePin.TabIndex = 1;
@@ -68,10 +69,11 @@
             // Cancel
             // 
             this.Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.FlatAppearance.BorderSize = 0;
             this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(162, 128);
+            this.Cancel.Location = new System.Drawing.Point(160, 174);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(84, 34);
             this.Cancel.TabIndex = 2;
@@ -82,9 +84,9 @@
             // PBfavicon
             // 
             this.PBfavicon.Image = global::TBP_Dashboard.Properties.Resources.icons8_website_28;
-            this.PBfavicon.Location = new System.Drawing.Point(12, 62);
+            this.PBfavicon.Location = new System.Drawing.Point(8, 111);
             this.PBfavicon.Name = "PBfavicon";
-            this.PBfavicon.Size = new System.Drawing.Size(30, 30);
+            this.PBfavicon.Size = new System.Drawing.Size(30, 20);
             this.PBfavicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBfavicon.TabIndex = 3;
             this.PBfavicon.TabStop = false;
@@ -92,7 +94,7 @@
             // webURL
             // 
             this.webURL.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.webURL.Location = new System.Drawing.Point(46, 91);
+            this.webURL.Location = new System.Drawing.Point(44, 137);
             this.webURL.Name = "webURL";
             this.webURL.Size = new System.Drawing.Size(275, 23);
             this.webURL.TabIndex = 4;
@@ -103,7 +105,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.panel1.Controls.Add(this.txtPinName);
-            this.panel1.Location = new System.Drawing.Point(46, 62);
+            this.panel1.Location = new System.Drawing.Point(44, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 28);
             this.panel1.TabIndex = 5;
@@ -111,7 +113,7 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Location = new System.Drawing.Point(318, 91);
+            this.label1.Location = new System.Drawing.Point(316, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 23);
             this.label1.TabIndex = 6;
@@ -122,19 +124,35 @@
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 24);
+            this.label3.Location = new System.Drawing.Point(8, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(335, 26);
             this.label3.TabIndex = 13;
             this.label3.Text = "Pin This Site";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // StatusText
+            // 
+            this.StatusText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.StatusText.Font = new System.Drawing.Font("Segoe UI Semilight", 10.25F);
+            this.StatusText.ForeColor = System.Drawing.Color.White;
+            this.StatusText.Location = new System.Drawing.Point(12, 46);
+            this.StatusText.Name = "StatusText";
+            this.StatusText.Size = new System.Drawing.Size(330, 51);
+            this.StatusText.TabIndex = 14;
+            this.StatusText.Text = "Pinned pages can be accessed with a single click from the \"Pins\" menu.";
+            this.StatusText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SavePinForm
             // 
+            this.AcceptButton = this.SavePin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(352, 174);
+            this.CancelButton = this.Cancel;
+            this.ClientSize = new System.Drawing.Size(352, 233);
+            this.Controls.Add(this.StatusText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -142,7 +160,9 @@
             this.Controls.Add(this.PBfavicon);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.SavePin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SavePinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Save Pin | TBPlay";
@@ -163,5 +183,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label StatusText;
     }
 }
