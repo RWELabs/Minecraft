@@ -28,6 +28,10 @@ using System.Text.Json;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net.Http;
 using static TBP_Dashboard.SignIn;
+using DiscordRPC;
+using DiscordRPC.Message;
+using Button = DiscordRPC.Button;
+using MineStatLib;
 
 namespace TBP_Dashboard
 {
@@ -50,6 +54,7 @@ namespace TBP_Dashboard
 
             //Define window
             InitializeComponent();
+            InitDiscord();
             EnableDarkTitleBar();
             this.Height = 723;
             this.Width = 676;
@@ -167,6 +172,47 @@ namespace TBP_Dashboard
             }
 
             ShowLoadingPanel();
+        }
+
+        public static DiscordRpcClient client;
+
+        private void InitDiscord()
+        {
+            // Replace with your Application ID from the Discord Dev Portal
+            client = new DiscordRpcClient(Properties.discord.Default.DiscordAppID);
+
+            // Subscribe to events (optional)
+            client.OnReady += (sender, e) =>
+            {
+                Console.WriteLine($"Connected to Discord as {e.User.Username}");
+            };
+
+            client.OnPresenceUpdate += (sender, e) =>
+            {
+                Console.WriteLine("Presence updated!");
+            };
+
+            // Connect
+            client.Initialize();
+
+            // Set rich presence
+            client.SetPresence(new RichPresence()
+            {
+                Details = "TBPlay",
+                State = "Browsing News and Events",
+                Timestamps = Timestamps.Now,
+                Assets = new Assets()
+                {
+                    LargeImageKey = "tbplay",
+                    LargeImageText = "News and Events | TBP",
+                    SmallImageKey = "tbplay",
+                    SmallImageText = "via TBPlay"
+                },
+                Buttons = new Button[]
+                {
+                    new Button() { Label = "Join them!", Url = "tbplay://open" }
+                }
+            });
         }
 
         public class Pin
@@ -476,12 +522,27 @@ namespace TBP_Dashboard
 
             if (!string.IsNullOrEmpty(fwd))
             {
-                WebView2.Source = new Uri(fwd);
+                if (msg.ToString() == "fromURI")
+                {
+                    string urifwd = "https://crutionix.com/tbp/play/";
+                    WebView2.Source = new Uri(urifwd);
+                }
+                else
+                {
+                    WebView2.Source = new Uri(fwd);
+                }
             }
 
             try
             {
-                CheckMinecraftVersion(version);
+                if (msg.ToString() == "fromURI")
+                {
+                    //don't check.
+                }
+                else
+                {
+                    CheckMinecraftVersion(version);
+                }
             }
             catch
             {
@@ -489,6 +550,33 @@ namespace TBP_Dashboard
             }
 
             NaviTimer.Start();
+
+            // Set rich presence
+            client.SetPresence(new RichPresence()
+            {
+                Details = "play.crutionix.com:25565",
+                State = "Playing on TBP",
+                Timestamps = Timestamps.Now,
+                Party = new Party()
+                {
+                    ID = "tbp_server",
+                    Size = 1,
+                    Max = 32
+                },
+                Assets = new Assets()
+                {
+                    LargeImageKey = "season4",
+                    LargeImageText = "Season 4 | TBP",
+                    SmallImageKey = "tbplay",
+                    SmallImageText = "via TBPlay"
+                },
+                Buttons = new Button[]
+                {
+                    new Button() { Label = "Join them!", Url = "tbplay://play" }
+                }
+            }) ;
+
+            RPCUpdate.Start();
         }
 
         public void CheckMinecraftVersion(string requiredVersion)
@@ -635,7 +723,11 @@ namespace TBP_Dashboard
             else if (WebView.Source.ToString().EndsWith("crutionix.com/"))
             {
                 UpdateHeader.Text = "Collecting News and Events...";
-                WebView2.Source = new Uri("https://crutionix.com/tbp/launcher/");
+
+                string launchflags = Properties.Settings.Default.launchFlag;
+                if (string.IsNullOrEmpty(launchflags)) { WebView2.Source = new Uri("https://crutionix.com/tbp/launcher/"); }
+                else if(launchflags == "play") { HandlePlay("fromURI"); }
+                else if (launchflags == "map") { WebView2.Source = new Uri("http://play.crutionix.com:8100/"); }
                 StatusStrip.Visible = false;
                 this.Icon = Resources.IconSpw1;
                 if (this.Text.Contains("[Up-to-Date]")) { this.Text = "Newsfeed - TBPlay (v" + Settings.Default.Version + ") " + "[Up-to-Date]"; }
@@ -644,6 +736,7 @@ namespace TBP_Dashboard
                 //this.Width = 1064;
                 //this.Height = 723;
                 WebView2.Visible = true;
+
             }
             else
             {
@@ -835,7 +928,7 @@ namespace TBP_Dashboard
 
         private void ToggleWebControlPanel(Uri currentUri)
         {
-            if (currentUri.Host.Contains("crutionix.com"))
+            if (currentUri.Host.Equals("crutionix.com", StringComparison.OrdinalIgnoreCase))
             {
                 WebControlPanel.Visible = false;
                 WebControlPanel.BringToFront();
@@ -998,6 +1091,21 @@ namespace TBP_Dashboard
             SettingsProcessing.AppendText("$currentmp=" + Settings.Default.CurrentModpack + Environment.NewLine);
             SettingsProcessing.AppendText("$wv2ignored=" + Settings.Default.wv2ignored + Environment.NewLine);
             SettingsProcessing.SaveFile(SettingsINI, RichTextBoxStreamType.PlainText);
+
+            RPCUpdate.Stop();
+            if (client != null)
+            {
+                try
+                {
+                    client.ClearPresence();
+                    client.Dispose();
+                }
+                catch
+                {
+                    //
+                }
+            }
+
             Application.Exit();
         }
 
@@ -1324,6 +1432,47 @@ namespace TBP_Dashboard
                     }
                 }
             }
+        }
+
+        private void RPCUpdate_Tick(object sender, EventArgs e)
+        {
+            // Ping TBP
+            MineStat ms = new MineStat("play.crutionix.com", 25565);
+
+            int online = 0;
+            int max = 32;
+
+            if (ms.ServerUp)
+            {
+                online = ms.CurrentPlayersInt;
+                max = ms.MaximumPlayersInt;
+            }
+
+            // Update Discord presence
+            client.SetPresence(new RichPresence()
+            {
+                Details = "play.crutionix.com:25565",
+                State = ms.ServerUp ? "Playing on TBP" : "Server Offline",
+                Party = new Party()
+                {
+                    ID = "tbp_server",
+                    Size = online,
+                    Max = max
+                },
+                Assets = new Assets()
+                {
+                    LargeImageKey = "season4",
+                    LargeImageText = "Season 4 | TBP",
+                    SmallImageKey = "tbplay",
+                    SmallImageText = "via TBPlay"
+                },
+                Buttons = new Button[]
+                {
+                    new Button() { Label = "Join them!", Url = "tbplay://play" }
+                }
+            });
+
+            Console.Write(online.ToString() + " online players of " + max.ToString());
         }
     }
 }
