@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TBPlay"
-#define MyAppVersion "250802"
+#define MyAppVersion "250803"
 #define MyAppPublisher "RWE Labs"
 #define MyAppURL "https://www.crutionix.com/?ref=tbp_launcher"
 #define MyAppExeName "TBP Dashboard.exe"
@@ -50,4 +50,16 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+
+[Registry]
+; Register the tbplay:// protocol
+Root: HKCR; Subkey: "tbplay"; ValueType: string; ValueName: ""; ValueData: "URL:TBPlay Protocol"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "tbplay"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletevalue
+
+; Default icon (optional)
+Root: HKCR; Subkey: "tbplay\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},1"
+
+; Command to execute (this launches your app with the URL as an argument)
+Root: HKCR; Subkey: "tbplay\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
+
 
