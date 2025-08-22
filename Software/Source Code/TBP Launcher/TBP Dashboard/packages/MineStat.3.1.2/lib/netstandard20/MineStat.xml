@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MineStat</name>
+    </assembly>
+    <members>
+        <member name="T:MineStatLib.MineStat">
+            <summary>
+            MineStat is a Minecraft server status checker.<br/>
+            After object creation, the appropriate SLP (server list ping) protocol will be automatically chosen based on the
+            server version and all fields will be populated.
+            </summary>
+        </member>
+        <member name="F:MineStatLib.MineStat.MineStatVersion">
+            <summary>
+            The MineStat library version.
+            </summary>
+        </member>
+        <member name="F:MineStatLib.MineStat.DefaultTimeout">
+            <summary>
+            Default TCP timeout in seconds.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Address">
+            <summary>
+            The address of the Minecraft server to connect to.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Port">
+            <summary>
+            The port of the Minecraft server to connect to.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Timeout">
+            <summary>
+            The time in seconds, after which a connection is timed out. Defaults to <see cref="F:MineStatLib.MineStat.DefaultTimeout"/>.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Motd">
+            <summary>
+            The message of the day, as returned by the server. May contain legacy formatting codes (§) or JSON chat components.
+            </summary>
+            <example>
+            Legacy formatting codes:
+            <code>§6~~§r §3§lM§7§lA§2§lG§9§lI§4§lC§r1.16 v3§6~~§r</code>
+            JSON chat components:
+            <code>
+            {"extra": [{"color": "gold", "text": "Test"}, {"text": " "}, {"bold": true, "color": "dark_aqua", "text": "text"}], "text": ""}
+            </code>
+            </example>
+        </member>
+        <member name="P:MineStatLib.MineStat.Stripped_Motd">
+            <summary>
+            The message of the day, with all formatting removed ("human readable").
+            </summary>
+            <example>
+            The above motd with all formatting removed:
+            <code>~~ MAGIC1.16 v3~~</code>
+            </example>
+        </member>
+        <member name="P:MineStatLib.MineStat.Version">
+            <summary>
+            The version, as provided by the server. May contain freetext.
+            </summary>
+            <example>
+            PaperMC 1.19 server:
+            <code>Paper 1.18.2</code>
+            PocketMine-MP Bedrock server:
+            <code>1.18.30 PocketMine-MP(MCPE)</code>
+            </example>
+        </member>
+        <member name="P:MineStatLib.MineStat.CurrentPlayers">
+            <summary>
+            The current online player count as string.
+            For the integer representation use <see cref="P:MineStatLib.MineStat.CurrentPlayersInt"/>.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.CurrentPlayersInt">
+            <summary>
+            The current online player count as integer.
+            For the string representation use <see cref="P:MineStatLib.MineStat.CurrentPlayers"/>.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.MaximumPlayers">
+            <summary>
+            The maximum online player count as string, as reported by the server.
+            May be inaccurate (Server networks, BungeeCord/Velocity/Waterfall).<br/>
+            For the integer representation use <see cref="P:MineStatLib.MineStat.MaximumPlayersInt"/>.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.MaximumPlayersInt">
+            <summary>
+            The maximum online player count as int, as reported by the server.
+            May be inaccurate (Server networks, BungeeCord/Velocity/Waterfall).<br/>
+            For the string representation use <see cref="P:MineStatLib.MineStat.MaximumPlayers"/>.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.PlayerList">
+            <summary>
+            The sample list of online players.<br/>
+            Only provided by modern servers (>=1.7), may contain freetext and formatting codes.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.ServerUp">
+            <summary>
+            Whether the server is online and could be reached. True if online.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Latency">
+            <summary>
+            The time it took the server to respond with the server information in milliseconds.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Protocol">
+            <summary>
+            The protocol used to connect to the server. See <see cref="T:MineStatLib.SlpProtocol"/> for all available protocols.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.ConnectionStatus">
+            <summary>
+            The connection status. See <see cref="T:MineStatLib.ConnStatus"/> for more info.
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Gamemode">
+            <summary>
+            Bedrock specific: The current gamemode (Creative/Survival/Adventure)
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.Favicon">
+            <summary>
+            Favicon for the Minecraft server when returned by the server (In Base64 Format)
+            </summary>
+        </member>
+        <member name="P:MineStatLib.MineStat.FaviconBytes">
+            <summary>
+            Favicon decoded to byte array
+            </summary>
+        </member>
+        <member name="M:MineStatLib.MineStat.#ctor(System.String,System.UInt16,System.Int32,MineStatLib.SlpProtocol)">
+            <inheritdoc cref="T:MineStatLib.MineStat"/>
+            <example>
+            <code>
+            MineStat ms = new MineStat("minecraft.frag.land", 25565);
+            Console.WriteLine("The server is" + ms.ServerUp ? "online!" : "offline!");
+            </code>
+            </example>
+            <param name="address">Address (hostname or IP) of Minecraft server to connect to</param>
+            <param name="port">Port to connect to on the address</param>
+            <param name="timeout">(Optional) Timeout in seconds</param>
+            <param name="protocol">(Optional) SLP protocol to use, defaults to automatic detection</param>
+        </member>
+        <member name="M:MineStatLib.MineStat.strip_motd_formatting(System.String)">
+            <summary>
+            Function for stripping all formatting codes from a motd.
+            </summary>
+            <returns>string with the stripped motd</returns>
+        </member>
+        <member name="M:MineStatLib.MineStat.RequestWithRaknetProtocol">
+            <summary>
+            Method for querying a Bedrock server (Minecraft PE, Windows 10 or Education Edition).
+            The protocol is based on the RakNet protocol.<br/>
+            See https://wiki.vg/Raknet_Protocol#Unconnected_Ping<br/>
+            Note: This method currently works as if the connection is handled via TCP (as if no packet loss might occur).
+            Packet loss handling should be implemented (resending).
+            </summary>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Bedrock_Raknet"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.ParseRaknetProtocolPayload(System.String)">
+            <summary>
+            Helper method for parsing the payload of the `bedrock_raknet` SLP protocol
+            </summary>
+            <param name="payload">The string payload</param>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Bedrock_Raknet"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.RequestWithJsonProtocol(System.Net.Sockets.NetworkStream)">
+            <summary>
+            Requests the server data with the Minecraft 1.7+ SLP protocol. In use by all modern Minecraft clients.
+            Complicated to construct.<br/>
+            See https://wiki.vg/Server_List_Ping#Current
+            </summary>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Json"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.ParseJsonProtocolPayload(System.Byte[])">
+            <summary>
+            Helper method for parsing the payload of the `json` SLP protocol
+            </summary>
+            <param name="rawPayload">The raw payload, without packet length and -id</param>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Json"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.RequestWithExtendedLegacyProtocol(System.Net.Sockets.NetworkStream)">
+            <summary>
+            Requests the server data with the Minecraft 1.6 SLP protocol, nicknamed "extended legacy" ping protocol.
+            All modern servers are currently backwards compatible with this protocol.<br/>
+            
+            See https://wiki.vg/Server_List_Ping#1.6
+            </summary>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.ExtendedLegacy"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.RequestWithLegacyProtocol(System.Net.Sockets.NetworkStream)">
+            <summary>
+            Requests the server data with the Minecraft 1.4-1.5 SLP protocol version,
+            server response contains more info than beta SLP (notably the server version).
+            Quite simple to request, but contains all interesting information.
+            Still works with (many) modern server implementations.<br/>
+            
+            See https://wiki.vg/Server_List_Ping#1.4_to_1.5
+            </summary>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Legacy"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.ParseLegacyProtocol(System.Byte[],MineStatLib.SlpProtocol)">
+            <summary>
+            Internal helper method for parsing the 1.4-1.5 ('Legacy') and 1.6 ('ExtendedLegacy') SLP protocol payloads.
+            The (response) payload for both protocols is identical, only the request is different.
+            </summary>
+            <param name="rawPayload">The raw payload, without packet length and -id</param>
+            <param name="protocol">The protocol that was used (either Legacy or ExtendedLegacy)</param>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Legacy"/>
+            <seealso cref="F:MineStatLib.SlpProtocol.ExtendedLegacy"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.RequestWithBetaProtocol(System.Net.Sockets.NetworkStream)">
+            <summary>
+            Requests the server data with the Minecraft Beta 1.8 to Minecraft 1.3 (release) SLP protocol.
+            This protocol is very simple; its response only contains the MOTD, the player count and the max players
+            - not the server version.
+            </summary>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+            <seealso cref="F:MineStatLib.SlpProtocol.Beta"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.ParseBetaProtocol(System.Byte[])">
+            <summary>
+            Internal helper method for parsing the `beta` SLP protocol payload.
+            May be useful for unit tests and issue troubleshooting.
+            </summary>
+            <param name="rawPayload">The raw payload, without packet length and -id</param>
+            <returns>ConnStatus - See <see cref="T:MineStatLib.ConnStatus"/> for possible values</returns>
+        </member>
+        <member name="M:MineStatLib.MineStat.TcpClientWrapper">
+            <summary>
+            Internal helper method for connecting to a remote host and setting timeouts.
+            </summary>
+            <remarks>
+            Contains a workaround for not  existing "Connect timeout" in the synchronous <c>TcpClient.Connect()</c> method.
+            Otherwise, the method would hang for >10 seconds before throwing an exception.
+            </remarks>
+            <returns><see cref="T:System.Net.Sockets.TcpClient"/> object or <c>null</c> if the connection failed</returns>
+        </member>
+        <member name="M:MineStatLib.MineStat.NetStreamReadExact(System.Net.Sockets.NetworkStream,System.Int32)">
+            <summary>
+            Wrapper for NetworkStream.<see cref="M:System.Net.Sockets.NetworkStream.Read(System.Byte[],System.Int32,System.Int32)"/>, which blocks until the full `size` amount of bytes has been read.
+            </summary>
+            <param name="stream">The network stream to read `size` bytes from</param>
+            <param name="size">The number of bytes to receive.</param>
+            <returns>An array of type <see cref="T:System.Byte"/> that contains the received data.</returns>
+        </member>
+        <member name="M:MineStatLib.MineStat.RequestWrapper(System.Func{System.Net.Sockets.NetworkStream,MineStatLib.ConnStatus})">
+            <summary>
+            Wrapper for any `Request` method. Handles graceful socket closure.
+            </summary>
+            <param name="toExecute">Request method to execute, e.g. <see cref="M:MineStatLib.MineStat.RequestWithJsonProtocol(System.Net.Sockets.NetworkStream)"/></param>
+            <returns>The connection status returned by the method from `toExecute` or <see cref="F:MineStatLib.ConnStatus.Connfail"/> on connection failure</returns>
+        </member>
+        <member name="M:MineStatLib.MineStat.IsServerUp">
+            <inheritdoc cref="P:MineStatLib.MineStat.ServerUp"/>
+            <seealso cref="P:MineStatLib.MineStat.ServerUp"/>
+        </member>
+        <member name="M:MineStatLib.MineStat.WriteLeb128(System.Int32)">
+            <summary>
+            Creates a LEB128 byte-array for sending over network from an integer.
+            </summary>
+            <param name="value">Value to convert</param>
+            <returns>A LEB128 representation of the value as byte array</returns>
+        </member>
+        <member name="M:MineStatLib.MineStat.WriteLeb128Stream(System.IO.Stream,System.Int32)">
+            <summary>
+            Writes an integer as LEB128-encoded number to a (network-)stream.
+            </summary>
+            <param name="stream"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MineStatLib.MineStat.ReadLeb128Stream(System.IO.Stream)">
+            <summary>
+            Reads an LEB128-encoded integer from a (network-) stream and converts it to a normal int. 
+            </summary>
+            <param name="stream">Stream to read the data from</param>
+            <returns>The integer representation of the read LEB128 number</returns>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="T:MineStatLib.ConnStatus">
+            <summary>
+            Contains possible connection states.
+            </summary>
+            <list type="bullet">
+              <item>
+                <term>Success: </term>
+                <description>The specified SLP connection succeeded (Request and response parsing OK)</description>
+              </item>
+              <item>
+                <term>Connfail: </term>
+                <description>The socket to the server could not be established. (Server offline, wrong hostname or port?)</description>
+              </item>
+              <item>
+                <term>Timeout: </term>
+                <description>The connection timed out. (Server under too much load? Firewall rules OK?)</description>
+              </item>
+              <item>
+                <term>Unknown: </term>
+                <description>The connection was established, but the server spoke an unknown/unsupported SLP protocol.</description>
+              </item>
+            </list>
+        </member>
+        <member name="F:MineStatLib.ConnStatus.Success">
+            <summary>
+            The specified SLP connection succeeded (Request and response parsing OK)
+            </summary>
+        </member>
+        <member name="F:MineStatLib.ConnStatus.Connfail">
+            <summary>
+            The socket to the server could not be established. (Server offline, wrong hostname or port?)
+            </summary>
+        </member>
+        <member name="F:MineStatLib.ConnStatus.Timeout">
+            <summary>
+            The connection timed out. (Server under too much load? Firewall rules OK?)
+            </summary>
+        </member>
+        <member name="F:MineStatLib.ConnStatus.Unknown">
+            <summary>
+            The connection was established, but the server spoke an unknown/unsupported SLP protocol.
+            </summary>
+        </member>
+        <member name="T:MineStatLib.SlpProtocol">
+            <summary>
+            Enum of possible SLP (Server List Ping) protocol versions.
+            </summary>
+        </member>
+        <member name="F:MineStatLib.SlpProtocol.Bedrock_Raknet">
+            <summary>
+            The Bedrock SLP-equivalent using the RakNet `Unconnected Ping` packet.
+            Currently experimental.
+            </summary>
+        </member>
+        <member name="F:MineStatLib.SlpProtocol.Json">
+            <summary>
+            The newest and currently supported SLP protocol.<br/>
+            Uses (wrapped) JSON as payload. Complex request, see above <see cref="M:MineStatLib.MineStat.RequestWithJsonProtocol(System.Net.Sockets.NetworkStream)"/>
+            for the protocol implementation. <br/>
+            <i>Available since Minecraft 1.7.</i>
+            </summary>
+        </member>
+        <member name="F:MineStatLib.SlpProtocol.ExtendedLegacy">
+            <summary>
+            The previous SLP protocol.<br/>
+            Used by Minecraft 1.6, it is still supported by all newer server versions.
+            Complex request needed, see implementation <see cref="M:MineStatLib.MineStat.RequestWithExtendedLegacyProtocol(System.Net.Sockets.NetworkStream)"/> for all protocol
+            details.<br/>
+            <i>Available since Minecraft 1.6</i>
+            </summary>
+        </member>
+        <member name="F:MineStatLib.SlpProtocol.Legacy">
+            <summary>
+            The legacy SLP protocol.<br/>
+            Used by Minecraft 1.4 and 1.5, it is the first protocol to contain the server version number.
+            Very simple protocol call (2 byte), simple response decoding.
+            See <see cref="M:MineStatLib.MineStat.RequestWithLegacyProtocol(System.Net.Sockets.NetworkStream)"/> for full implementation and protocol details.<br/>
+            <i>Available since Minecraft 1.4</i>
+            </summary>
+        </member>
+        <member name="F:MineStatLib.SlpProtocol.Beta">
+            <summary>
+            The first SLP protocol.<br/>
+            Used by Minecraft Beta 1.8 till Release 1.3, it is the first SLP protocol.
+            It contains very few details, no server version info, only MOTD, max- and online player counts.<br/>
+            <i>Available since Minecraft Beta 1.8</i>
+            </summary>
+        </member>
+        <member name="F:MineStatLib.SlpProtocol.Automatic">
+            <summary>
+            Not a protocol. Used for setting the default, automatic protocol detection.
+            </summary>
+        </member>
+    </members>
+</doc>
