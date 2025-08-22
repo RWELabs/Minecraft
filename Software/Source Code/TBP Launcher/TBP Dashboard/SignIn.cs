@@ -198,7 +198,7 @@ namespace TBP_Dashboard
             // Set rich presence
             client.SetPresence(new RichPresence()
             {
-                Details = "TBPlay",
+                Details = "In the launcher...",
                 State = "Browsing News and Events",
                 Timestamps = Timestamps.Now,
                 Assets = new Assets()
@@ -210,7 +210,7 @@ namespace TBP_Dashboard
                 },
                 Buttons = new Button[]
                 {
-                    new Button() { Label = "Join them!", Url = "tbplay://open" }
+                    new Button() { Label = "Open TBPlay", Url = "https://tbp.crutionix.com/play/?action=open" }
                 }
             });
         }
@@ -587,7 +587,7 @@ namespace TBP_Dashboard
                 },
                 Buttons = new Button[]
                 {
-                    new Button() { Label = "Join them!", Url = "tbplay://play" }
+                    new Button() { Label = "Join them!", Url = "https://tbp.crutionix.com/play/?action=play" }
                 }
             }) ;
 
@@ -1485,7 +1485,7 @@ namespace TBP_Dashboard
                 },
                 Buttons = new Button[]
                 {
-                    new Button() { Label = "Join them!", Url = "tbplay://play" }
+                    new Button() { Label = "Join them!", Url = "https://tbp.crutionix.com/play/?action=play" }
                 }
             });
 
