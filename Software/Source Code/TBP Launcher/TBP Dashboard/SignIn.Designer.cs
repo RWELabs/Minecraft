@@ -89,6 +89,7 @@
             this.ForwardToolButton = new System.Windows.Forms.Button();
             this.RefreshToolButton = new System.Windows.Forms.Button();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.RPCUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -714,6 +715,11 @@
             this.ToolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.ToolTip1.ForeColor = System.Drawing.SystemColors.Info;
             // 
+            // RPCUpdate
+            // 
+            this.RPCUpdate.Interval = 30000;
+            this.RPCUpdate.Tick += new System.EventHandler(this.RPCUpdate_Tick);
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,6 +824,7 @@
         private System.Windows.Forms.ToolStripMenuItem expandToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pinsToolStripMenuItem;
         private System.Windows.Forms.Button SavePinToolButton;
+        private System.Windows.Forms.Timer RPCUpdate;
     }
 }
 
