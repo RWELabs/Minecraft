@@ -41,7 +41,33 @@ namespace TBP_Dashboard
 
                 if(Properties.Settings.Default.wv2ignored.ToLower() == "true")
                 {
-                    Application.Run(new SignIn());
+                    string[] args = Environment.GetCommandLineArgs();
+                    if (args.Length > 1)
+                    {
+                        string uri = args[1];
+                        if (uri.StartsWith("tbplay://open"))
+                        {
+                            Application.Run(new SignIn());
+                        }
+                        else if (uri.StartsWith("tbplay://play"))
+                        {
+                            Properties.Settings.Default.launchFlag = "play";
+                            Application.Run(new SignIn());
+                        }
+                        else if (uri.StartsWith("tbplay://map"))
+                        {
+                            Properties.Settings.Default.launchFlag = "map";
+                            Application.Run(new SignIn());
+                        }
+                        else if (uri.StartsWith("tbplay://"))
+                        {
+                            Application.Run(new SignIn());
+                        }
+                    }
+                    else
+                    {
+                        Application.Run(new SignIn());
+                    }
                 }
                 else if (Properties.Settings.Default.wv2ignored.ToLower() == "false")
                 {
@@ -69,7 +95,33 @@ namespace TBP_Dashboard
                         }
                         else
                         {
-                            Application.Run(new SignIn());
+                            string[] args = Environment.GetCommandLineArgs();
+                            if (args.Length > 1)
+                            {
+                                string uri = args[1];
+                                if (uri.StartsWith("tbplay://open"))
+                                {
+                                    Application.Run(new SignIn());
+                                }
+                                else if (uri.StartsWith("tbplay://play"))
+                                {
+                                    Properties.Settings.Default.launchFlag = "play";
+                                    Application.Run(new SignIn());
+                                }
+                                else if (uri.StartsWith("tbplay://map"))
+                                {
+                                    Properties.Settings.Default.launchFlag = "map";
+                                    Application.Run(new SignIn());
+                                }
+                                else if (uri.StartsWith("tbplay://"))
+                                {
+                                    Application.Run(new SignIn());
+                                }
+                            }
+                            else
+                            {
+                                Application.Run(new SignIn());
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -87,9 +139,35 @@ namespace TBP_Dashboard
                             }
                             else
                             {
-                                Application.Run(new SignIn());
                                 Properties.Settings.Default.wv2ignored = "true";
                                 Properties.Settings.Default.Save();
+                                string[] args = Environment.GetCommandLineArgs();
+                                if (args.Length > 1)
+                                {
+                                    string uri = args[1];
+                                    if (uri.StartsWith("tbplay://open"))
+                                    {
+                                        Application.Run(new SignIn());
+                                    }
+                                    else if (uri.StartsWith("tbplay://play"))
+                                    {
+                                        Properties.Settings.Default.launchFlag = "play";
+                                        Application.Run(new SignIn());
+                                    }
+                                    else if (uri.StartsWith("tbplay://map"))
+                                    {
+                                        Properties.Settings.Default.launchFlag = "map";
+                                        Application.Run(new SignIn());
+                                    }
+                                    else if (uri.StartsWith("tbplay://"))
+                                    {
+                                        Application.Run(new SignIn());
+                                    }
+                                }
+                                else
+                                {
+                                    Application.Run(new SignIn());
+                                }
                             }
                         }
                     }
