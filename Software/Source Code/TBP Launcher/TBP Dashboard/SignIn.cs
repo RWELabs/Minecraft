@@ -503,8 +503,23 @@ namespace TBP_Dashboard
 
         private void HandlePlay(dynamic msg)
         {
-            string fwd = msg.fwd ?? "";
-            string version = msg.version ?? "";
+            string fwd = "";
+            string version = "";
+
+            if (msg is string msgString)
+            {
+                if (msgString == "fromURI")
+                {
+                    fwd = "https://crutionix.com/tbp/play/";
+                }
+                // else fwd remains ""
+            }
+            else
+            {
+                // dynamic object from WebView
+                fwd = msg.fwd ?? "";
+                version = msg.version ?? "";
+            }
 
             string MinecraftLocation = Properties.Settings.Default.LaunchMinecraft;
             if (String.IsNullOrEmpty(MinecraftLocation) || String.IsNullOrWhiteSpace(MinecraftLocation))
@@ -1071,6 +1086,8 @@ namespace TBP_Dashboard
             string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string updatelocation = Path.Combine(dataPath, "tbp-modpack.zip");
             string SettingsINI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\settings.ini";
+            Properties.Settings.Default.launchFlag = null;
+            Properties.Settings.Default.Save();
 
             if (File.Exists(updatelocation))
             {
