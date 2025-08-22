@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("250802")]
+        [global::System.Configuration.DefaultSettingValueAttribute("250803")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -177,6 +177,18 @@ namespace TBP_Dashboard.Properties {
             }
             set {
                 this["wv2ignored"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string launchFlag {
+            get {
+                return ((string)(this["launchFlag"]));
+            }
+            set {
+                this["launchFlag"] = value;
             }
         }
     }
