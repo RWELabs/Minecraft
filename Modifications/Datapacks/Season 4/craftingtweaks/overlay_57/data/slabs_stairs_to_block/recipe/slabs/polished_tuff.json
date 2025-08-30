@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:polished_tuff",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": "minecraft:polished_tuff_slab"
+	},
+	"group": "slabs_to_blocks"
+}

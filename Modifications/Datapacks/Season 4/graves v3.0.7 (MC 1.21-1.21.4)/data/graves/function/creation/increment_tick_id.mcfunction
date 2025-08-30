@@ -1,0 +1,1 @@
+execute store result storage graves:main tick_id int 1.0 run scoreboard players add $tick_id graves.dummy 1

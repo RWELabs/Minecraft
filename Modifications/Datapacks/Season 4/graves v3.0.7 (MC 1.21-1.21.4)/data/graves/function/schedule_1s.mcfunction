@@ -1,0 +1,2 @@
+schedule function graves:schedule_1s 1s
+execute if score $despawn_seconds graves.config matches 1.. as @e[type=minecraft:item_display,tag=graves.grave] run function graves:destruction/update_despawn_timer

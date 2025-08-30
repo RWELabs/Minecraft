@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:mud_bricks",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		"minecraft:mud_brick_stairs",
+		"minecraft:mud_brick_stairs",
+		"minecraft:mud_brick_stairs",
+		"minecraft:mud_brick_stairs"
+	],
+	"group": "stairs_to_block"
+}

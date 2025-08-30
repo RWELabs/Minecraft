@@ -1,0 +1,1 @@
+{"condition":"minecraft:inverted","term":{"condition":"minecraft:location_check","predicate":{"position":{"y":{"min":-2032}}}}}

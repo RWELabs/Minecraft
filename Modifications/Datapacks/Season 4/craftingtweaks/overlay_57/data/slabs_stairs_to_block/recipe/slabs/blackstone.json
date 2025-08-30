@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:blackstone",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": "minecraft:blackstone_slab"
+	},
+	"group": "slabs_to_blocks"
+}

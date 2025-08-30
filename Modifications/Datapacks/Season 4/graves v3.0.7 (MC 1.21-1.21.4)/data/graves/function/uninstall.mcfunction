@@ -1,0 +1,2 @@
+execute if score $death_marker_count graves.dummy matches 1.. run return run tellraw @s [{"color":"red","text":"Graves couldn't be uninstalled since a death is still being processed. Wait a moment and run "},{"color":"gold","text":"/function graves:uninstall"}," again.\n\n(If you're SURE this message is wrong, you can force-uninstall Graves using ",{"color":"gold","text":"/function graves:force_uninstall"},".)"]
+function graves:force_uninstall

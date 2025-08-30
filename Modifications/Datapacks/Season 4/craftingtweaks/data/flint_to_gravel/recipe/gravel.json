@@ -1,0 +1,16 @@
+{
+	"result": {
+		"id": "minecraft:gravel",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##",
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "minecraft:flint"
+		}
+	}
+}

@@ -1,0 +1,1 @@
+$tellraw @s [ {"color": "gray", "text": ""}, { "storage": "graves:main", "nbt": "players[{uuid: $(owner_uuid)}].name", "interpret": true }, ":" ]

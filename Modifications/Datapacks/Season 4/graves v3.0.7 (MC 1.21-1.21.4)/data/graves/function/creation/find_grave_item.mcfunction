@@ -1,0 +1,1 @@
+execute as @e[type=minecraft:item,distance=..1] if items entity @s contents *[minecraft:custom_data~{graves:{grave:1b}}] if function graves:creation/does_grave_item_match run return run function graves:creation/handle_matching_grave_item

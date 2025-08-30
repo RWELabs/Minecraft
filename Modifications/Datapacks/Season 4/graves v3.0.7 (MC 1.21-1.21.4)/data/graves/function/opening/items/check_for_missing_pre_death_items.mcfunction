@@ -1,0 +1,5 @@
+execute store result score $missing_pre_death_item_count graves.dummy run data get storage graves:main opening.pre_death_inventory
+execute store result score $grave_item_count graves.dummy run data get storage graves:main opening.items
+scoreboard players operation $missing_pre_death_item_count graves.dummy -= $grave_item_count graves.dummy
+execute if score $missing_pre_death_item_count graves.dummy matches 0 run return fail
+tellraw @s [{"color":"red","text":"Due to a rare Minecraft quirk, the Graves data pack detected the grave you opened couldn't pick up at most "},{"score":{"name":"$missing_pre_death_item_count","objective":"graves.dummy"}}," of the item slots originally dropped on death.\n\nIf this grave was missing items, it may be an incompatibility or bug, and we can help you in our data pack help channel:\n",{"underlined":true,"text":"https://vanillatweaks.net/discord","hoverEvent":{"action":"show_text","value":"Click to open URL."},"clickEvent":{"action":"open_url","value":"https://vanillatweaks.net/discord"}}]

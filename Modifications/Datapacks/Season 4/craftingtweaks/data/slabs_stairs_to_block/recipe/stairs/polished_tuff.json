@@ -1,0 +1,22 @@
+{
+	"result": {
+		"id": "minecraft:polished_tuff",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:polished_tuff_stairs"
+		},
+		{
+			"item": "minecraft:polished_tuff_stairs"
+		},
+		{
+			"item": "minecraft:polished_tuff_stairs"
+		},
+		{
+			"item": "minecraft:polished_tuff_stairs"
+		}
+	],
+	"group": "stairs_to_block"
+}

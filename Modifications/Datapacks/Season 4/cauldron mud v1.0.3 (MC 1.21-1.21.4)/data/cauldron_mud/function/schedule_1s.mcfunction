@@ -1,0 +1,2 @@
+schedule function cauldron_mud:schedule_1s 1s
+execute as @e[type=minecraft:item] at @s if items entity @s contents #cauldron_mud:convertible if block ~ ~ ~ minecraft:water_cauldron run item modify entity @s contents cauldron_mud:convert

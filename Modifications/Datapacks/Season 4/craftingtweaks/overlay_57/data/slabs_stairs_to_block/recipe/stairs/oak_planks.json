@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:oak_planks",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		"minecraft:oak_stairs",
+		"minecraft:oak_stairs",
+		"minecraft:oak_stairs",
+		"minecraft:oak_stairs"
+	],
+	"group": "stairs_to_block"
+}

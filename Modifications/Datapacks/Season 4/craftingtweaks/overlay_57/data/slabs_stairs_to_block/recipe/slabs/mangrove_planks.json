@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:mangrove_planks",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": "minecraft:mangrove_slab"
+	},
+	"group": "slabs_to_blocks"
+}

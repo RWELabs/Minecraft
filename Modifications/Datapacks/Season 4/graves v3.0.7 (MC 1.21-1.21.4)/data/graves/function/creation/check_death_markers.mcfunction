@@ -1,0 +1,2 @@
+execute as @e[type=minecraft:marker,tag=graves.death_marker] at @s run function graves:creation/check_death_marker
+execute if score $death_marker_count graves.dummy matches 1.. run schedule function graves:creation/check_death_markers 1

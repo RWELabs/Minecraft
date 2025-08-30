@@ -1,0 +1,22 @@
+{
+	"result": {
+		"id": "minecraft:smooth_quartz",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:smooth_quartz_stairs"
+		},
+		{
+			"item": "minecraft:smooth_quartz_stairs"
+		},
+		{
+			"item": "minecraft:smooth_quartz_stairs"
+		},
+		{
+			"item": "minecraft:smooth_quartz_stairs"
+		}
+	],
+	"group": "stairs_to_block"
+}

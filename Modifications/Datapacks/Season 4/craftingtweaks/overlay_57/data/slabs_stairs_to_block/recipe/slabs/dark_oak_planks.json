@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:dark_oak_planks",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": "minecraft:dark_oak_slab"
+	},
+	"group": "slabs_to_blocks"
+}

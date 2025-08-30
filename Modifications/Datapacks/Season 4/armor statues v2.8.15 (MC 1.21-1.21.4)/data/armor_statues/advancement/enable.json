@@ -1,0 +1,16 @@
+{
+  "parent": "armor_statues:root",
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ],
+  "rewards": {
+    "function": "armor_statues:enable"
+  }
+}

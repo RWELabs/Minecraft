@@ -1,0 +1,19 @@
+{
+	"result": {
+		"id": "minecraft:lever",
+		"count": 1
+	},
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"/",
+		"B"
+	],
+	"key": {
+		"/": {
+			"item": "minecraft:stick"
+		},
+		"B": {
+			"item": "minecraft:blackstone"
+		}
+	}
+}

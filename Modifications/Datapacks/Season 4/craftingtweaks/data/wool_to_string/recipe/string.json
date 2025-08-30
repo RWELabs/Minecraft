@@ -1,0 +1,12 @@
+{
+	"result": {
+		"id": "minecraft:string",
+		"count": 4
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "minecraft:wool"
+		}
+	]
+}

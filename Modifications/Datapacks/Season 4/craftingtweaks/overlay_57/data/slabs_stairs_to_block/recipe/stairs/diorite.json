@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:diorite",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		"minecraft:diorite_stairs",
+		"minecraft:diorite_stairs",
+		"minecraft:diorite_stairs",
+		"minecraft:diorite_stairs"
+	],
+	"group": "stairs_to_block"
+}

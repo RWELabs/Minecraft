@@ -1,0 +1,15 @@
+Vanilla Tweaks Crafting Tweaks
+Version: 1.21
+Packs:
+	unpackable ice
+	unpackable nether wart
+	unpackable wool
+	craftable gravel
+	craftable bundles leather
+	craftable bundles rabbit hide
+	back to blocks
+	rotten flesh to leather
+	blackstone cobblestone
+	straight to shapeless
+	universal dyeing
+	sandstone dyeing

@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:waxed_oxidized_cut_copper",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": "minecraft:waxed_oxidized_cut_copper_slab"
+	},
+	"group": "slabs_to_blocks"
+}

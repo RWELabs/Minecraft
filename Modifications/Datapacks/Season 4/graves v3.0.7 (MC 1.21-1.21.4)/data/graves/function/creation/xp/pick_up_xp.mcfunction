@@ -1,0 +1,2 @@
+execute if data storage graves:main creation{found_drops_late:0b} run return run function graves:creation/xp/pick_up_xp_orb_with_age_0
+execute as @e[type=minecraft:experience_orb,distance=..1,nbt={Age:1s}] run function graves:creation/xp/pick_up_xp_orb

@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:cobblestone",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		"minecraft:cobblestone_stairs",
+		"minecraft:cobblestone_stairs",
+		"minecraft:cobblestone_stairs",
+		"minecraft:cobblestone_stairs"
+	],
+	"group": "stairs_to_block"
+}

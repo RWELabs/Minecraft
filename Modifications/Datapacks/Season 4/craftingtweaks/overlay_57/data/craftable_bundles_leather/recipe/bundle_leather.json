@@ -1,0 +1,16 @@
+{
+	"result": {
+		"id": "minecraft:bundle",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"SLS",
+		"L L",
+		"LLL"
+	],
+	"key": {
+		"S": "minecraft:string",
+		"L": "minecraft:leather"
+	}
+}

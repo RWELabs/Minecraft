@@ -1,0 +1,36 @@
+{
+	"result": {
+		"id": "minecraft:packed_ice"
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		},
+		{
+			"item": "minecraft:ice"
+		}
+	],
+	"group": "packed_ice"
+}

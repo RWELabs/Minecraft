@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:granite",
+		"count": 1
+	},
+	"type": "crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": "minecraft:granite_slab"
+	},
+	"group": "slabs_to_blocks"
+}

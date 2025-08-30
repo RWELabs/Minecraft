@@ -1,0 +1,14 @@
+{
+	"result": {
+		"id": "minecraft:bamboo_planks",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		"minecraft:bamboo_stairs",
+		"minecraft:bamboo_stairs",
+		"minecraft:bamboo_stairs",
+		"minecraft:bamboo_stairs"
+	],
+	"group": "stairs_to_block"
+}

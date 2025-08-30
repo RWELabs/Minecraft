@@ -1,0 +1,1 @@
+execute as @e[type=minecraft:experience_orb,distance=..0.01,nbt={Age:0s}] run function graves:creation/xp/pick_up_xp_orb

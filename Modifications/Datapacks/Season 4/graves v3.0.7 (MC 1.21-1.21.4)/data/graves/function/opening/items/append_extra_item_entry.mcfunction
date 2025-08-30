@@ -1,0 +1,6 @@
+data modify storage graves:main opening.extra_items.pools append value {rolls:1,entries:[{type:"minecraft:item",functions:[{function:"minecraft:set_count"},{function:"minecraft:set_components",components:{}},{function:"minecraft:set_custom_data",tag:{graves:{extra_item:1b}}}]}]}
+data modify storage graves:main opening.extra_items.pools[-1].entries[0].name set from storage graves:main opening.extra_item.id
+data modify storage graves:main opening.extra_items.pools[-1].entries[0].functions[{function:"minecraft:set_count"}].count set from storage graves:main opening.extra_item.count
+data modify storage graves:main opening.extra_items.pools[-1].entries[0].functions[{function:"minecraft:set_components"}].components set from storage graves:main opening.extra_item.components
+data modify storage graves:main opening.extra_items.pools[-1].entries[0].functions[{function:"minecraft:set_custom_data"}].tag.graves.initial_custom_data set from storage graves:main opening.extra_item.components."minecraft:custom_data"
+data remove storage graves:main opening.extra_item

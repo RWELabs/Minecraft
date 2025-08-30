@@ -1,0 +1,30 @@
+{
+  "parent": "armor_statues:root",
+  "criteria": {
+    "craft_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "predicates": {
+              "minecraft:written_book_content": {
+                "title": "Statues"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft_book"
+    ]
+  ],
+  "rewards": {
+    "function": "armor_statues:craft_book"
+  }
+}

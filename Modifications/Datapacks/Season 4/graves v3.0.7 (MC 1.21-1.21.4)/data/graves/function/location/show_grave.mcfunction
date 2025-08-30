@@ -1,0 +1,9 @@
+execute store result score $death_gametime graves.dummy run data get storage graves:main location.grave_listing.death_gametime
+execute store result score $ticks_since_death graves.dummy run time query gametime
+execute store result storage graves:main location.hours_ago int 0.00001388888888888889 run scoreboard players operation $ticks_since_death graves.dummy -= $death_gametime graves.dummy
+execute store result storage graves:main location.minutes_ago int 0.0008333333333333334 run scoreboard players operation $ticks_since_death graves.dummy %= $TICKS_PER_HOUR graves.dummy
+execute unless data storage graves:main location{hours_ago:0} run data modify storage graves:main location.time_since_death_texts append value '[{"storage":"graves:main","nbt":"location.hours_ago"},"h"]'
+execute unless data storage graves:main location{minutes_ago:0} run data modify storage graves:main location.time_since_death_texts append value '[{"storage":"graves:main","nbt":"location.minutes_ago"},"m"]'
+execute unless data storage graves:main location.time_since_death_texts run data modify storage graves:main location.time_since_death_texts set value ["0m"]
+tellraw @s [{"storage":"graves:main","nbt":"location.grave_listing_indent"},{"storage":"graves:main","nbt":"location.grave_listing.location_text","interpret":true},[{"italic":true,"color":"gray","text":" - "},[{"storage":"graves:main","nbt":"location.time_since_death_texts[]","interpret":true,"hoverEvent":{"action":"show_text","contents":{"italic":true,"text":"(excluding when world isn't open)"}}}," ago"]," ",{"color":"dark_purple","text":"(more)","hoverEvent":{"action":"show_text","contents":["",{"text":"Item slots: ","color":"gray"},{"storage":"graves:main","nbt":"location.grave_listing.item_count"},{"text":"\nXP points: ","color":"gray"},{"storage":"graves:main","nbt":"location.grave_listing.xp_points"}]}}]]
+data remove storage graves:main location.time_since_death_texts

@@ -1,0 +1,1 @@
+{"criteria":{"tick":{"trigger":"minecraft:tick"}},"rewards":{"function":"graves:creation/check_death_markers_later_in_tick"}}

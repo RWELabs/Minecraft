@@ -1,0 +1,22 @@
+{
+	"result": {
+		"id": "minecraft:polished_blackstone_bricks",
+		"count": 3
+	},
+	"type": "crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:polished_blackstone_brick_stairs"
+		},
+		{
+			"item": "minecraft:polished_blackstone_brick_stairs"
+		},
+		{
+			"item": "minecraft:polished_blackstone_brick_stairs"
+		},
+		{
+			"item": "minecraft:polished_blackstone_brick_stairs"
+		}
+	],
+	"group": "stairs_to_block"
+}

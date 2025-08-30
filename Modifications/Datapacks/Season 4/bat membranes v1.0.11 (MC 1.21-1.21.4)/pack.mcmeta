@@ -1,0 +1,7 @@
+{
+	"pack": {
+		"pack_format": 48,
+		"supported_formats": {"min_inclusive": 48, "max_inclusive": 61},
+		"description": [{"text":"Bat Membranes","color":"gold"},{"text":"\nvanillatweaks.net","color":"yellow"}]
+	}
+}

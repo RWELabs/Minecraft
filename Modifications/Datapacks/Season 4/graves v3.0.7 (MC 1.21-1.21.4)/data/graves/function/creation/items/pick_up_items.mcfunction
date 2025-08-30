@@ -1,0 +1,2 @@
+execute if data storage graves:main creation{found_drops_late:0b} run return run function graves:creation/items/pick_up_items_with_age_0
+execute as @e[type=minecraft:item,distance=..1,sort=nearest,nbt={Age:1s,PickupDelay:39s}] run function graves:creation/items/pick_up_item_maybe

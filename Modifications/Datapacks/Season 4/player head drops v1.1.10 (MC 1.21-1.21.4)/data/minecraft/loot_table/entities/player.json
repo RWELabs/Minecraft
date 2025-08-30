@@ -1,0 +1,1 @@
+{"pools":[{"rolls":1,"entries":[{"type":"minecraft:loot_table","value":"player_heads:entities/player"}]},{"rolls":1,"entries":[{"type":"minecraft:loot_table","value":"graves:entities/player"}]}]}

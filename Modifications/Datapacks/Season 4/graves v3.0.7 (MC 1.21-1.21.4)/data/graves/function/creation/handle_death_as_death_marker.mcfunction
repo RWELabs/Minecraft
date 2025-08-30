@@ -1,0 +1,2 @@
+execute if function graves:creation/find_grave_item rotated as @s run return run function graves:creation/handle_death
+execute if loaded ~ ~ ~ summon minecraft:interaction run return run function graves:creation/fail_to_find_grave_item_at_death_marker

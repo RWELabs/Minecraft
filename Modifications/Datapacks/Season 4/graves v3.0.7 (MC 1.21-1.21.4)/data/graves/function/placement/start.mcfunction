@@ -1,0 +1,5 @@
+execute positioned ~ ~0.5 ~ align y run tp @s ~ ~ ~
+execute positioned over world_surface positioned ~-0.01 ~-0.01 ~-0.01 if entity @s[dy=179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216] positioned ~0.01 ~0.01 ~0.01 run return run function graves:placement/start_over_world_surface
+execute if predicate graves:placement/is_in_world_and_loaded run return run function graves:placement/continue
+execute if predicate graves:placement/is_below_min_world_bottom positioned ~ -2032 ~ run return run function graves:placement/approach_world_bottom
+execute positioned ~ ~8 ~ positioned ~ ~108086391056891904 ~ positioned ~ ~-108086391056891904 ~ run function graves:placement/approach_world_bottom
