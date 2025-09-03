@@ -15,7 +15,7 @@
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">250803</Value>
+      <Value Profile="(Default)">250901</Value>
     </Setting>
     <Setting Name="DownloadItem" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -43,6 +43,12 @@
     </Setting>
     <Setting Name="launchFlag" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DiscordUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">You are not authenticated with Discord.</Value>
+    </Setting>
+    <Setting Name="DiscordUserDate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Never</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("250803")]
+        [global::System.Configuration.DefaultSettingValueAttribute("250901")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -189,6 +189,30 @@ namespace TBP_Dashboard.Properties {
             }
             set {
                 this["launchFlag"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("You are not authenticated with Discord.")]
+        public string DiscordUser {
+            get {
+                return ((string)(this["DiscordUser"]));
+            }
+            set {
+                this["DiscordUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
+        public string DiscordUserDate {
+            get {
+                return ((string)(this["DiscordUserDate"]));
+            }
+            set {
+                this["DiscordUserDate"] = value;
             }
         }
     }
