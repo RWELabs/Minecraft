@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TBPlay"
-#define MyAppVersion "250803"
+#define MyAppVersion "250901"
 #define MyAppPublisher "RWE Labs"
 #define MyAppURL "https://www.crutionix.com/?ref=tbp_launcher"
 #define MyAppExeName "TBP Dashboard.exe"
