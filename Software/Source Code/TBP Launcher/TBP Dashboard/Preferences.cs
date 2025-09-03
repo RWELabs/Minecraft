@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,8 @@ namespace TBP_Dashboard
             LauncherLocation.Text = Properties.Settings.Default.LaunchMinecraft;
             if(Properties.Settings.Default.CheckUpdates == "TRUE"){ CheckTBPUpdates.Checked = true;}
             if(Properties.Settings.Default.CheckUpdates == "FALSE") { CheckTBPUpdates.Checked = false; }
+            DiscordUser.Text = Properties.Settings.Default.DiscordUser;
+            LastAuthTime.Text = "Last Authenticated: " + Properties.Settings.Default.DiscordUserDate;
         }
 
         private void SetManually_Click(object sender, EventArgs e)
@@ -119,6 +122,64 @@ namespace TBP_Dashboard
                 CheckForUpdates.Text = "Up to date!";
                 AvailableVersion.Text = "No updates available.";
                 AvailableVersion.Visible = true;
+            }
+        }
+
+        private void FindLauncherStart_Click(object sender, EventArgs e)
+        {
+            //Check for Win32 Install
+            string InstallPath = (string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\Mojang\InstalledProducts\Minecraft Launcher", "Installed", null);
+            string InstallPath10 = (string)Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Mojang\InstalledProducts\Minecraft Launcher", "Installed", null);
+            string BackupInstallpath = @"C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe";
+
+
+            if (InstallPath != null)
+            {
+                if (File.Exists(InstallPath + @"MinecraftLauncher.exe"))
+                {
+                    LauncherLocation.Text = InstallPath + @"MinecraftLauncher.exe";
+                }
+                else if (File.Exists(InstallPath + "Minecraft Launcher" + @"MinecraftLauncher.exe"))
+                {
+                    LauncherLocation.Text = InstallPath + @"MinecraftLauncher.exe";
+                }
+            }
+            else if (InstallPath10 != null)
+            {
+                if (File.Exists(InstallPath10 + @"MinecraftLauncher.exe"))
+                {
+                    LauncherLocation.Text = InstallPath + @"MinecraftLauncher.exe";
+                }
+                else if (File.Exists(InstallPath10 + "Minecraft Launcher" + @"MinecraftLauncher.exe"))
+                {
+                    LauncherLocation.Text = InstallPath + @"MinecraftLauncher.exe";
+                }
+            }
+            else if (File.Exists(@"C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe"))
+            {
+                LauncherLocation.Text = @"C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe";
+            }
+            else
+            {
+                try
+                {
+                    string Directories = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Packages\";
+                    //Verify MS Launcher Installed
+
+                    foreach (string dir in Directory.GetDirectories(Directories))
+                    {
+                        if (dir.EndsWith("Microsoft.4297127D64EC6_8wekyb3d8bbwe"))
+                        {
+                            LauncherLocation.Text = Properties.Settings.Default.MSStoreMinecraftLocation;
+                            Properties.Settings.Default.Save();
+                        }
+                    }
+                }
+                catch
+                {
+                    //No Microsoft Store Launcher or Local Install Launcher
+                    MessageBox.Show("We weren't able to find the Minecraft Launcher on your PC. If you know where it's installed, please use the Find (Browse) button to locate the launcher manually.");
+                }
             }
         }
     }

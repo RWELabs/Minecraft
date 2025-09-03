@@ -43,23 +43,37 @@
             this.CheckForUpdates = new System.Windows.Forms.Button();
             this.CurrentVersion = new System.Windows.Forms.Label();
             this.AvailableVersion = new System.Windows.Forms.Label();
+            this.FindLauncherStart = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.DiscordUser = new System.Windows.Forms.TextBox();
+            this.LastAuthTime = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // LauncherLocation
             // 
             this.LauncherLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.LauncherLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LauncherLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.LauncherLocation.ForeColor = System.Drawing.Color.White;
-            this.LauncherLocation.Location = new System.Drawing.Point(12, 86);
+            this.LauncherLocation.Location = new System.Drawing.Point(5, 4);
             this.LauncherLocation.Name = "LauncherLocation";
-            this.LauncherLocation.Size = new System.Drawing.Size(405, 13);
+            this.LauncherLocation.Size = new System.Drawing.Size(395, 14);
             this.LauncherLocation.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 14);
+            this.label1.Location = new System.Drawing.Point(12, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 1;
@@ -70,11 +84,11 @@
             this.SetManually.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.SetManually.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.SetManually.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetManually.Location = new System.Drawing.Point(14, 109);
+            this.SetManually.Location = new System.Drawing.Point(104, 167);
             this.SetManually.Name = "SetManually";
-            this.SetManually.Size = new System.Drawing.Size(145, 23);
+            this.SetManually.Size = new System.Drawing.Size(95, 23);
             this.SetManually.TabIndex = 2;
-            this.SetManually.Text = "Set Manually (Browse)";
+            this.SetManually.Text = "Find (Browse)";
             this.SetManually.UseVisualStyleBackColor = false;
             this.SetManually.Click += new System.EventHandler(this.SetManually_Click);
             // 
@@ -85,7 +99,7 @@
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Image = global::TBP_Dashboard.Properties.Resources.Check;
             this.Save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Save.Location = new System.Drawing.Point(336, 249);
+            this.Save.Location = new System.Drawing.Point(335, 413);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(88, 54);
             this.Save.TabIndex = 3;
@@ -102,7 +116,7 @@
             this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.Image = global::TBP_Dashboard.Properties.Resources.Close;
             this.Cancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Cancel.Location = new System.Drawing.Point(242, 249);
+            this.Cancel.Location = new System.Drawing.Point(241, 413);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(88, 54);
             this.Cancel.TabIndex = 4;
@@ -116,9 +130,9 @@
             this.Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.Clear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Clear.Location = new System.Drawing.Point(349, 109);
+            this.Clear.Location = new System.Drawing.Point(370, 167);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(68, 23);
+            this.Clear.Size = new System.Drawing.Size(48, 23);
             this.Clear.TabIndex = 5;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = false;
@@ -126,10 +140,10 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label2.Location = new System.Drawing.Point(12, 34);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 7.25F);
+            this.label2.Location = new System.Drawing.Point(12, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(405, 46);
+            this.label2.Size = new System.Drawing.Size(405, 28);
             this.label2.TabIndex = 6;
             this.label2.Text = "When you click play, we\'ll launch the following executable. If you leave this emp" +
     "ty or click \"Clear\" we\'ll attempt to find it automatically when you click \"Play\"" +
@@ -140,11 +154,11 @@
             this.SetMSLauncher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.SetMSLauncher.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.SetMSLauncher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetMSLauncher.Location = new System.Drawing.Point(165, 109);
+            this.SetMSLauncher.Location = new System.Drawing.Point(205, 167);
             this.SetMSLauncher.Name = "SetMSLauncher";
-            this.SetMSLauncher.Size = new System.Drawing.Size(178, 23);
+            this.SetMSLauncher.Size = new System.Drawing.Size(159, 23);
             this.SetMSLauncher.TabIndex = 7;
-            this.SetMSLauncher.Text = "Set to Microsoft Store Launcher";
+            this.SetMSLauncher.Text = "Use Microsoft Store Launcher";
             this.SetMSLauncher.UseVisualStyleBackColor = false;
             this.SetMSLauncher.Click += new System.EventHandler(this.SetMSLauncher_Click);
             // 
@@ -152,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 156);
+            this.label3.Location = new System.Drawing.Point(11, 294);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 8;
@@ -161,7 +175,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label4.Location = new System.Drawing.Point(13, 174);
+            this.label4.Location = new System.Drawing.Point(12, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(405, 16);
             this.label4.TabIndex = 9;
@@ -170,7 +184,7 @@
             // CheckTBPUpdates
             // 
             this.CheckTBPUpdates.AutoSize = true;
-            this.CheckTBPUpdates.Location = new System.Drawing.Point(16, 193);
+            this.CheckTBPUpdates.Location = new System.Drawing.Point(15, 331);
             this.CheckTBPUpdates.Name = "CheckTBPUpdates";
             this.CheckTBPUpdates.Size = new System.Drawing.Size(210, 17);
             this.CheckTBPUpdates.TabIndex = 10;
@@ -182,7 +196,7 @@
             this.CheckForUpdates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.CheckForUpdates.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.CheckForUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckForUpdates.Location = new System.Drawing.Point(16, 216);
+            this.CheckForUpdates.Location = new System.Drawing.Point(15, 354);
             this.CheckForUpdates.Name = "CheckForUpdates";
             this.CheckForUpdates.Size = new System.Drawing.Size(143, 23);
             this.CheckForUpdates.TabIndex = 11;
@@ -194,7 +208,7 @@
             // 
             this.CurrentVersion.AutoSize = true;
             this.CurrentVersion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.CurrentVersion.Location = new System.Drawing.Point(13, 249);
+            this.CurrentVersion.Location = new System.Drawing.Point(12, 399);
             this.CurrentVersion.Name = "CurrentVersion";
             this.CurrentVersion.Size = new System.Drawing.Size(76, 13);
             this.CurrentVersion.TabIndex = 12;
@@ -204,12 +218,105 @@
             // 
             this.AvailableVersion.AutoSize = true;
             this.AvailableVersion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.AvailableVersion.Location = new System.Drawing.Point(13, 265);
+            this.AvailableVersion.Location = new System.Drawing.Point(12, 415);
             this.AvailableVersion.Name = "AvailableVersion";
             this.AvailableVersion.Size = new System.Drawing.Size(85, 13);
             this.AvailableVersion.TabIndex = 13;
             this.AvailableVersion.Text = "AvailableVersion";
             this.AvailableVersion.Visible = false;
+            // 
+            // FindLauncherStart
+            // 
+            this.FindLauncherStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.FindLauncherStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.FindLauncherStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FindLauncherStart.Location = new System.Drawing.Point(12, 167);
+            this.FindLauncherStart.Name = "FindLauncherStart";
+            this.FindLauncherStart.Size = new System.Drawing.Size(86, 23);
+            this.FindLauncherStart.TabIndex = 14;
+            this.FindLauncherStart.Text = "Find (Auto)";
+            this.FindLauncherStart.UseVisualStyleBackColor = false;
+            this.FindLauncherStart.Click += new System.EventHandler(this.FindLauncherStart_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(138, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources.IconSpw;
+            this.pictureBox1.Location = new System.Drawing.Point(359, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 219);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Discord Authentication";
+            // 
+            // DiscordUser
+            // 
+            this.DiscordUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.DiscordUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DiscordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.DiscordUser.ForeColor = System.Drawing.Color.White;
+            this.DiscordUser.Location = new System.Drawing.Point(6, 10);
+            this.DiscordUser.Name = "DiscordUser";
+            this.DiscordUser.ReadOnly = true;
+            this.DiscordUser.Size = new System.Drawing.Size(332, 14);
+            this.DiscordUser.TabIndex = 18;
+            // 
+            // LastAuthTime
+            // 
+            this.LastAuthTime.Font = new System.Drawing.Font("Segoe UI", 7.25F);
+            this.LastAuthTime.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LastAuthTime.Location = new System.Drawing.Point(74, 264);
+            this.LastAuthTime.Name = "LastAuthTime";
+            this.LastAuthTime.Size = new System.Drawing.Size(345, 18);
+            this.LastAuthTime.TabIndex = 19;
+            this.LastAuthTime.Text = "Last Authenticated: Never";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.panel1.Controls.Add(this.LauncherLocation);
+            this.panel1.Location = new System.Drawing.Point(12, 137);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(405, 22);
+            this.panel1.TabIndex = 20;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.panel2.Controls.Add(this.DiscordUser);
+            this.panel2.Location = new System.Drawing.Point(74, 239);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(343, 22);
+            this.panel2.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.75F);
+            this.label6.Location = new System.Drawing.Point(13, 244);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Username";
             // 
             // Preferences
             // 
@@ -218,8 +325,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(436, 322);
+            this.ClientSize = new System.Drawing.Size(435, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.LastAuthTime);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.FindLauncherStart);
             this.Controls.Add(this.AvailableVersion);
             this.Controls.Add(this.CurrentVersion);
             this.Controls.Add(this.CheckForUpdates);
@@ -233,13 +348,18 @@
             this.Controls.Add(this.Save);
             this.Controls.Add(this.SetManually);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.LauncherLocation);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Preferences";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings | TBPlay";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +381,14 @@
         private System.Windows.Forms.Button CheckForUpdates;
         private System.Windows.Forms.Label CurrentVersion;
         private System.Windows.Forms.Label AvailableVersion;
+        private System.Windows.Forms.Button FindLauncherStart;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox DiscordUser;
+        private System.Windows.Forms.Label LastAuthTime;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
     }
 }
