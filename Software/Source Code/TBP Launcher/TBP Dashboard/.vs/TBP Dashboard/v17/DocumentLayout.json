@@ -3,30 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|TBP Dashboard||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\qol-improvements-for-tbp\\software\\source code\\tbp launcher\\tbp dashboard\\preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\qol-improvements-for-tbp\\software\\source code\\tbp launcher\\tbp dashboard\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
-      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\qol-improvements-for-tbp\\software\\source code\\tbp launcher\\tbp dashboard\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rwalpole\\AppData\\Local\\SourceServer\\19978b5c0cfb28d33db7e547f253d54da1b31bf1edff5478d3f1f29ab552a629\\DiscordRPC\\DiscordRpcClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\qol-improvements-for-tbp\\software\\source code\\tbp launcher\\tbp dashboard\\preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rwalpole\\AppData\\Local\\SourceServer\\a592dc19c8e7285348b70233c68e97264bdcd3902e0da041d8e8a478b641b556\\DiscordRPC\\Entities\\Assets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\qol-improvements-for-tbp\\software\\source code\\tbp launcher\\tbp dashboard\\updatedownload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:updatedownload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\properties\\discord.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
-      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:properties\\discord.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\qol-improvements-for-tbp\\software\\source code\\tbp launcher\\tbp dashboard\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,74 +40,52 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DiscordRpcClient.cs",
-              "DocumentMoniker": "C:\\Users\\rwalpole\\AppData\\Local\\SourceServer\\19978b5c0cfb28d33db7e547f253d54da1b31bf1edff5478d3f1f29ab552a629\\DiscordRPC\\DiscordRpcClient.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\19978b5c0cfb28d33db7e547f253d54da1b31bf1edff5478d3f1f29ab552a629\\DiscordRPC\\DiscordRpcClient.cs",
-              "ToolTip": "C:\\Users\\rwalpole\\AppData\\Local\\SourceServer\\19978b5c0cfb28d33db7e547f253d54da1b31bf1edff5478d3f1f29ab552a629\\DiscordRPC\\DiscordRpcClient.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\19978b5c0cfb28d33db7e547f253d54da1b31bf1edff5478d3f1f29ab552a629\\DiscordRPC\\DiscordRpcClient.cs",
-              "ViewState": "AQIAANsBAAAAAAAAAAAuwKUCAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T03:14:18.559Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Assets.cs",
-              "DocumentMoniker": "C:\\Users\\rwalpole\\AppData\\Local\\SourceServer\\a592dc19c8e7285348b70233c68e97264bdcd3902e0da041d8e8a478b641b556\\DiscordRPC\\Entities\\Assets.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\a592dc19c8e7285348b70233c68e97264bdcd3902e0da041d8e8a478b641b556\\DiscordRPC\\Entities\\Assets.cs",
-              "ToolTip": "C:\\Users\\rwalpole\\AppData\\Local\\SourceServer\\a592dc19c8e7285348b70233c68e97264bdcd3902e0da041d8e8a478b641b556\\DiscordRPC\\Entities\\Assets.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\a592dc19c8e7285348b70233c68e97264bdcd3902e0da041d8e8a478b641b556\\DiscordRPC\\Entities\\Assets.cs",
-              "ViewState": "AQIAAKsAAAAAAAAAAAAuwLoAAAADAAAA",
+              "Title": "UpdateDownload.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\UpdateDownload.cs",
+              "RelativeDocumentMoniker": "UpdateDownload.cs",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\UpdateDownload.cs [Design]",
+              "RelativeToolTip": "UpdateDownload.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T03:12:14.6Z"
+              "WhenOpened": "2025-09-03T02:40:03.788Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Settings.settings",
-              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Properties\\Settings.settings",
-              "RelativeDocumentMoniker": "Properties\\Settings.settings",
-              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Properties\\Settings.settings",
-              "RelativeToolTip": "Properties\\Settings.settings",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
-              "WhenOpened": "2025-08-22T02:23:48.355Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAqwD0AAAA6AAAA",
+              "DocumentIndex": 4,
+              "Title": "Preferences.cs",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs",
+              "RelativeDocumentMoniker": "Preferences.cs",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs",
+              "RelativeToolTip": "Preferences.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAIwCEAAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T02:22:11.973Z",
+              "WhenOpened": "2025-09-03T02:31:19.455Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "discord.settings",
-              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Properties\\discord.settings",
-              "RelativeDocumentMoniker": "Properties\\discord.settings",
-              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Properties\\discord.settings",
-              "RelativeToolTip": "Properties\\discord.settings",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
-              "WhenOpened": "2025-08-22T02:13:11.033Z"
+              "DocumentIndex": 1,
+              "Title": "Preferences.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs",
+              "RelativeDocumentMoniker": "Preferences.cs",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs [Design]",
+              "RelativeToolTip": "Preferences.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T02:27:26.711Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SignIn.cs",
               "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs",
               "RelativeDocumentMoniker": "SignIn.cs",
               "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs",
               "RelativeToolTip": "SignIn.cs",
-              "ViewState": "AQIAADcCAAAAAAAAAADgvz4CAAAjAAAA",
+              "ViewState": "AQIAAIQDAAAAAAAAAAAswJEDAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T02:05:31.434Z",
+              "WhenOpened": "2025-09-03T01:28:51.565Z",
               "EditorCaption": ""
             },
             {
@@ -119,7 +97,20 @@
               "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs [Design]",
               "RelativeToolTip": "SignIn.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T02:05:25.917Z"
+              "WhenOpened": "2025-09-03T01:28:49.94Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TBP Dashboard",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\TBP Dashboard.csproj",
+              "RelativeDocumentMoniker": "TBP Dashboard.csproj",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\QOL-Improvements-for-TBP\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\TBP Dashboard.csproj",
+              "RelativeToolTip": "TBP Dashboard.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-03T01:23:00.556Z",
+              "EditorCaption": ""
             }
           ]
         }
