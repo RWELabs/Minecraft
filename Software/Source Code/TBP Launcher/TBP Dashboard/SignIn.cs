@@ -43,6 +43,9 @@ namespace TBP_Dashboard
 
         const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
 
+        private DateTime? gameStartTime = null;
+        private bool isMinecraftRunning = false;
+
         public SignIn()
         {
             //Define WV2 User Data
@@ -56,8 +59,10 @@ namespace TBP_Dashboard
             InitializeComponent();
             InitDiscord();
             EnableDarkTitleBar();
+
             this.Height = 723;
             this.Width = 676;
+
             MenuStrip.Renderer = new DarkMenuRenderer();
             WebControlContextMenu.Renderer = new DarkMenuRenderer();
 
@@ -178,10 +183,8 @@ namespace TBP_Dashboard
 
         private void InitDiscord()
         {
-            // Replace with your Application ID from the Discord Dev Portal
             client = new DiscordRpcClient(Properties.discord.Default.DiscordAppID);
 
-            // Subscribe to events (optional)
             client.OnReady += (sender, e) =>
             {
                 Console.WriteLine($"Connected to Discord as {e.User.Username}");
@@ -213,6 +216,9 @@ namespace TBP_Dashboard
                     new Button() { Label = "Open TBPlay", Url = "https://tbp.crutionix.com/play/?action=open" }
                 }
             });
+
+            Console.Write("Starting Java Detection on 30s Intervals.");
+            checkforJavaRPC.Start();
         }
 
         public class Pin
@@ -299,27 +305,27 @@ namespace TBP_Dashboard
             try
             {
                 string script = @"
-    (async function() {
-        let icons = document.querySelectorAll('link[rel*=""icon""]');
-        if (icons.length > 0) {
-            return await new Promise(resolve => {
-                let img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.src = icons[0].href;
-                img.onload = () => {
-                    let canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    canvas.getContext('2d').drawImage(img, 0, 0);
-                    resolve(canvas.toDataURL('image/png'));
-                };
-                img.onerror = () => resolve(null);
-            });
-        } else {
-            return null;
-        }
-    })();
-";
+                    (async function() {
+                        let icons = document.querySelectorAll('link[rel*=""icon""]');
+                        if (icons.length > 0) {
+                            return await new Promise(resolve => {
+                                let img = new Image();
+                                img.crossOrigin = 'anonymous';
+                                img.src = icons[0].href;
+                                img.onload = () => {
+                                    let canvas = document.createElement('canvas');
+                                    canvas.width = img.width;
+                                    canvas.height = img.height;
+                                    canvas.getContext('2d').drawImage(img, 0, 0);
+                                    resolve(canvas.toDataURL('image/png'));
+                                };
+                                img.onerror = () => resolve(null);
+                            });
+                        } else {
+                            return null;
+                        }
+                    })();
+                ";
 
                 string result = await webView.ExecuteScriptAsync(script);
 
@@ -565,13 +571,14 @@ namespace TBP_Dashboard
             }
 
             NaviTimer.Start();
+            gameStartTime = DateTime.UtcNow;
 
             // Set rich presence
             client.SetPresence(new RichPresence()
             {
                 Details = "play.crutionix.com:25565",
                 State = "Playing on TBP",
-                Timestamps = Timestamps.Now,
+                Timestamps = new Timestamps(gameStartTime.Value),
                 Party = new Party()
                 {
                     ID = "tbp_server",
@@ -724,6 +731,7 @@ namespace TBP_Dashboard
                 //this.Height = 723;
                 WebView2.Visible = true;
             }
+
             else if (WebView.Source.ToString().StartsWith("https://discord.com/oauth2/"))
             {
                 UpdateHeader.Text = "Chatting with Discord...";
@@ -741,7 +749,7 @@ namespace TBP_Dashboard
 
                 string launchflags = Properties.Settings.Default.launchFlag;
                 if (string.IsNullOrEmpty(launchflags)) { WebView2.Source = new Uri("https://crutionix.com/tbp/launcher/"); }
-                else if(launchflags == "play") { HandlePlay("fromURI"); }
+                else if (launchflags == "play") { HandlePlay("fromURI"); }
                 else if (launchflags == "map") { WebView2.Source = new Uri("http://play.crutionix.com:8100/"); }
                 StatusStrip.Visible = false;
                 this.Icon = Resources.IconSpw1;
@@ -895,10 +903,38 @@ namespace TBP_Dashboard
             WebView2.CoreWebView2.WebMessageReceived += WebView2_WebMessageReceived;
         }
 
+        private bool discordUserSavedThisSession = false;
         private async void WebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
+            //MessageBox.Show("NavigationCompleted fired!");
             if (WebView2.CanGoForward) { ForwardToolButton.Enabled = true; forwardToolStripMenuItem.Enabled = true; } else { ForwardToolButton.Enabled = false; forwardToolStripMenuItem.Enabled = false; }
             if (WebView2.CanGoBack) { BackToolButton.Enabled = true; backToolStripMenuItem.Enabled = true; } else { BackToolButton.Enabled = false; backToolStripMenuItem.Enabled = false; }
+
+            Uri currentUri2 = new Uri(((WebView2)sender).Source.ToString());
+            //MessageBox.Show("URL: " + currentUri2.ToString());
+
+            // Only save once per session
+            if (currentUri2.ToString().Equals("https://crutionix.com/tbp/launcher/") && !discordUserSavedThisSession)
+            {
+                // Wait for DOM to update if needed
+                await Task.Delay(500);
+
+                string js = @"(function() {
+                        var el = document.querySelector('.pd-discord-user-name');
+                        return el ? el.innerText : '';
+                    })();";
+                string discordUser = await WebView2.ExecuteScriptAsync(js);
+                //MessageBox.Show(discordUser);
+
+                if (!string.IsNullOrEmpty(discordUser))
+                {
+                    discordUser = System.Text.Json.JsonSerializer.Deserialize<string>(discordUser);
+                    Properties.Settings.Default.DiscordUser = discordUser;
+                    Properties.Settings.Default.DiscordUserDate = DateTime.Now.ToString();
+                    Properties.Settings.Default.Save();
+                    discordUserSavedThisSession = true;
+                }
+            }
 
             try
             {
@@ -1451,10 +1487,13 @@ namespace TBP_Dashboard
             }
         }
 
-        private void RPCUpdate_Tick(object sender, EventArgs e)
+        private async void RPCUpdate_Tick(object sender, EventArgs e)
         {
+            Console.Write("RPCUpdate has been ticked. Pinging for an update.");
+
             // Ping TBP
-            MineStat ms = new MineStat("play.crutionix.com", 25565);
+            var ms = await Task.Run(() => new MineStat("play.crutionix.com", 25565));
+            //MineStat ms = new MineStat("play.crutionix.com", 25565);
 
             int online = 0;
             int max = 32;
@@ -1470,6 +1509,7 @@ namespace TBP_Dashboard
             {
                 Details = "play.crutionix.com:25565",
                 State = ms.ServerUp ? "Playing on TBP" : "Server Offline",
+                Timestamps = gameStartTime.HasValue ? new Timestamps(gameStartTime.Value) : null,
                 Party = new Party()
                 {
                     ID = "tbp_server",
@@ -1489,7 +1529,61 @@ namespace TBP_Dashboard
                 }
             });
 
-            Console.Write(online.ToString() + " online players of " + max.ToString());
+            Console.WriteLine("Updating an RPC: " + online.ToString() + " online players of " + max.ToString());
+        }
+
+        private async void checkforJavaRPC_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Java detection has been ticked.");
+            await CheckMinecraftAndUpdateRPC();
+        }
+
+        private async Task CheckMinecraftAndUpdateRPC()
+        {
+            Console.Write("Checking if Minecraft is running...");
+            var JavaMinecraft = Process.GetProcessesByName("javaw")
+                .FirstOrDefault(p => p.MainWindowTitle.Contains("Minecraft"));
+            bool minecraftNowRunning = JavaMinecraft != null;
+
+            if(minecraftNowRunning && !isMinecraftRunning)
+            {
+                if (RPCUpdate.Enabled)
+                {
+                    //
+                    Console.WriteLine("Minecraft was detected, with RPC already set from HandlePlay. Doing nothing.");
+                }
+                else
+                {
+                    Console.WriteLine("Minecraft was detected, but RPC was not set from HandlePlay. Starting RPCUpdate.");
+                    RPCUpdate.Start();
+                }
+            }
+            else
+            {
+                if (RPCUpdate.Enabled)
+                {
+                    RPCUpdate.Stop();
+                    Console.WriteLine("Minecraft is not running, but RPCUpdate is setting the RPC. Stopping RPCUpdate.");
+                }
+
+                client.SetPresence(new RichPresence()
+                {
+                    Details = "In the launcher...",
+                    State = "Browsing News and Events",
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "tbplay",
+                        LargeImageText = "News and Events | TBP",
+                        SmallImageKey = "tbplay",
+                        SmallImageText = "via TBPlay"
+                    },
+                    Buttons = new Button[]
+                    {
+                        new Button() { Label = "Open TBPlay", Url = "https://tbp.crutionix.com/play/?action=open" }
+                    }
+                });
+                Console.WriteLine("Minecraft is not running. Setting a launcher RPC.");
+            }
         }
     }
 }

@@ -90,6 +90,7 @@
             this.RefreshToolButton = new System.Windows.Forms.Button();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.RPCUpdate = new System.Windows.Forms.Timer(this.components);
+            this.checkforJavaRPC = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -166,7 +167,7 @@
             this.LoadingPanel.Controls.Add(this.pictureBox1);
             this.LoadingPanel.Location = new System.Drawing.Point(238, 90);
             this.LoadingPanel.Name = "LoadingPanel";
-            this.LoadingPanel.Size = new System.Drawing.Size(581, 427);
+            this.LoadingPanel.Size = new System.Drawing.Size(581, 439);
             this.LoadingPanel.TabIndex = 2;
             this.LoadingPanel.Visible = false;
             // 
@@ -176,7 +177,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateHeader.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateHeader.ForeColor = System.Drawing.Color.DarkGray;
-            this.UpdateHeader.Location = new System.Drawing.Point(3, 302);
+            this.UpdateHeader.Location = new System.Drawing.Point(3, 314);
             this.UpdateHeader.Name = "UpdateHeader";
             this.UpdateHeader.Size = new System.Drawing.Size(571, 25);
             this.UpdateHeader.TabIndex = 2;
@@ -189,7 +190,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 358);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 370);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(571, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -200,7 +201,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 140);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 146);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(571, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -227,7 +228,7 @@
             this.WebView2.DefaultBackgroundColor = System.Drawing.Color.White;
             this.WebView2.Location = new System.Drawing.Point(0, 32);
             this.WebView2.Name = "WebView2";
-            this.WebView2.Size = new System.Drawing.Size(1049, 654);
+            this.WebView2.Size = new System.Drawing.Size(1049, 666);
             this.WebView2.TabIndex = 3;
             this.WebView2.Visible = false;
             this.WebView2.ZoomFactor = 1D;
@@ -720,12 +721,17 @@
             this.RPCUpdate.Interval = 30000;
             this.RPCUpdate.Tick += new System.EventHandler(this.RPCUpdate_Tick);
             // 
+            // checkforJavaRPC
+            // 
+            this.checkforJavaRPC.Interval = 60000;
+            this.checkforJavaRPC.Tick += new System.EventHandler(this.checkforJavaRPC_Tick);
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1048, 684);
+            this.ClientSize = new System.Drawing.Size(1048, 696);
             this.Controls.Add(this.LazyLoader);
             this.Controls.Add(this.LoadingPanel);
             this.Controls.Add(this.WebControlPanel);
@@ -738,7 +744,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuStrip;
-            this.MinimumSize = new System.Drawing.Size(1064, 723);
+            this.MinimumSize = new System.Drawing.Size(1064, 735);
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TBPlay";
@@ -825,6 +831,7 @@
         private System.Windows.Forms.ToolStripMenuItem pinsToolStripMenuItem;
         private System.Windows.Forms.Button SavePinToolButton;
         private System.Windows.Forms.Timer RPCUpdate;
+        private System.Windows.Forms.Timer checkforJavaRPC;
     }
 }
 
