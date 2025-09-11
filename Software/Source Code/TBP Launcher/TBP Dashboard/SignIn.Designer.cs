@@ -587,7 +587,7 @@
             this.WebControlPanel.Controls.Add(this.RefreshToolButton);
             this.WebControlPanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.WebControlPanel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.WebControlPanel.Location = new System.Drawing.Point(12, 608);
+            this.WebControlPanel.Location = new System.Drawing.Point(12, 631);
             this.WebControlPanel.Name = "WebControlPanel";
             this.WebControlPanel.Size = new System.Drawing.Size(260, 54);
             this.WebControlPanel.TabIndex = 8;
