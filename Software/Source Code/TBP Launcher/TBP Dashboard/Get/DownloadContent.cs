@@ -280,13 +280,13 @@ namespace TBP_Dashboard.Get
             }
         }
 
-        private void StartModpackUnzip_Tick(object sender, EventArgs e)
+        private async void StartModpackUnzip_Tick(object sender, EventArgs e)
         {
             StartModpackUnzip.Stop();
-            DoModpackUnzip();
+            await DoModpackUnzipAsync();
         }
 
-        private void DoModpackUnzip()
+        private async Task DoModpackUnzipAsync()
         {
             string Appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string MinecraftDir = Appdata + @"\.minecraft\mods\";
@@ -294,27 +294,44 @@ namespace TBP_Dashboard.Get
             string updatelocation = Path.Combine(dataPath, "tbp-modpack.zip");
 
             if (!Directory.Exists(MinecraftDir)) { Directory.CreateDirectory(MinecraftDir); }
-            
+
+            // Update UI before heavy work
             StatusText.Text = "Installing Modpack...";
             DownloadProgress.Text = "This may take a few minutes.";
             ProgressBar.Style = ProgressBarStyle.Marquee;
-            //ZipFile.ExtractToDirectory(updatelocation, MinecraftDir);
 
-            string zipToUnpack = updatelocation;
-            string unpackDirectory = MinecraftDir;
-            using (Ionic.Zip.ZipFile zip1 = Ionic.Zip.ZipFile.Read(zipToUnpack))
+            try
             {
-               foreach (ZipEntry e in zip1)
+                // Run extraction on background thread
+                await Task.Run(() =>
                 {
-                    e.Extract(unpackDirectory, ExtractExistingFileAction.OverwriteSilently);
-                }
-            }
+                    string zipToUnpack = updatelocation;
+                    string unpackDirectory = MinecraftDir;
+                    using (Ionic.Zip.ZipFile zip1 = Ionic.Zip.ZipFile.Read(zipToUnpack))
+                    {
+                        foreach (ZipEntry e in zip1)
+                        {
+                            e.Extract(unpackDirectory, ExtractExistingFileAction.OverwriteSilently);
+                        }
+                    }
+                });
 
-            StatusText.Text = "Cleaning up...";
-            DownloadProgress.Text = "Finishing installation...";
-            MessageBox.Show("We have successfully installed a modpack. To use this modpack, ensure that it is enabled from the Active Modpack list. Please note that this modpack requires the use of " + Properties.Settings.Default.DownloadVersion + ". Please ensure you select this profile when launching Minecraft.");
-            Properties.Settings.Default.CurrentModpack = "Custom Modpack";
-            this.Close();
+                // Back on UI thread
+                StatusText.Text = "Cleaning up...";
+                DownloadProgress.Text = "Finishing installation...";
+                MessageBox.Show("We have successfully installed a modpack. To use this modpack, ensure that it is enabled from the Active Modpack list. Please note that this modpack requires the use of " + Properties.Settings.Default.DownloadVersion + ". Please ensure you select this profile when launching Minecraft.");
+                Properties.Settings.Default.CurrentModpack = "Custom Modpack";
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                // Surface any extraction errors
+                MessageBox.Show("There was a problem installing the modpack: " + ex.Message, "Modpack Install Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ProgressBar.Style = ProgressBarStyle.Continuous;
+            }
         }
 
         private void DownloadContent_FormClosing(object sender, FormClosingEventArgs e)
@@ -425,24 +442,40 @@ namespace TBP_Dashboard.Get
             }
         }
 
-        private void StartWorldHandling_Tick(object sender, EventArgs e)
+        private async void StartWorldHandling_Tick(object sender, EventArgs e)
         {
             StartWorldHandling.Stop();
 
-            if(MessageBox.Show("The world has been downloaded successfully. Would you like us to automatically extract and install it for you, in your Minecraft Saves folder?", "World Saver | TBP Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("The world has been downloaded successfully. Would you like us to automatically extract and install it for you, in your Minecraft Saves folder?", "World Saver | TBP Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                string tmpZip = Properties.Settings.Default.TmpString;
+                string SavesFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft\saves\";
+
+                // Update UI and run extraction on background thread
+                StatusText.Text = "Installing world...";
+                DownloadProgress.Text = "Extracting world files...";
+                ProgressBar.Style = ProgressBarStyle.Marquee;
+
                 try
                 {
-                    string SavesFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft\saves\";
-                    ZipFile.ExtractToDirectory(Properties.Settings.Default.TmpString, SavesFolder);
-                    MessageBox.Show("Your world has been installed and is now ready to be played in Minecraft!", "TBP Launcher", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    await Task.Run(() => ZipFile.ExtractToDirectory(tmpZip, SavesFolder));
+
+                    MessageBox.Show("Your world has been installed and is now ready to be played in Minecraft!", "TBP Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("There was an issue installing the world. You can still do this manually, by extracting the ZIP file to your Saves directory. Error Message:" + Environment.NewLine + Environment.NewLine + ex.Message, "TBP Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
+                finally
+                {
+                    ProgressBar.Style = ProgressBarStyle.Continuous;
+                }
+            }
+            else
+            {
+                this.Close();
             }
         }
     }
