@@ -64,7 +64,7 @@
             this.LauncherLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LauncherLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.LauncherLocation.ForeColor = System.Drawing.Color.White;
-            this.LauncherLocation.Location = new System.Drawing.Point(5, 4);
+            this.LauncherLocation.Location = new System.Drawing.Point(5, 3);
             this.LauncherLocation.Name = "LauncherLocation";
             this.LauncherLocation.Size = new System.Drawing.Size(395, 14);
             this.LauncherLocation.TabIndex = 0;
@@ -274,7 +274,7 @@
             this.DiscordUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DiscordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.DiscordUser.ForeColor = System.Drawing.Color.White;
-            this.DiscordUser.Location = new System.Drawing.Point(6, 10);
+            this.DiscordUser.Location = new System.Drawing.Point(6, 3);
             this.DiscordUser.Name = "DiscordUser";
             this.DiscordUser.ReadOnly = true;
             this.DiscordUser.Size = new System.Drawing.Size(332, 14);
