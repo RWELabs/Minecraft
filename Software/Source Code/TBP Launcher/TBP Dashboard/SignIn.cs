@@ -709,6 +709,11 @@ namespace TBP_Dashboard
                         {
                             WebView.Reload();
                         }
+
+                        if (bodyText.Contains("Sorry, it looks like you don't have the right permissions to access this application."))
+                        {
+                            WebView.Source = new Uri("https://crutionix.com?pd_discord_oauth_logout=1");
+                        }
                     }
                 }
             }
@@ -760,6 +765,11 @@ namespace TBP_Dashboard
                 //this.Height = 723;
                 WebView2.Visible = true;
 
+            }
+            else if (WebView.Source.ToString().EndsWith("pd_discord_oauth_logout=1"))
+            {
+                WebView.Source = new Uri("http://crutionix.com/oauth");
+                MessageBox.Show("There was a problem signing you in with Discord. Please try again.","Discord Authentication | TBPlay");
             }
             else
             {
@@ -1584,6 +1594,12 @@ namespace TBP_Dashboard
                 });
                 Console.WriteLine("Minecraft is not running. Setting a launcher RPC.");
             }
+        }
+
+        private void discordSSOTerminateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WebView.Source = new Uri("http://crutionix.com?pd_discord_oauth_logout=1");
+            Application.Exit();
         }
     }
 }

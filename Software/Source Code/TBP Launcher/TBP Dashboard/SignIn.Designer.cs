@@ -91,6 +91,7 @@
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.RPCUpdate = new System.Windows.Forms.Timer(this.components);
             this.checkforJavaRPC = new System.Windows.Forms.Timer(this.components);
+            this.discordSSOTerminateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.LoadingPanel.SuspendLayout();
@@ -401,7 +402,8 @@
             // 
             this.TestFeatures.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testDownloadToolStripMenuItem,
-            this.OpenModManager});
+            this.OpenModManager,
+            this.discordSSOTerminateToolStripMenuItem});
             this.TestFeatures.Name = "TestFeatures";
             this.TestFeatures.Size = new System.Drawing.Size(208, 22);
             this.TestFeatures.Text = "Beta Features";
@@ -410,14 +412,14 @@
             // testDownloadToolStripMenuItem
             // 
             this.testDownloadToolStripMenuItem.Name = "testDownloadToolStripMenuItem";
-            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.testDownloadToolStripMenuItem.Text = "TestDownload";
             this.testDownloadToolStripMenuItem.Click += new System.EventHandler(this.testDownloadToolStripMenuItem_Click);
             // 
             // OpenModManager
             // 
             this.OpenModManager.Name = "OpenModManager";
-            this.OpenModManager.Size = new System.Drawing.Size(148, 22);
+            this.OpenModManager.Size = new System.Drawing.Size(186, 22);
             this.OpenModManager.Text = "ModManager";
             this.OpenModManager.Click += new System.EventHandler(this.OpenModManager_Click);
             // 
@@ -726,6 +728,13 @@
             this.checkforJavaRPC.Interval = 60000;
             this.checkforJavaRPC.Tick += new System.EventHandler(this.checkforJavaRPC_Tick);
             // 
+            // discordSSOTerminateToolStripMenuItem
+            // 
+            this.discordSSOTerminateToolStripMenuItem.Name = "discordSSOTerminateToolStripMenuItem";
+            this.discordSSOTerminateToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.discordSSOTerminateToolStripMenuItem.Text = "DiscordSSOTerminate";
+            this.discordSSOTerminateToolStripMenuItem.Click += new System.EventHandler(this.discordSSOTerminateToolStripMenuItem_Click);
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,6 +841,7 @@
         private System.Windows.Forms.Button SavePinToolButton;
         private System.Windows.Forms.Timer RPCUpdate;
         private System.Windows.Forms.Timer checkforJavaRPC;
+        private System.Windows.Forms.ToolStripMenuItem discordSSOTerminateToolStripMenuItem;
     }
 }
 
