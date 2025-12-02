@@ -30,14 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
-            this.WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.StatusStrip = new System.Windows.Forms.StatusStrip();
-            this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DiscordSwitchAccounts = new System.Windows.Forms.ToolStripDropDownButton();
-            this.LoadingPanel = new System.Windows.Forms.Panel();
-            this.UpdateHeader = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CheckUpdates = new System.ComponentModel.BackgroundWorker();
             this.StartTimer = new System.Windows.Forms.Timer(this.components);
             this.WebView2 = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -62,6 +54,7 @@
             this.TestFeatures = new System.Windows.Forms.ToolStripMenuItem();
             this.testDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenModManager = new System.Windows.Forms.ToolStripMenuItem();
+            this.discordSSOTerminateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenMinecraftDir = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateNotification = new System.Windows.Forms.ToolStripMenuItem();
             this.InstallUpdate = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +70,6 @@
             this.SettingsProcessing = new System.Windows.Forms.RichTextBox();
             this.ModsProcessing = new System.Windows.Forms.RichTextBox();
             this.NaviTimer = new System.Windows.Forms.Timer(this.components);
-            this.LazyLoader = new System.Windows.Forms.PictureBox();
             this.WebControlPanel = new System.Windows.Forms.Panel();
             this.WebControlContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.collapseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,123 +83,25 @@
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.RPCUpdate = new System.Windows.Forms.Timer(this.components);
             this.checkforJavaRPC = new System.Windows.Forms.Timer(this.components);
-            this.discordSSOTerminateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
-            this.StatusStrip.SuspendLayout();
-            this.LoadingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PlayLogo = new System.Windows.Forms.PictureBox();
+            this.PinsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.vanillaMinecraftModpack = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.FallbackUpdateTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WebView2)).BeginInit();
             this.MenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LazyLoader)).BeginInit();
             this.WebControlPanel.SuspendLayout();
             this.WebControlContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayLogo)).BeginInit();
+            this.PinsContextMenu.SuspendLayout();
+            this.ModsContextMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // WebView
-            // 
-            this.WebView.AllowExternalDrop = true;
-            this.WebView.CreationProperties = null;
-            this.WebView.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.WebView.Location = new System.Drawing.Point(0, 0);
-            this.WebView.Name = "WebView";
-            this.WebView.Size = new System.Drawing.Size(32, 26);
-            this.WebView.TabIndex = 0;
-            this.WebView.Visible = false;
-            this.WebView.ZoomFactor = 1D;
-            this.WebView.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.WebView_CoreWebView2InitializationCompleted);
-            this.WebView.NavigationStarting += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs>(this.WebView_NavigationStarting);
-            this.WebView.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.WebView_NavigationCompleted);
-            this.WebView.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebView_SourceChanged);
-            // 
-            // StatusStrip
-            // 
-            this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusLabel,
-            this.DiscordSwitchAccounts});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 662);
-            this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(1048, 22);
-            this.StatusStrip.TabIndex = 1;
-            this.StatusStrip.Text = "statusStrip1";
-            this.StatusStrip.Visible = false;
-            // 
-            // StatusLabel
-            // 
-            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.StatusLabel.ForeColor = System.Drawing.Color.Gray;
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(74, 17);
-            this.StatusLabel.Text = "Please wait...";
-            // 
-            // DiscordSwitchAccounts
-            // 
-            this.DiscordSwitchAccounts.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.DiscordSwitchAccounts.Image = global::TBP_Dashboard.Properties.Resources.DiscordLogoPng;
-            this.DiscordSwitchAccounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DiscordSwitchAccounts.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.DiscordSwitchAccounts.Margin = new System.Windows.Forms.Padding(25, 2, 0, 0);
-            this.DiscordSwitchAccounts.Name = "DiscordSwitchAccounts";
-            this.DiscordSwitchAccounts.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.DiscordSwitchAccounts.ShowDropDownArrow = false;
-            this.DiscordSwitchAccounts.Size = new System.Drawing.Size(135, 20);
-            this.DiscordSwitchAccounts.Text = "Switch Accounts";
-            this.DiscordSwitchAccounts.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.DiscordSwitchAccounts.Visible = false;
-            this.DiscordSwitchAccounts.Click += new System.EventHandler(this.DiscordSwitchAccounts_Click);
-            // 
-            // LoadingPanel
-            // 
-            this.LoadingPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadingPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.LoadingPanel.Controls.Add(this.UpdateHeader);
-            this.LoadingPanel.Controls.Add(this.pictureBox2);
-            this.LoadingPanel.Controls.Add(this.pictureBox1);
-            this.LoadingPanel.Location = new System.Drawing.Point(238, 90);
-            this.LoadingPanel.Name = "LoadingPanel";
-            this.LoadingPanel.Size = new System.Drawing.Size(581, 439);
-            this.LoadingPanel.TabIndex = 2;
-            this.LoadingPanel.Visible = false;
-            // 
-            // UpdateHeader
-            // 
-            this.UpdateHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateHeader.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateHeader.ForeColor = System.Drawing.Color.DarkGray;
-            this.UpdateHeader.Location = new System.Drawing.Point(3, 314);
-            this.UpdateHeader.Name = "UpdateHeader";
-            this.UpdateHeader.Size = new System.Drawing.Size(571, 25);
-            this.UpdateHeader.TabIndex = 2;
-            this.UpdateHeader.Text = "Checking for updates...";
-            this.UpdateHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.UpdateHeader.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 370);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(571, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 146);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(571, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // CheckUpdates
             // 
@@ -216,7 +110,7 @@
             // 
             // StartTimer
             // 
-            this.StartTimer.Interval = 2245;
+            this.StartTimer.Interval = 4000;
             this.StartTimer.Tick += new System.EventHandler(this.StartTimer_Tick);
             // 
             // WebView2
@@ -227,16 +121,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WebView2.CreationProperties = null;
             this.WebView2.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.WebView2.Location = new System.Drawing.Point(0, 32);
+            this.WebView2.Location = new System.Drawing.Point(0, 0);
             this.WebView2.Name = "WebView2";
-            this.WebView2.Size = new System.Drawing.Size(1049, 666);
+            this.WebView2.Size = new System.Drawing.Size(1345, 780);
+            this.WebView2.Source = new System.Uri("https://play.tbp.zone/", System.UriKind.Absolute);
             this.WebView2.TabIndex = 3;
-            this.WebView2.Visible = false;
             this.WebView2.ZoomFactor = 1D;
-            this.WebView2.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.WebView2_CoreWebView2InitializationCompleted);
+            this.WebView2.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.WebView2_CoreWebView2InitializationCompletedAsync);
             this.WebView2.NavigationStarting += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs>(this.WebView2_NavigationStarting);
             this.WebView2.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.WebView2_NavigationCompleted);
             this.WebView2.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.WebView2_SourceChanged);
+            this.WebView2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.WebView2_MouseClick);
             // 
             // DoContentInstall
             // 
@@ -256,7 +151,7 @@
             this.modpackToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Size = new System.Drawing.Size(1048, 32);
+            this.MenuStrip.Size = new System.Drawing.Size(1344, 32);
             this.MenuStrip.TabIndex = 4;
             this.MenuStrip.Text = "menuStrip1";
             this.MenuStrip.Visible = false;
@@ -286,21 +181,21 @@
             // OpenSettings
             // 
             this.OpenSettings.Name = "OpenSettings";
-            this.OpenSettings.Size = new System.Drawing.Size(135, 22);
+            this.OpenSettings.Size = new System.Drawing.Size(134, 22);
             this.OpenSettings.Text = "Settings";
             this.OpenSettings.Click += new System.EventHandler(this.OpenSettings_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
             // 
             // Exit
             // 
             this.Exit.Image = global::TBP_Dashboard.Properties.Resources.icons8_close_window_96__1_;
             this.Exit.Name = "Exit";
             this.Exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.Exit.Size = new System.Drawing.Size(135, 22);
+            this.Exit.Size = new System.Drawing.Size(134, 22);
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -412,16 +307,22 @@
             // testDownloadToolStripMenuItem
             // 
             this.testDownloadToolStripMenuItem.Name = "testDownloadToolStripMenuItem";
-            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.testDownloadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.testDownloadToolStripMenuItem.Text = "TestDownload";
             this.testDownloadToolStripMenuItem.Click += new System.EventHandler(this.testDownloadToolStripMenuItem_Click);
             // 
             // OpenModManager
             // 
             this.OpenModManager.Name = "OpenModManager";
-            this.OpenModManager.Size = new System.Drawing.Size(186, 22);
+            this.OpenModManager.Size = new System.Drawing.Size(187, 22);
             this.OpenModManager.Text = "ModManager";
             this.OpenModManager.Click += new System.EventHandler(this.OpenModManager_Click);
+            // 
+            // discordSSOTerminateToolStripMenuItem
+            // 
+            this.discordSSOTerminateToolStripMenuItem.Name = "discordSSOTerminateToolStripMenuItem";
+            this.discordSSOTerminateToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.discordSSOTerminateToolStripMenuItem.Text = "DiscordSSOTerminate";
             // 
             // OpenMinecraftDir
             // 
@@ -564,19 +465,6 @@
             this.NaviTimer.Interval = 2500;
             this.NaviTimer.Tick += new System.EventHandler(this.NaviTimer_Tick);
             // 
-            // LazyLoader
-            // 
-            this.LazyLoader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LazyLoader.Image = global::TBP_Dashboard.Properties.Resources._294__1_;
-            this.LazyLoader.Location = new System.Drawing.Point(386, 10);
-            this.LazyLoader.Name = "LazyLoader";
-            this.LazyLoader.Size = new System.Drawing.Size(259, 14);
-            this.LazyLoader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LazyLoader.TabIndex = 7;
-            this.LazyLoader.TabStop = false;
-            this.LazyLoader.Visible = false;
-            // 
             // WebControlPanel
             // 
             this.WebControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -589,7 +477,7 @@
             this.WebControlPanel.Controls.Add(this.RefreshToolButton);
             this.WebControlPanel.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.WebControlPanel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.WebControlPanel.Location = new System.Drawing.Point(12, 631);
+            this.WebControlPanel.Location = new System.Drawing.Point(12, 713);
             this.WebControlPanel.Name = "WebControlPanel";
             this.WebControlPanel.Size = new System.Drawing.Size(260, 54);
             this.WebControlPanel.TabIndex = 8;
@@ -728,70 +616,126 @@
             this.checkforJavaRPC.Interval = 60000;
             this.checkforJavaRPC.Tick += new System.EventHandler(this.checkforJavaRPC_Tick);
             // 
-            // discordSSOTerminateToolStripMenuItem
+            // PlayLogo
             // 
-            this.discordSSOTerminateToolStripMenuItem.Name = "discordSSOTerminateToolStripMenuItem";
-            this.discordSSOTerminateToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.discordSSOTerminateToolStripMenuItem.Text = "DiscordSSOTerminate";
-            this.discordSSOTerminateToolStripMenuItem.Click += new System.EventHandler(this.discordSSOTerminateToolStripMenuItem_Click);
+            this.PlayLogo.Image = global::TBP_Dashboard.Properties.Resources.logo;
+            this.PlayLogo.Location = new System.Drawing.Point(0, 364);
+            this.PlayLogo.Name = "PlayLogo";
+            this.PlayLogo.Size = new System.Drawing.Size(1344, 51);
+            this.PlayLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayLogo.TabIndex = 9;
+            this.PlayLogo.TabStop = false;
+            // 
+            // PinsContextMenu
+            // 
+            this.PinsContextMenu.Enabled = false;
+            this.PinsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem});
+            this.PinsContextMenu.Name = "PinsContextMenu";
+            this.PinsContextMenu.Size = new System.Drawing.Size(138, 26);
+            this.PinsContextMenu.Text = "Pins";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Enabled = false;
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.closeToolStripMenuItem.Text = "Close Menu";
+            // 
+            // ModsContextMenu
+            // 
+            this.ModsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vanillaMinecraftModpack,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem3,
+            this.toolStripSeparator6,
+            this.toolStripMenuItem1});
+            this.ModsContextMenu.Name = "ModsContextMenu";
+            this.ModsContextMenu.Size = new System.Drawing.Size(223, 98);
+            // 
+            // vanillaMinecraftModpack
+            // 
+            this.vanillaMinecraftModpack.CheckOnClick = true;
+            this.vanillaMinecraftModpack.Name = "vanillaMinecraftModpack";
+            this.vanillaMinecraftModpack.Size = new System.Drawing.Size(222, 22);
+            this.vanillaMinecraftModpack.Text = "Vanilla Minecraft (No Mods)";
+            this.vanillaMinecraftModpack.Click += new System.EventHandler(this.VanillaMPChosen);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.CheckOnClick = true;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(222, 22);
+            this.toolStripMenuItem4.Text = "TBP Origins (Season 1)";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.OriginsMPChosen);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.CheckOnClick = true;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(222, 22);
+            this.toolStripMenuItem3.Text = "Custom Modpack";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.CustomMPChosen);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(219, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::TBP_Dashboard.Properties.Resources.InstallModpack;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(222, 22);
+            this.toolStripMenuItem1.Text = "Mod Manager";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.OpenModManager_Click);
+            // 
+            // FallbackUpdateTimer
+            // 
+            this.FallbackUpdateTimer.Interval = 10000;
+            this.FallbackUpdateTimer.Tick += new System.EventHandler(this.FallbackUpdateTimer_Tick);
             // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1048, 696);
-            this.Controls.Add(this.LazyLoader);
-            this.Controls.Add(this.LoadingPanel);
+            this.ClientSize = new System.Drawing.Size(1344, 781);
+            this.Controls.Add(this.PlayLogo);
             this.Controls.Add(this.WebControlPanel);
             this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.WebView2);
-            this.Controls.Add(this.StatusStrip);
-            this.Controls.Add(this.WebView);
             this.Controls.Add(this.ModsProcessing);
             this.Controls.Add(this.SettingsProcessing);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuStrip;
-            this.MinimumSize = new System.Drawing.Size(1064, 735);
+            this.MinimumSize = new System.Drawing.Size(1360, 820);
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TBPlay";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignIn_FormClosing);
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.WebView)).EndInit();
-            this.StatusStrip.ResumeLayout(false);
-            this.StatusStrip.PerformLayout();
-            this.LoadingPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WebView2)).EndInit();
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LazyLoader)).EndInit();
             this.WebControlPanel.ResumeLayout(false);
             this.WebControlContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayLogo)).EndInit();
+            this.PinsContextMenu.ResumeLayout(false);
+            this.ModsContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Microsoft.Web.WebView2.WinForms.WebView2 WebView;
-        private System.Windows.Forms.StatusStrip StatusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
-        private System.Windows.Forms.Panel LoadingPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.ComponentModel.BackgroundWorker CheckUpdates;
-        private System.Windows.Forms.Label UpdateHeader;
         private System.Windows.Forms.Timer StartTimer;
         private Microsoft.Web.WebView2.WinForms.WebView2 WebView2;
         private System.Windows.Forms.Timer DoContentInstall;
-        private System.Windows.Forms.ToolStripDropDownButton DiscordSwitchAccounts;
         private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem MainIcon;
         private System.Windows.Forms.ToolStripMenuItem FileMenu;
@@ -826,7 +770,6 @@
         private System.Windows.Forms.ToolStripMenuItem forwardToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Timer NaviTimer;
-        private System.Windows.Forms.PictureBox LazyLoader;
         private System.Windows.Forms.Panel WebControlPanel;
         private System.Windows.Forms.Button RefreshToolButton;
         private System.Windows.Forms.Button ForwardToolButton;
@@ -842,6 +785,16 @@
         private System.Windows.Forms.Timer RPCUpdate;
         private System.Windows.Forms.Timer checkforJavaRPC;
         private System.Windows.Forms.ToolStripMenuItem discordSSOTerminateToolStripMenuItem;
+        private System.Windows.Forms.PictureBox PlayLogo;
+        private System.Windows.Forms.ContextMenuStrip PinsContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip ModsContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem vanillaMinecraftModpack;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Timer FallbackUpdateTimer;
     }
 }
 

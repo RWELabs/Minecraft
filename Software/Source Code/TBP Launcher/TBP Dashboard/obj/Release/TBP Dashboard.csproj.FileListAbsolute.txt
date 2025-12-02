@@ -312,3 +312,93 @@ C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DiscordRPC.pdb
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DiscordRPC.xml
 C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\MineStat.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\TBP Dashboard.exe.config
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\TBP Dashboard.exe
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\TBP Dashboard.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\CmlLib.Core.Auth.Microsoft.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\CmlLib.Core.Auth.Microsoft.MsalClient.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\CmlLib.Core.Auth.Microsoft.UI.WinForm.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\CmlLib.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Discord.Net.Core.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DiscordRPC.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DotNetZip.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Identity.Client.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Web.WebView2.Core.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\MineStat.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Newtonsoft.Json.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\SevenZip.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\SunCore.Ultralight.MCLauncher.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Buffers.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Collections.Immutable.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Interactive.Async.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Linq.Async.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Memory.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Net.Http.Json.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Numerics.Vectors.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Text.Json.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.ValueTuple.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\XboxAuthNet.dll
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\BouncyCastle.Crypto.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Discord.Net.Core.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DiscordRPC.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DiscordRPC.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DotNetZip.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\DotNetZip.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\ICSharpCode.SharpZipLib.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\ICSharpCode.SharpZipLib.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Identity.Client.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Web.WebView2.Core.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\MineStat.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\Newtonsoft.Json.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\SevenZip.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Buffers.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Collections.Immutable.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Interactive.Async.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Linq.Async.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Memory.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Net.Http.Json.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Numerics.Vectors.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Text.Json.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\System.ValueTuple.xml
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.AssemblyReference.cache
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.FirstRunSetup.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.Get.DownloadContent.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ModManager.ActivateModpack.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ModManager.Manager.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.Preferences.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.SavePinForm.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.SignIn.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.UpdateDownload.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.ActivityForm.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP_Dashboard.Properties.Resources.resources
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.GenerateResource.cache
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dash.E42FDAB5.Up2Date
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.exe
+C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\obj\Release\TBP Dashboard.pdb

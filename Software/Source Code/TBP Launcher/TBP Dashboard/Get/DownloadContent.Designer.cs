@@ -137,7 +137,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::TBP_Dashboard.Properties.Resources._2851;
+            this.pictureBox3.Image = global::TBP_Dashboard.Properties.Resources.GreenLoadingSpinner;
             this.pictureBox3.Location = new System.Drawing.Point(21, 174);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(362, 50);
@@ -147,7 +147,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
+            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.logo;
             this.pictureBox2.Location = new System.Drawing.Point(12, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(138, 50);

@@ -15,7 +15,7 @@
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">250903</Value>
+      <Value Profile="(Default)">251202</Value>
     </Setting>
     <Setting Name="DownloadItem" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -49,6 +49,12 @@
     </Setting>
     <Setting Name="DiscordUserDate" Type="System.String" Scope="User">
       <Value Profile="(Default)">Never</Value>
+    </Setting>
+    <Setting Name="hasWVSetup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="postID" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

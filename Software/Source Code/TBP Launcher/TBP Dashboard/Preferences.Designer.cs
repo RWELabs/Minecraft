@@ -46,16 +46,10 @@
             this.FindLauncherStart = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.DiscordUser = new System.Windows.Forms.TextBox();
-            this.LastAuthTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // LauncherLocation
@@ -99,7 +93,7 @@
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Image = global::TBP_Dashboard.Properties.Resources.Check;
             this.Save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Save.Location = new System.Drawing.Point(335, 413);
+            this.Save.Location = new System.Drawing.Point(335, 334);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(88, 54);
             this.Save.TabIndex = 3;
@@ -116,7 +110,7 @@
             this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.Image = global::TBP_Dashboard.Properties.Resources.Close;
             this.Cancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Cancel.Location = new System.Drawing.Point(241, 413);
+            this.Cancel.Location = new System.Drawing.Point(241, 334);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(88, 54);
             this.Cancel.TabIndex = 4;
@@ -166,7 +160,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 294);
+            this.label3.Location = new System.Drawing.Point(11, 215);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 8;
@@ -175,7 +169,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.label4.Location = new System.Drawing.Point(12, 312);
+            this.label4.Location = new System.Drawing.Point(12, 233);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(405, 16);
             this.label4.TabIndex = 9;
@@ -184,7 +178,7 @@
             // CheckTBPUpdates
             // 
             this.CheckTBPUpdates.AutoSize = true;
-            this.CheckTBPUpdates.Location = new System.Drawing.Point(15, 331);
+            this.CheckTBPUpdates.Location = new System.Drawing.Point(15, 252);
             this.CheckTBPUpdates.Name = "CheckTBPUpdates";
             this.CheckTBPUpdates.Size = new System.Drawing.Size(210, 17);
             this.CheckTBPUpdates.TabIndex = 10;
@@ -196,7 +190,7 @@
             this.CheckForUpdates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.CheckForUpdates.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.CheckForUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckForUpdates.Location = new System.Drawing.Point(15, 354);
+            this.CheckForUpdates.Location = new System.Drawing.Point(15, 275);
             this.CheckForUpdates.Name = "CheckForUpdates";
             this.CheckForUpdates.Size = new System.Drawing.Size(143, 23);
             this.CheckForUpdates.TabIndex = 11;
@@ -208,7 +202,7 @@
             // 
             this.CurrentVersion.AutoSize = true;
             this.CurrentVersion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.CurrentVersion.Location = new System.Drawing.Point(12, 399);
+            this.CurrentVersion.Location = new System.Drawing.Point(12, 320);
             this.CurrentVersion.Name = "CurrentVersion";
             this.CurrentVersion.Size = new System.Drawing.Size(76, 13);
             this.CurrentVersion.TabIndex = 12;
@@ -218,7 +212,7 @@
             // 
             this.AvailableVersion.AutoSize = true;
             this.AvailableVersion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.AvailableVersion.Location = new System.Drawing.Point(12, 415);
+            this.AvailableVersion.Location = new System.Drawing.Point(12, 336);
             this.AvailableVersion.Name = "AvailableVersion";
             this.AvailableVersion.Size = new System.Drawing.Size(85, 13);
             this.AvailableVersion.TabIndex = 13;
@@ -240,7 +234,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.TBPlayText;
+            this.pictureBox2.Image = global::TBP_Dashboard.Properties.Resources.logo;
             this.pictureBox2.Location = new System.Drawing.Point(12, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(138, 50);
@@ -258,38 +252,6 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 219);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Discord Authentication";
-            // 
-            // DiscordUser
-            // 
-            this.DiscordUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.DiscordUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DiscordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.DiscordUser.ForeColor = System.Drawing.Color.White;
-            this.DiscordUser.Location = new System.Drawing.Point(6, 3);
-            this.DiscordUser.Name = "DiscordUser";
-            this.DiscordUser.ReadOnly = true;
-            this.DiscordUser.Size = new System.Drawing.Size(332, 14);
-            this.DiscordUser.TabIndex = 18;
-            // 
-            // LastAuthTime
-            // 
-            this.LastAuthTime.Font = new System.Drawing.Font("Segoe UI", 7.25F);
-            this.LastAuthTime.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LastAuthTime.Location = new System.Drawing.Point(74, 264);
-            this.LastAuthTime.Name = "LastAuthTime";
-            this.LastAuthTime.Size = new System.Drawing.Size(345, 18);
-            this.LastAuthTime.TabIndex = 19;
-            this.LastAuthTime.Text = "Last Authenticated: Never";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -299,25 +261,6 @@
             this.panel1.Size = new System.Drawing.Size(405, 22);
             this.panel1.TabIndex = 20;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.panel2.Controls.Add(this.DiscordUser);
-            this.panel2.Location = new System.Drawing.Point(74, 239);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(343, 22);
-            this.panel2.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.75F);
-            this.label6.Location = new System.Drawing.Point(13, 244);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Username";
-            // 
             // Preferences
             // 
             this.AcceptButton = this.Save;
@@ -325,13 +268,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(435, 480);
+            this.ClientSize = new System.Drawing.Size(435, 401);
             this.ControlBox = false;
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.LastAuthTime);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.FindLauncherStart);
@@ -358,8 +297,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,11 +321,6 @@
         private System.Windows.Forms.Button FindLauncherStart;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox DiscordUser;
-        private System.Windows.Forms.Label LastAuthTime;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
     }
 }

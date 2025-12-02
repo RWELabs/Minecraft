@@ -72,7 +72,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources._2851;
+            this.pictureBox1.Image = global::TBP_Dashboard.Properties.Resources.GreenLoadingSpinner;
             this.pictureBox1.Location = new System.Drawing.Point(26, 209);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(362, 50);

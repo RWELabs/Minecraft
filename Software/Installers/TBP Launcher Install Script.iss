@@ -2,15 +2,15 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TBPlay"
-#define MyAppVersion "250903"
+#define MyAppVersion "251202"
 #define MyAppPublisher "RWE Labs"
-#define MyAppURL "https://www.crutionix.com/?ref=tbp_launcher"
+#define MyAppURL "https://play.tbp.zone/?ref=tbp_launcher"
 #define MyAppExeName "TBP Dashboard.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{3DAF25F7-1843-4B07-9D2B-E72236DCE18D}
+AppId={{BDA83DE9-F924-40A9-97EC-1D0DE05AF312}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -18,15 +18,15 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName=C:\Program Files (x86)\RWE Labs\{#MyAppName}
-DisableDirPage=no
+DefaultDirName={userappdata}\RWE Labs\TBP
+DisableDirPage=yes
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\EULA.rtf
+LicenseFile=C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\EULA.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Installers
+OutputDir=C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Installers
 OutputBaseFilename=TBPLauncherSetup
-SetupIconFile=C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\IconSpw.ico
+SetupIconFile=C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\icon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -40,13 +40,16 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\rwalpole\Documents\GitHub\QOL-Improvements-for-TBP\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\rwalpole\Documents\GitHub\Minecraft\Software\Source Code\TBP Launcher\TBP Dashboard\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "TBP Dashboard.exe.WebView2\EBWebView\Default\Service Worker\CacheStorage\*"
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+
+[UninstallDelete]
+Type: filesandordirs; Name: "C:\Program Files (x86)\RWE Labs\TBPlay"
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
@@ -61,5 +64,4 @@ Root: HKCR; Subkey: "tbplay\DefaultIcon"; ValueType: string; ValueName: ""; Valu
 
 ; Command to execute (this launches your app with the URL as an argument)
 Root: HKCR; Subkey: "tbplay\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
-
 

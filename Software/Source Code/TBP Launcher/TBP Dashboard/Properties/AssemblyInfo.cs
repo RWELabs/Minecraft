@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TBP Launcher")]
-[assembly: AssemblyDescription("Access news, events, downloads, world saves and more with the TBP Launcher.")]
+[assembly: AssemblyTitle("TBPlay")]
+[assembly: AssemblyDescription("Access news, events, downloads, world saves and more with TBPlay for Windows.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RWE Labs, under exclusive license from Crutionix Media Group, Ryan Walpole Enterprises")]
-[assembly: AssemblyProduct("TBP Launcher")]
-[assembly: AssemblyCopyright("Copyright © Crutionix Media Group, Ryan Walpole Enterprises - 2023. Developed by RWE Labs under exclusive license.")]
+[assembly: AssemblyProduct("TBPlay")]
+[assembly: AssemblyCopyright("Copyright © Crutionix Media Group, Ryan Walpole Enterprises - 2025. Developed by RWE Labs under exclusive license.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("25.09.0.2")]
-[assembly: AssemblyFileVersion("25.09.0.2")]
+[assembly: AssemblyVersion("25.12.0.1")]
+[assembly: AssemblyFileVersion("25.12.0.1")]
 [assembly: NeutralResourcesLanguage("en-AU")]

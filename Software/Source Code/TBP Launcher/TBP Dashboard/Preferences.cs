@@ -30,8 +30,6 @@ namespace TBP_Dashboard
             LauncherLocation.Text = Properties.Settings.Default.LaunchMinecraft;
             if(Properties.Settings.Default.CheckUpdates == "TRUE"){ CheckTBPUpdates.Checked = true;}
             if(Properties.Settings.Default.CheckUpdates == "FALSE") { CheckTBPUpdates.Checked = false; }
-            DiscordUser.Text = Properties.Settings.Default.DiscordUser;
-            LastAuthTime.Text = "Last Authenticated: " + Properties.Settings.Default.DiscordUserDate;
         }
 
         private void SetManually_Click(object sender, EventArgs e)
