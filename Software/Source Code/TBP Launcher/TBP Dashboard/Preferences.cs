@@ -26,7 +26,7 @@ namespace TBP_Dashboard
 
         private void LoadSettings()
         {
-            CurrentVersion.Text = "Current Version: " + Properties.Settings.Default.Version;
+            CurrentVersion.Text = "Client Version: " + Properties.Settings.Default.Version;
             LauncherLocation.Text = Properties.Settings.Default.LaunchMinecraft;
             if(Properties.Settings.Default.CheckUpdates == "TRUE"){ CheckTBPUpdates.Checked = true;}
             if(Properties.Settings.Default.CheckUpdates == "FALSE") { CheckTBPUpdates.Checked = false; }

@@ -46,6 +46,26 @@ namespace TBP_Dashboard
 
         private DateTime? gameStartTime = null;
         private bool isMinecraftRunning = false;
+        // Only show the WebView after the first play.tbp.zone page has finished loading
+        private bool firstPlaySiteLoaded = false;
+
+        // Centers the PlayLogo control within the form's client area
+        private void CenterPlayLogo()
+        {
+            try
+            {
+                if (PlayLogo == null) return;
+
+                // Ensure the control doesn't use anchoring which interferes with manual centering
+                PlayLogo.Anchor = AnchorStyles.None;
+
+                int x = Math.Max(0, (this.ClientSize.Width - PlayLogo.Width) / 2);
+                int y = Math.Max(0, (this.ClientSize.Height - PlayLogo.Height) / 2);
+                PlayLogo.Location = new Point(x, y);
+                PlayLogo.BringToFront();
+            }
+            catch { }
+        }
 
         public SignIn()
         {
@@ -64,9 +84,16 @@ namespace TBP_Dashboard
 
             if (Properties.Settings.Default.hasWVSetup == false) { WebView2.Visible = false; PlayLogo.Visible = true; }
 
-            this.Height = 723;
-            this.Width = 676;
-
+            if (Properties.Settings.Default.isMaximised == "TRUE")
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.Height = Properties.Settings.Default.windowHeight;
+                this.Width = Properties.Settings.Default.windowWidth;
+            }
+                
             MenuStrip.Renderer = new DarkMenuRenderer();
             PinsContextMenu.Renderer = new DarkMenuRenderer();
             WebControlContextMenu.Renderer = new DarkMenuRenderer();
@@ -367,10 +394,13 @@ namespace TBP_Dashboard
             if (newX < 0) newX = 0;
 
             if (newY + WebControlPanel.Height > this.ClientSize.Height)
-                newY = this.ClientSize.Height - WebControlPanel.Height;
+                newY = this.ClientSize.Height - this.ClientSize.Height; // <-- keep existing logical structure
             if (newY < 0) newY = 0;
 
             WebControlPanel.Location = new Point(newX, newY);
+
+            // Re-center the PlayLogo whenever the form resizes
+            CenterPlayLogo();
         }
 
         private bool dragging = false;
@@ -844,10 +874,8 @@ namespace TBP_Dashboard
                         break;
                 }
 
-                WebView2.Visible = true;
-                PlayLogo.Visible = false;
-                Properties.Settings.Default.hasWVSetup = true;
-                Properties.Settings.Default.Save();
+                // Do NOT make WebView visible here; wait until play.tbp.zone has finished first navigation.
+                // Properties.Settings.Default.hasWVSetup will be set when the first site (play.tbp.zone) loads.
             }
             catch { }
         }
@@ -855,7 +883,7 @@ namespace TBP_Dashboard
         private bool discordUserSavedThisSession = false;
         private async void WebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            if (Properties.Settings.Default.hasWVSetup == false) { WebView2.Visible = true; Properties.Settings.Default.hasWVSetup = true; PlayLogo.Visible = false; }
+            if (Properties.Settings.Default.hasWVSetup == false) { /* Do not unhide WebView here; wait for the play.tbp.zone navigation */ }
 
             //MessageBox.Show("NavigationCompleted fired!");
             if (WebView2.CanGoForward) { ForwardToolButton.Enabled = true; forwardToolStripMenuItem.Enabled = true; } else { ForwardToolButton.Enabled = false; forwardToolStripMenuItem.Enabled = false; }
@@ -865,6 +893,21 @@ namespace TBP_Dashboard
             //MessageBox.Show("URL: " + currentUri2.ToString());
 
             Uri checkURL = new Uri(((WebView2)sender).Source.ToString());
+
+            // Only show the WebView and hide the play logo after the first successful navigation to play.tbp.zone
+            try
+            {
+                if (!firstPlaySiteLoaded && checkURL.Host.Equals("play.tbp.zone", StringComparison.OrdinalIgnoreCase))
+                {
+                    WebView2.Visible = true;
+                    PlayLogo.Visible = false;
+                    Properties.Settings.Default.hasWVSetup = true;
+                    Properties.Settings.Default.Save();
+                    firstPlaySiteLoaded = true;
+                }
+            }
+            catch { }
+
             ToggleWebControlPanel(checkURL);
         }
 
@@ -1015,6 +1058,16 @@ namespace TBP_Dashboard
             string SettingsINI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\RWE Labs\TBP\settings.ini";
             Properties.Settings.Default.launchFlag = null;
             Properties.Settings.Default.hasWVSetup = false;
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.isMaximised = "TRUE";
+            }
+            else
+            {
+                Properties.Settings.Default.isMaximised = "FALSE";
+                Properties.Settings.Default.windowHeight = this.Height;
+                Properties.Settings.Default.windowWidth = this.Width;
+            }
             Properties.Settings.Default.Save();
 
             if (File.Exists(updatelocation))
@@ -1134,11 +1187,7 @@ namespace TBP_Dashboard
                         break;
                 }
 
-                // Make the WebView visible immediately after init
-                WebView2.Visible = true;
-                PlayLogo.Visible = false;
-                Properties.Settings.Default.hasWVSetup = true;
-                Properties.Settings.Default.Save();
+                // Do NOT unhide WebView here; wait for play.tbp.zone navigation to finish.
             }
             else
             {
@@ -1150,6 +1199,9 @@ namespace TBP_Dashboard
                 }
                 catch { }
             }
+
+            // Also ensure PlayLogo is centered after load
+            CenterPlayLogo();
         }
 
         private void OpenMinecraftDir_Click(object sender, EventArgs e)

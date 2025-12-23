@@ -15,7 +15,7 @@
       <Value Profile="(Default)">TRUE</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">251202</Value>
+      <Value Profile="(Default)">251205</Value>
     </Setting>
     <Setting Name="DownloadItem" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -55,6 +55,15 @@
     </Setting>
     <Setting Name="postID" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="isMaximised" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FALSE</Value>
+    </Setting>
+    <Setting Name="windowHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">820</Value>
+    </Setting>
+    <Setting Name="windowWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1360</Value>
     </Setting>
   </Settings>
 </SettingsFile>

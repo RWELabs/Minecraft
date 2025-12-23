@@ -74,7 +74,7 @@ namespace TBP_Dashboard.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("251202")]
+        [global::System.Configuration.DefaultSettingValueAttribute("251205")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -237,6 +237,42 @@ namespace TBP_Dashboard.Properties {
             }
             set {
                 this["postID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("FALSE")]
+        public string isMaximised {
+            get {
+                return ((string)(this["isMaximised"]));
+            }
+            set {
+                this["isMaximised"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("820")]
+        public int windowHeight {
+            get {
+                return ((int)(this["windowHeight"]));
+            }
+            set {
+                this["windowHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1360")]
+        public int windowWidth {
+            get {
+                return ((int)(this["windowWidth"]));
+            }
+            set {
+                this["windowWidth"] = value;
             }
         }
     }

@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\minecraft\\software\\source code\\tbp launcher\\tbp dashboard\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|c:\\users\\rwalpole\\documents\\github\\minecraft\\software\\source code\\tbp launcher\\tbp dashboard\\preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{07F73B84-2376-42FA-BA70-0F0632253405}|TBP Dashboard.csproj|solutionrelative:preferences.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +30,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Preferences.cs",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs",
+              "RelativeDocumentMoniker": "Preferences.cs",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs",
+              "RelativeToolTip": "Preferences.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAASwIIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T01:22:57.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Preferences.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs",
+              "RelativeDocumentMoniker": "Preferences.cs",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Preferences.cs [Design]",
+              "RelativeToolTip": "Preferences.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T01:22:51.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SignIn.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs",
+              "RelativeDocumentMoniker": "SignIn.cs",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs [Design]",
+              "RelativeToolTip": "SignIn.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T00:51:22.747Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Settings.settings",
+              "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Properties\\Settings.settings",
+              "RelativeDocumentMoniker": "Properties\\Settings.settings",
+              "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\Properties\\Settings.settings",
+              "RelativeToolTip": "Properties\\Settings.settings",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
+              "WhenOpened": "2025-12-23T00:50:38.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SignIn.cs",
               "DocumentMoniker": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs",
               "RelativeDocumentMoniker": "SignIn.cs",
               "ToolTip": "C:\\Users\\rwalpole\\Documents\\GitHub\\Minecraft\\Software\\Source Code\\TBP Launcher\\TBP Dashboard\\SignIn.cs",
               "RelativeToolTip": "SignIn.cs",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAhwLUAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAMICAAAAAAAAAAAAANwCAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T06:37:34.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T06:37:34.069Z"
             }
           ]
         }

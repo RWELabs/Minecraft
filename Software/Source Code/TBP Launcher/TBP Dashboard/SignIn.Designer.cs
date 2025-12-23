@@ -618,10 +618,11 @@
             // 
             // PlayLogo
             // 
+            this.PlayLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PlayLogo.Image = global::TBP_Dashboard.Properties.Resources.logo;
-            this.PlayLogo.Location = new System.Drawing.Point(0, 364);
+            this.PlayLogo.Location = new System.Drawing.Point(468, 366);
             this.PlayLogo.Name = "PlayLogo";
-            this.PlayLogo.Size = new System.Drawing.Size(1344, 51);
+            this.PlayLogo.Size = new System.Drawing.Size(266, 51);
             this.PlayLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PlayLogo.TabIndex = 9;
             this.PlayLogo.TabStop = false;
